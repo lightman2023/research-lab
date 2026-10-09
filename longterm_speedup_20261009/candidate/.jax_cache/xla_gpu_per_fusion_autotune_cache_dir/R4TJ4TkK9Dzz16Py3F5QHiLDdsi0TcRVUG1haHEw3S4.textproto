@@ -1,0 +1,8 @@
+run_time {
+  nanos: 17408
+}
+algorithm {
+  is_cudnn_frontend: true
+  workspace_size {
+  }
+}

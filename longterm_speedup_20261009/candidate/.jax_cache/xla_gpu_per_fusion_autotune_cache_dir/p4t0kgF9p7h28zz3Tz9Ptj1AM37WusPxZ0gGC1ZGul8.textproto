@@ -1,0 +1,13 @@
+run_time {
+  nanos: 5120
+}
+algorithm {
+  algo_id: 58
+  tuning_knobs {
+    key: 25
+    value: 0
+  }
+  is_cudnn_frontend: true
+  workspace_size {
+  }
+}

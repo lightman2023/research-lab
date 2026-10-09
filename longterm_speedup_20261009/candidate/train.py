@@ -172,7 +172,7 @@ def main() -> None:
             )
             recent_metrics.append((loss, policy_loss, value_loss))
             if (local_step + 1) % 16 == 0 or local_step + 1 == args.steps:
-                mean = np.mean(np.asarray(jax.device_get(recent_metrics[-16:])), axis=0)
+                mean = np.mean(np.asarray(jax.device_get(recent_metrics[-16:]),dtype=np.float64), axis=0)
                 recent_metrics.clear()
                 print(
                     f"step={start_step + local_step + 1} loss={mean[0]:.4f} "

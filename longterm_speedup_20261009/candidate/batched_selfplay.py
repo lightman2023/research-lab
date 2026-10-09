@@ -10,6 +10,7 @@ from azchess.mcts import MCTS
 from azchess.batched import BatchedPredictor,search_requests
 from azchess.history import HistoryEncoder
 from azchess.game import DRAW_RULE
+from azchess.data_cache import DataCache
 
 def play(agent,args,number,rng):
     board=chess.Board();encoder=HistoryEncoder(board)
@@ -34,7 +35,8 @@ def play(agent,args,number,rng):
             values=values,moves=np.asarray(moves,dtype='<U5'),final_fen=np.asarray(board.fen()),termination=np.asarray(termination),
             claimed_draw=np.asarray(False),draw_claim_rule=np.asarray(DRAW_RULE),late_temperature=np.asarray(args.late_temperature),
             experiment_cycle=np.asarray(args.experiment_cycle),seed=np.asarray(-1 if args.seed is None else args.seed+number),
-            policy_target_kind=np.asarray('raw_mcts_visits_v1'),simulations=np.asarray(args.simulations),search_engine=np.asarray('batched_sequential_v1'))
+            policy_target_kind=np.asarray('raw_mcts_visits_v1'),simulations=np.asarray(args.simulations),search_engine=np.asarray('batched_sequential_v1'),
+            inference_precision=np.asarray('float32_default' if args.workers==1 else 'float32_highest'))
     temporary.replace(path)
     result=outcome.result() if outcome else '1/2-1/2'
     print(f'Game {number}: {result} termination={termination} plies={len(moves)} -> {path}',flush=True)
@@ -55,12 +57,14 @@ def main():
     # A retry resumes completed numbered games instead of duplicating samples.
     completed=set()
     if args.seed is not None:
+        metadata=DataCache(args.output_dir)
         for path in args.output_dir.glob('game-*.npz'):
-            with np.load(path) as data:
-                if int(data['experiment_cycle'])==args.experiment_cycle:
-                    n=int(data['seed'])-args.seed
-                    if n in completed:raise ValueError('Duplicate completed game seed')
-                    completed.add(n)
+            info=metadata.get(path)
+            if info['cycle']==args.experiment_cycle:
+                n=info['seed']-args.seed
+                if n in completed:raise ValueError('Duplicate completed game seed')
+                completed.add(n)
+        metadata.flush()
     pending=deque(n for n in numbers if n not in completed)
     if not pending:print('All requested games already saved',flush=True);return 0
     model,variables=load_variables(args.checkpoint)
@@ -87,7 +91,7 @@ def main():
     if stopping:
         print('Stopped; completed games preserved',flush=True);return 1
     print('SELFPLAY_METRICS '+json.dumps(dict(seconds=time.perf_counter()-start,
-        inference_calls=predictor.calls,evaluated_positions=predictor.positions,workers=args.workers,simulations=args.simulations)),flush=True)
+        inference_calls=predictor.calls,evaluated_positions=predictor.positions,batch_histogram=dict(predictor.batch_histogram),workers=args.workers,simulations=args.simulations)),flush=True)
     print(f'All requested {len(numbers)} parallel self-play games finished',flush=True);return 0
 
 if __name__=='__main__':raise SystemExit(main())

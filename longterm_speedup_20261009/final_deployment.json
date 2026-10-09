@@ -1,0 +1,53 @@
+{
+  "files": [
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/mcts.py",
+      "sha256": "6ac7c297fbcd69a3a5123a129118a7576607cd2cc8dab5da406c3723f7a21027"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/checkpoint.py",
+      "sha256": "58b9baab8a4e1702b59adcf875c2b93baa4d3fcc7e11f2ce59e305f4b3bd5d3f"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/history.py",
+      "sha256": "af99246e609241cf38f67f6ecb0c28e11ae4447adb0bc3ecb704d1d6ab3ff22e"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/batched.py",
+      "sha256": "c0f0906535fd580ba69e90118cfd09eaf48d3c025ddb410ccb02fe66d98454a3"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/runtime.py",
+      "sha256": "e75675b97b2ec9489914de69a02aa66eaf0cb0e4c8b266c847675052c836e2ff"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/data_cache.py",
+      "sha256": "e52032259ae11436416595f52b6e16cb8c995598672023bc5af7c995d66f3da8"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/train.py",
+      "sha256": "c3fdb04a8d1034793b6718fe7f62b88c89388d347cfcb3d1ad92253e2be41046"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/parallel_selfplay.py",
+      "sha256": "a9e55ba246ec6cd18c79e7bcdba42f0d43882c87afd8ed4a585a0f3485af11f2"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/batched_selfplay.py",
+      "sha256": "64ab86f5e6579e45bca8889bc2cf7bc66da00a68e6a8aa8199d60766d4126d90"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/check_search_cycle.py",
+      "sha256": "2b66cca0d66cf48d481f0f7c72aa90378e21dd6b4d4ac885740db6c876dbeb55"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/verify_raw_visit_data.py",
+      "sha256": "b642a2e3a5176794ef90d2ff1e58d3a772ec83f4c5027ec730a1a892b123baf3"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/monitor_experiment.py",
+      "sha256": "1aa4874adf680ea470bdf8d1a83ea4a71d5b5419dd12c52dc1a106953669f5da"
+    }
+  ],
+  "original_npz_and_model_edits": false
+}

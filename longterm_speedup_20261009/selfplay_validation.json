@@ -1,0 +1,13 @@
+{
+  "device": "cpu",
+  "games": 2,
+  "seeds": [
+    90110,
+    90112
+  ],
+  "plies_per_game": 6,
+  "simulations": 64,
+  "all_original_npz_fields_exact": true,
+  "partial_game_numbers_preserved": true,
+  "retry_does_not_duplicate": true
+}

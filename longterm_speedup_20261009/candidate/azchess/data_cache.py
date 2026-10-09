@@ -13,13 +13,15 @@ class DataCache:
     def get(self,path,validate=False,full=False):
         path=Path(path);stat=path.stat();signature=[stat.st_size,stat.st_mtime_ns,stat.st_ino]
         record=self.data['entries'].get(path.name)
-        if record and record['signature']==signature and (not validate or record.get('validated')) and not full:
+        if record and record['signature']==signature and 'label_counts' in record and (not validate or record.get('validated')) and not full:
             self.hits+=1;return record
         with np.load(path) as game:
-            record=dict(signature=signature,positions=len(game['values']),
+            known_validated=bool(record and record['signature']==signature and record.get('validated'))
+            labels=game['values']
+            record=dict(signature=signature,positions=len(labels),label_counts={str(v):int((labels==v).sum()) for v in [-1,0,1]},
                 cycle=int(game['experiment_cycle']) if 'experiment_cycle' in game else -1,
                 seed=int(game['seed']) if 'seed' in game else -1,
-                termination=str(game['termination']) if 'termination' in game else 'unknown',validated=False)
+                termination=str(game['termination']) if 'termination' in game else 'unknown',validated=known_validated)
             if validate:
                 if 'policy_target_kind' not in game or str(game['policy_target_kind'])!='raw_mcts_visits_v1':
                     raise ValueError(f'Wrong policy target kind: {path}')

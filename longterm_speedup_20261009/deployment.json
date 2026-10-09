@@ -1,0 +1,71 @@
+{
+  "files": [
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/mcts.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/azchess/mcts.py.pre-longterm-speedup-20261009",
+      "before": "4599fd938fd2a69212d41b7b6ec99bb6a4d6414e052fea2c1df1649ec975f8bc",
+      "after": "6ac7c297fbcd69a3a5123a129118a7576607cd2cc8dab5da406c3723f7a21027"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/checkpoint.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/azchess/checkpoint.py.pre-longterm-speedup-20261009",
+      "before": "8e299d75ffaf990c3e7d42d190022b4985603f8d9910745ac4aea96866d3f0b4",
+      "after": "58b9baab8a4e1702b59adcf875c2b93baa4d3fcc7e11f2ce59e305f4b3bd5d3f"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/history.py",
+      "backup": null,
+      "before": null,
+      "after": "af99246e609241cf38f67f6ecb0c28e11ae4447adb0bc3ecb704d1d6ab3ff22e"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/batched.py",
+      "backup": null,
+      "before": null,
+      "after": "c0f0906535fd580ba69e90118cfd09eaf48d3c025ddb410ccb02fe66d98454a3"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/runtime.py",
+      "backup": null,
+      "before": null,
+      "after": "e75675b97b2ec9489914de69a02aa66eaf0cb0e4c8b266c847675052c836e2ff"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/data_cache.py",
+      "backup": null,
+      "before": null,
+      "after": "92d7b6dd43e1d9ce96138b436b50b29e8dee6b75a636af47ebcb5ea4a3ec7712"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/train.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/train.py.pre-longterm-speedup-20261009",
+      "before": "c677e2c6206c257f3e3be5c20d036c1bac78e9508e0836e0bcee8b3141452a3e",
+      "after": "c3fdb04a8d1034793b6718fe7f62b88c89388d347cfcb3d1ad92253e2be41046"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/parallel_selfplay.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/parallel_selfplay.py.pre-longterm-speedup-20261009",
+      "before": "84e0504d3aaef39ab7dc57a51bad4f060a7f31aa3bc463590d3fb47f3a6b0594",
+      "after": "a9e55ba246ec6cd18c79e7bcdba42f0d43882c87afd8ed4a585a0f3485af11f2"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/batched_selfplay.py",
+      "backup": null,
+      "before": null,
+      "after": "64ab86f5e6579e45bca8889bc2cf7bc66da00a68e6a8aa8199d60766d4126d90"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/check_search_cycle.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/check_search_cycle.py.pre-longterm-speedup-20261009",
+      "before": "0dd6ea3195efb00176fb925c1eb1eb28af71d24644f872d2b37cd06c742eaa20",
+      "after": "2b66cca0d66cf48d481f0f7c72aa90378e21dd6b4d4ac885740db6c876dbeb55"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/verify_raw_visit_data.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/verify_raw_visit_data.py.pre-longterm-speedup-20261009",
+      "before": "4e77c8e413c7762f2db74781a14c1d5207c8d97e814e0b184817f10a08b8286f",
+      "after": "b642a2e3a5176794ef90d2ff1e58d3a772ec83f4c5027ec730a1a892b123baf3"
+    }
+  ],
+  "npz_or_model_files_modified": false
+}
