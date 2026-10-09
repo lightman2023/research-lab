@@ -1,0 +1,136 @@
+"""Run A50 then B200 to five cycles, showing the existing controller output."""
+import importlib.util
+import json
+import msvcrt
+import subprocess
+import threading
+from datetime import datetime
+from pathlib import Path
+import tkinter as tk
+from tkinter import ttk,scrolledtext
+
+APP=Path(__file__).resolve().parent
+LOG=APP/'auto_search_training.log'
+STATUS=APP/'auto_search_training_status.json'
+BUSY="pgrep -f '[p]arallel_selfplay.py|[/]selfplay.py|[/]train.py|[/]arena.py|[/]run_live.py|[/]monitor_experiment.py|[/]monitor_search_training.py' >/dev/null"
+
+class Value:
+    def __init__(self,value):self.value=str(value)
+    def get(self):return self.value
+    def set(self,value):self.value=str(value)
+
+def check_metrics(module,cycle):
+    if not cycle:return
+    path=Path('//wsl.localhost/Ubuntu'+module.EXPERIMENT)/'metrics'/f'cycle-{cycle:06d}.json'
+    if not path.exists():raise RuntimeError(f'cycle {cycle}: 監視記録がありません。中断状態を確認してください。')
+    data=json.loads(path.read_text(encoding='utf-8'))
+    if data['stop_due_to_widespread_inactivity']:
+        raise RuntimeError('価値予測の監視停止を検出しました。自動続行を停止します。')
+
+def complete_branch(controller,settings,check,stop):
+    while controller.cycles<5:
+        if stop.is_set():raise InterruptedError
+        check(controller.cycles)
+        previous=controller.cycles
+        controller.stopping=stop
+        controller.worker('continuous',settings)
+        if stop.is_set():raise InterruptedError
+        if controller.cycles<=previous:raise RuntimeError('学習が進まず停止しました。実行ログを確認してください。')
+        check(controller.cycles)
+
+class App:
+    def __init__(self,root):
+        self.root=root;self.stop_event=threading.Event();self.active=None;self.lock=None
+        root.title('探索学習比較：A50→B200を各5サイクルまで自動実行')
+        root.geometry('920x650')
+        frame=ttk.Frame(root,padding=16);frame.pack(fill='both',expand=True)
+        ttk.Label(frame,text='A50 → B200：初回監視後も自動続行、各5サイクルで終了',font=('Yu Gothic UI',14,'bold')).pack(anchor='w')
+        self.status=tk.StringVar(value='開始準備中')
+        ttk.Label(frame,textvariable=self.status,wraplength=880).pack(anchor='w',pady=8)
+        self.stop_button=ttk.Button(frame,text='自動実行を停止',command=self.stop)
+        self.stop_button.pack(anchor='w')
+        self.output=scrolledtext.ScrolledText(frame,state='disabled',bg='#111820',fg='#d5e7d5',font=('Consolas',9))
+        self.output.pack(fill='both',expand=True,pady=(10,0))
+        root.protocol('WM_DELETE_WINDOW',self.close)
+        self.thread=threading.Thread(target=self.run,daemon=True)
+        root.after(100,self.thread.start)
+
+    def append(self,line):
+        stamped=f'[{datetime.now():%Y-%m-%d %H:%M:%S}] {line}'
+        with LOG.open('a',encoding='utf-8') as f:f.write(stamped+'\n')
+        def display():
+            self.output.configure(state='normal');self.output.insert('end',stamped+'\n')
+            self.output.configure(state='disabled');self.output.see('end')
+        self.root.after(0,display)
+
+    def progress(self,phase,branch=None,cycles=None):
+        temporary=STATUS.with_suffix('.tmp')
+        temporary.write_text(json.dumps(dict(phase=phase,branch=branch,cycles=cycles,updated_at=datetime.now().isoformat()),ensure_ascii=False,indent=2),encoding='utf-8')
+        temporary.replace(STATUS)
+        self.root.after(0,lambda:self.status.set(f'{phase}　{branch or ""}　{cycles if cycles is not None else ""}'))
+
+    def wait_idle(self,module):
+        # Require two idle observations so an existing GUI can start its next stage.
+        idle=0;announced=False
+        while idle<2:
+            if self.stop_event.is_set():raise InterruptedError
+            result=module.Controller.wsl(BUSY,check=False)
+            if result.returncode not in (0,1):raise RuntimeError('WSLの実行状態を確認できません。')
+            idle=idle+1 if result.returncode==1 else 0
+            if not idle and not announced:
+                self.append('実行中の学習・評価の終了を待っています。重複起動はしません。');announced=True
+            if idle<2 and self.stop_event.wait(10):raise InterruptedError
+
+    def run(self):
+        try:
+            self.lock=(APP/'auto_search_training.lock').open('a+b')
+            if self.lock.tell()==0:self.lock.write(b'0');self.lock.flush()
+            self.lock.seek(0)
+            msvcrt.locking(self.lock.fileno(),msvcrt.LK_NBLCK,1)
+            self.append('自動実行開始。既存の進捗からA50・B200を累計5まで実行します。')
+            for branch,simulations in [('A50',50),('B200',200)]:
+                spec=importlib.util.spec_from_file_location(branch,APP/f'training_controller_search_{branch}.py')
+                module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+                self.progress('既存処理の終了待ち',branch)
+                self.wait_idle(module)
+                state=module.Controller.load_state()
+                c=module.Controller.__new__(module.Controller)
+                c.root=self.root;c.process=None;c.stopping=self.stop_event;c.running=False
+                c.cycles=int(state.get('cycles',0));c.games_total=int(state.get('games_total',0))
+                for name,value in dict(games_var=8,workers_var=2,simulations_var=simulations,
+                    steps_var=64,run_cycles_var=5,save_interval_var=state.get('save_interval',1)).items():setattr(c,name,Value(value))
+                c.status_var=Value('')
+                def log(line,branch=branch,module=module):
+                    with module.LOG_FILE.open('a',encoding='utf-8') as f:f.write(f'[{datetime.now():%Y-%m-%d %H:%M:%S}] {line}\n')
+                    self.append(f'[{branch}] {line}')
+                c.append_log=log
+                c.update_counter=lambda c=c,branch=branch:self.progress('学習中',branch,c.cycles)
+                c.set_running=lambda running:None
+                self.active=c
+                self.progress('学習中',branch,c.cycles)
+                complete_branch(c,(8,2,simulations,64,5,int(state.get('save_interval',1))),lambda cycle:check_metrics(module,cycle),self.stop_event)
+                self.append(f'{branch}：5サイクル完了。')
+                self.active=None
+            self.progress('完了：A50・B200とも5サイクル')
+            self.append('両条件の学習が完了しました。探索学習後のモデルを比較.batで評価できます。')
+        except InterruptedError:
+            self.progress('停止：データ・モデルは保存済み');self.append('自動実行を停止しました。')
+        except Exception as error:
+            self.progress('エラーで停止');self.append(f'エラー：{type(error).__name__}: {error}')
+        finally:
+            self.active=None
+            if self.lock:self.lock.close()
+            self.root.after(0,lambda:self.stop_button.configure(state='disabled'))
+
+    def stop(self):
+        self.stop_event.set()
+        if self.active:threading.Thread(target=self.active.stop_worker,daemon=True).start()
+        self.status.set('停止中')
+
+    def close(self):
+        if self.thread.is_alive():
+            self.stop();self.root.after(500,self.close)
+        else:self.root.destroy()
+
+if __name__=='__main__':
+    root=tk.Tk();App(root);root.mainloop()

@@ -1,0 +1,32 @@
+{
+  "cycles": 10,
+  "games_per_cycle": 8,
+  "updates_per_cycle": 64,
+  "save_interval": 1,
+  "learning_rate": 0.0001,
+  "simulations": 50,
+  "max_plies": 512,
+  "batch_size": 64,
+  "late_temperature": 0.25,
+  "temperature_before_ply30": 1.0,
+  "replay_max_games": 1000,
+  "replay": "new experiment games only; historical data excluded due to rule differences",
+  "optimizer": "AdamW; original B1600 moments/step carried forward; decay 0.0001",
+  "draw_rule": "az_actual_threefold_50move_v1",
+  "source_hashes": {
+    "/home/user/chess/alphazero_chess_v2/experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001600.msgpack": "ff2dee8ce1260efa03d370516427225b5a33383c5ec29f36ed5562193097842a",
+    "/home/user/chess/alphazero_chess_v2/experiments/lr-cycle50-20261002-145753/B-lr-0.0001/training_state.msgpack": "1fcfb9569b6255fe93b1728b7d6c1afb79d749aa2ae030d8b130a0dcde781a3d"
+  },
+  "seed": 20261002,
+  "python": "3.11.16",
+  "jax": "0.4.38",
+  "devices": "[CudaDevice(id=0)]",
+  "code_hashes": {
+    "train.py": "725f47a913a7ee6146f139478e99bb1470f3842e75865fca64706d08ab294be2",
+    "selfplay.py": "00a2dedae65b2fdca89e88cc1b1467063163e1ab635bd5c3f798114e4796183e",
+    "arena.py": "8e7e5ea2e1687d5bec9d5b82216269eeaf5c6e485a4d958ada8be63809a9e883",
+    "azchess/game.py": "f6f4c2ba40c4219190eb9e57a09faf8d65111389e4b358769ac8f3e37686a8a0",
+    "azchess/mcts.py": "7fe791cedc04dc48a6122871375f1ab8782808a35320097a671607ec89e7b857",
+    "azchess/model.py": "c70e14ed0559e7fbd89e02b14b3a7e9cd15830a0f42bf5c1d5a45fbf3e753770"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "cycles": 5,
+  "games_total": 40,
+  "games_per_cycle": "8",
+  "workers": "2",
+  "simulations": "200",
+  "steps": "64",
+  "cycles_per_run": "5",
+  "save_interval": "1"
+}

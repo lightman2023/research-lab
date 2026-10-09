@@ -1,0 +1,34 @@
+{
+  "source_experiment": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002",
+  "source_cycle": 10,
+  "starting_training_step": 2880,
+  "checkpoint_sha256": "564a688de018c391b8244fcd2a4fcf75271f83e2f59a11c464c5e65250ceae2d",
+  "state_sha256": "a5ab0aed1a44bd049b79cc28182be5c6448a893278c356323623e6e87855eabc",
+  "carried_games": 160,
+  "branch_names": [
+    "A50",
+    "B200"
+  ],
+  "simulations": {
+    "A50": 50,
+    "B200": 200
+  },
+  "learning_rate": 0.0001,
+  "constant_learning_rate": true,
+  "temperature": 1,
+  "root_noise": true,
+  "games_per_cycle": 8,
+  "workers": 2,
+  "updates_per_cycle": 64,
+  "batch_size": 64,
+  "max_plies": 512,
+  "target_cycles": 5,
+  "initial_gate_cycles": 1,
+  "save_interval": 1,
+  "seed_base": 20401004,
+  "evaluation_simulations": 200,
+  "evaluation_games": 24,
+  "policy_target": "raw_mcts_visits_v1",
+  "draw_rule": "az_actual_threefold_50move_v1",
+  "note": "A and B inherit identical 160 training games and optimizer. New games differ; same seeds do not imply identical replay batches. Two prior cap draws remain inherited, separately counted. Evaluation data excluded."
+}

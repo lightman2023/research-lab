@@ -1,0 +1,575 @@
+{
+  "selection": "last two plies before each of nine repetition draws",
+  "records": [
+    {
+      "game": 4,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "RK",
+      "opponent_pieces": "RK",
+      "actual": {
+        "uci": "g8h8",
+        "san": "Rh8",
+        "visits": 172,
+        "prior": 0.8230563998222351,
+        "q": 0.005659336321662331,
+        "termination": null,
+        "draw_leaves": 132,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "a5b5",
+        "san": "Kb5",
+        "visits": 9,
+        "prior": 0.028200209140777588,
+        "q": 0.0262002841466003,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 12,
+      "legal_moves": 19
+    },
+    {
+      "game": 4,
+      "side": "B",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "RK",
+      "opponent_pieces": "RK",
+      "actual": {
+        "uci": "h1g1",
+        "san": "Rg1",
+        "visits": 98,
+        "prior": 0.7378615140914917,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 98,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "h1h4",
+        "san": "Rh4",
+        "visits": 41,
+        "prior": 0.03375527262687683,
+        "q": 0.11766951653833796,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 13,
+      "legal_moves": 22
+    },
+    {
+      "game": 5,
+      "side": "B",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PPK",
+      "opponent_pieces": "PK",
+      "actual": {
+        "uci": "b8a8",
+        "san": "Ka8",
+        "visits": 92,
+        "prior": 0.5390650629997253,
+        "q": -0.00913039519218728,
+        "termination": null,
+        "draw_leaves": 38,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "b8a7",
+        "san": "Ka7",
+        "visits": 41,
+        "prior": 0.13646510243415833,
+        "q": 0.03410954511065672,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 5,
+      "legal_moves": 5
+    },
+    {
+      "game": 5,
+      "side": "A",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "PK",
+      "opponent_pieces": "PPK",
+      "actual": {
+        "uci": "a4a3",
+        "san": "Ka3",
+        "visits": 85,
+        "prior": 0.369979590177536,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 85,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "a4b3",
+        "san": "Kb3",
+        "visits": 65,
+        "prior": 0.29894688725471497,
+        "q": -0.003353502730337473,
+        "termination": null,
+        "draw_leaves": 10,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 4,
+      "legal_moves": 4
+    },
+    {
+      "game": 6,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PK",
+      "opponent_pieces": "PNBRK",
+      "actual": {
+        "uci": "b8a8",
+        "san": "Ka8",
+        "visits": 154,
+        "prior": 0.8692765235900879,
+        "q": -0.057805710937827826,
+        "termination": null,
+        "draw_leaves": 56,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "b8c8",
+        "san": "Kc8",
+        "visits": 13,
+        "prior": 0.017045678570866585,
+        "q": 0.019674868537829474,
+        "termination": null,
+        "draw_leaves": 2,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 6,
+      "legal_moves": 6
+    },
+    {
+      "game": 6,
+      "side": "B",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "PNBRK",
+      "opponent_pieces": "PK",
+      "actual": {
+        "uci": "b1a1",
+        "san": "Ra1",
+        "visits": 84,
+        "prior": 0.3685353696346283,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 84,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "c4f7",
+        "san": "Bf7",
+        "visits": 11,
+        "prior": 0.009716764092445374,
+        "q": 0.04922831955958496,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 15,
+      "legal_moves": 23
+    },
+    {
+      "game": 10,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PK",
+      "opponent_pieces": "PNBRK",
+      "actual": {
+        "uci": "h8g8",
+        "san": "Kg8",
+        "visits": 155,
+        "prior": 0.743408739566803,
+        "q": -0.09692387824217158,
+        "termination": null,
+        "draw_leaves": 39,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "h8g7",
+        "san": "Kg7",
+        "visits": 39,
+        "prior": 0.19287198781967163,
+        "q": -0.09107562493628417,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 3,
+      "legal_moves": 3
+    },
+    {
+      "game": 10,
+      "side": "B",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "PNBRK",
+      "opponent_pieces": "PK",
+      "actual": {
+        "uci": "b1a1",
+        "san": "Ra1",
+        "visits": 42,
+        "prior": 0.39411959052085876,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 42,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "b1c1",
+        "san": "Rc1",
+        "visits": 36,
+        "prior": 0.0578964501619339,
+        "q": 0.13472467539314595,
+        "termination": null,
+        "draw_leaves": 5,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 12,
+      "legal_moves": 24
+    },
+    {
+      "game": 11,
+      "side": "B",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PPNBRRRK",
+      "opponent_pieces": "PPK",
+      "actual": {
+        "uci": "a8b8",
+        "san": "Rb8",
+        "visits": 34,
+        "prior": 0.3895692527294159,
+        "q": 0.02679508924484253,
+        "termination": null,
+        "draw_leaves": 33,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "d3c1",
+        "san": "Nc1",
+        "visits": 21,
+        "prior": 0.013642316684126854,
+        "q": 0.21200641555090746,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 14,
+      "legal_moves": 44
+    },
+    {
+      "game": 11,
+      "side": "A",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "PPK",
+      "opponent_pieces": "PPNBRRRK",
+      "actual": {
+        "uci": "h1g1",
+        "san": "Kg1",
+        "visits": 199,
+        "prior": 0.9815938472747803,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 199,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "h1h2",
+        "san": "Kh2",
+        "visits": 1,
+        "prior": 0.016142936423420906,
+        "q": -0.09423461556434631,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 2,
+      "legal_moves": 3
+    },
+    {
+      "game": 16,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PRK",
+      "opponent_pieces": "PPK",
+      "actual": {
+        "uci": "b8a8",
+        "san": "Ra8+",
+        "visits": 82,
+        "prior": 0.3464502692222595,
+        "q": -0.0016188352573208694,
+        "termination": null,
+        "draw_leaves": 77,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "b8f8",
+        "san": "Rf8",
+        "visits": 2,
+        "prior": 0.005522946361452341,
+        "q": 0.023118892684578896,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 16,
+      "legal_moves": 22
+    },
+    {
+      "game": 16,
+      "side": "B",
+      "offset": 1,
+      "in_check": true,
+      "own_pieces": "PPK",
+      "opponent_pieces": "PRK",
+      "actual": {
+        "uci": "a7b6",
+        "san": "Kb6",
+        "visits": 187,
+        "prior": 0.9562399387359619,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 187,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "a7a8",
+        "san": "Kxa8",
+        "visits": 5,
+        "prior": 0.007124662399291992,
+        "q": 0.2318981744349003,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 3,
+      "legal_moves": 3
+    },
+    {
+      "game": 18,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PK",
+      "opponent_pieces": "NRK",
+      "actual": {
+        "uci": "h8g8",
+        "san": "Kg8",
+        "visits": 175,
+        "prior": 0.8243028521537781,
+        "q": -0.01736513202743871,
+        "termination": null,
+        "draw_leaves": 42,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "h2h1r",
+        "san": "h1=R+",
+        "visits": 1,
+        "prior": 0.0050718290731310844,
+        "q": -0.0024233548901975155,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 4,
+      "legal_moves": 5
+    },
+    {
+      "game": 18,
+      "side": "B",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "NRK",
+      "opponent_pieces": "PK",
+      "actual": {
+        "uci": "b1a1",
+        "san": "Ka1",
+        "visits": 47,
+        "prior": 0.2254442721605301,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 47,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "b1a2",
+        "san": "Ka2",
+        "visits": 6,
+        "prior": 0.011176317930221558,
+        "q": 0.05327253152305881,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 19,
+      "legal_moves": 23
+    },
+    {
+      "game": 22,
+      "side": "B",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "RK",
+      "opponent_pieces": "K",
+      "actual": {
+        "uci": "a1b1",
+        "san": "Rb1",
+        "visits": 35,
+        "prior": 0.36551129817962646,
+        "q": 0.0001736875091280256,
+        "termination": null,
+        "draw_leaves": 29,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "a1e1",
+        "san": "Re1",
+        "visits": 31,
+        "prior": 0.06122829392552376,
+        "q": 0.21441124986496665,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 17,
+      "legal_moves": 22
+    },
+    {
+      "game": 22,
+      "side": "A",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "K",
+      "opponent_pieces": "RK",
+      "actual": {
+        "uci": "c8d8",
+        "san": "Kd8",
+        "visits": 172,
+        "prior": 0.7794302105903625,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 172,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "c8d7",
+        "san": "Kd7",
+        "visits": 14,
+        "prior": 0.09932248294353485,
+        "q": -0.040142729213195186,
+        "termination": null,
+        "draw_leaves": 2,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 3,
+      "legal_moves": 3
+    },
+    {
+      "game": 24,
+      "side": "A",
+      "offset": 2,
+      "in_check": false,
+      "own_pieces": "PPPNRK",
+      "opponent_pieces": "PPPBRK",
+      "actual": {
+        "uci": "a8b8",
+        "san": "Rb8",
+        "visits": 61,
+        "prior": 0.6947760581970215,
+        "q": 0.038776256082976454,
+        "termination": null,
+        "draw_leaves": 48,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "a8d8",
+        "san": "Rd8",
+        "visits": 4,
+        "prior": 0.013570479117333889,
+        "q": 0.2903336314484477,
+        "termination": null,
+        "draw_leaves": 0,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 10,
+      "legal_moves": 19
+    },
+    {
+      "game": 24,
+      "side": "B",
+      "offset": 1,
+      "in_check": false,
+      "own_pieces": "PPPBRK",
+      "opponent_pieces": "PPPNRK",
+      "actual": {
+        "uci": "b1a1",
+        "san": "Ra1",
+        "visits": 93,
+        "prior": 0.7402611374855042,
+        "q": -0.0,
+        "termination": "THREEFOLD_REPETITION",
+        "draw_leaves": 93,
+        "reverse": true
+      },
+      "best_nonreverse": {
+        "uci": "g3d6",
+        "san": "Bd6",
+        "visits": 68,
+        "prior": 0.007937969639897346,
+        "q": 0.27207985410795493,
+        "termination": null,
+        "draw_leaves": 7,
+        "reverse": false
+      },
+      "reproduced": true,
+      "visited_moves": 10,
+      "legal_moves": 21
+    }
+  ],
+  "by_side": {
+    "A": {
+      "positions": 9,
+      "reproduced": 9,
+      "higher_q_alternative": 6
+    },
+    "B": {
+      "positions": 9,
+      "reproduced": 9,
+      "higher_q_alternative": 9
+    }
+  }
+}

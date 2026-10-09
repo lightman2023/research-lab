@@ -1,0 +1,651 @@
+[
+  {
+    "moves": [],
+    "group": "opening"
+  },
+  {
+    "moves": [
+      "e2e4",
+      "e7e5"
+    ],
+    "group": "opening"
+  },
+  {
+    "moves": [
+      "d2d4",
+      "d7d5",
+      "c2c4"
+    ],
+    "group": "opening"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 3,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 18,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 19,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 0,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 13,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 17,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 7,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-142513-464359.npz",
+    "position": 24,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 92,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 108,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 15,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 42,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 67,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 17,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 30,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-124659-804916.npz",
+    "position": 23,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 36,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 9,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 2,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 4,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 23,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 25,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 22,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-072950-847662.npz",
+    "position": 5,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 33,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 61,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 5,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 43,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 59,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 37,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 81,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-091415-809150.npz",
+    "position": 73,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 10,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 23,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 61,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 33,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 69,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 44,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 30,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-131646-364113.npz",
+    "position": 17,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 33,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 20,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 14,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 34,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 9,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 7,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 40,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-181752-110512.npz",
+    "position": 19,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 45,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 6,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 47,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 15,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 29,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 19,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 32,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-104300-362219.npz",
+    "position": 36,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 67,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 22,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 18,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 16,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 10,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 41,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 9,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-120419-499351.npz",
+    "position": 26,
+    "group": "0"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 15,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 9,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 5,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 3,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 6,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 8,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 12,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-085534-876012.npz",
+    "position": 4,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 16,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 2,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 32,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 28,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 21,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 7,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 17,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-073216-027007.npz",
+    "position": 15,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 3,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 5,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 1,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 0,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 4,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-101939-946409.npz",
+    "position": 2,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 29,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 1,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 9,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 3,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 6,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 4,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 20,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-084449-021850.npz",
+    "position": 24,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 7,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 1,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 5,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 3,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 2,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 4,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 6,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-162233-917857.npz",
+    "position": 0,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 2,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 4,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 0,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 6,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 5,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 3,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 1,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-080612-039000.npz",
+    "position": 7,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 18,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 8,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 4,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 26,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 15,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 23,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 29,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-164240-232640.npz",
+    "position": 1,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 0,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 12,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 4,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 6,
+    "group": "1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 5,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 7,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 11,
+    "group": "-1"
+  },
+  {
+    "file": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/selfplay_data/game-20260927-071703-344881.npz",
+    "position": 1,
+    "group": "-1"
+  }
+]

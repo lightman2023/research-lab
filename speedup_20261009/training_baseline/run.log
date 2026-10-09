@@ -1,0 +1,3 @@
+Replay: 128 games, 24474 positions; updates=4, starting_step=6272
+step=6276 loss=3.2756 policy=2.9534 value=0.3222
+Saved: /mnt/c/Users/User/Documents/ChatGPT/研究室/speedup_20261009/training_baseline/latest.msgpack; training_step=6276

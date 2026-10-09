@@ -1,0 +1,6 @@
+{"event": "loading", "model_a": "cycle-000010.msgpack", "model_b": "cycle-000010.msgpack", "games": 2, "simulations": 50, "simulations_a": 50, "simulations_b": 200}
+{"event": "game_start", "game": 1, "white": "A: cycle-000010.msgpack [sims=50]", "black": "B: cycle-000010.msgpack [sims=200]", "opening": "レティ"}
+{"event": "game_result", "game": 1, "result": "1/2-1/2", "winner": "draw", "termination": "MAX_PLIES", "plies": 20, "material_white": -3, "a_wins": 0, "b_wins": 0, "draws": 1, "cutoffs": 1, "a_score_rate": 0.5}
+{"event": "game_start", "game": 2, "white": "B: cycle-000010.msgpack [sims=200]", "black": "A: cycle-000010.msgpack [sims=50]", "opening": "レティ"}
+{"event": "game_result", "game": 2, "result": "1/2-1/2", "winner": "draw", "termination": "MAX_PLIES", "plies": 20, "material_white": 1, "a_wins": 0, "b_wins": 0, "draws": 2, "cutoffs": 2, "a_score_rate": 0.5}
+{"event": "summary", "model_a": "cycle-000010.msgpack", "model_b": "cycle-000010.msgpack", "games": 2, "a_wins": 0, "b_wins": 0, "draws": 2, "cutoffs": 2, "a_score_rate": 0.5, "estimated_elo_a_minus_b": 0, "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261003-001516-search-s.pgn", "metadata": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261003-001516-search-s.json", "simulations_a": 50, "simulations_b": 200}

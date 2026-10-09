@@ -1,0 +1,11 @@
+{
+  "completed_runs": 5,
+  "completed_epochs": 25,
+  "save_interval": 5,
+  "selfplay_workers": 2,
+  "resume_requested": false,
+  "white_wins": 2,
+  "black_wins": 2,
+  "draws": 1,
+  "cutoffs": 5
+}

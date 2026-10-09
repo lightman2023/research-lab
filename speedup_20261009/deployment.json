@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/mcts.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/azchess/mcts.py.pre-speedup-20261009",
+      "before": "7fe791cedc04dc48a6122871375f1ab8782808a35320097a671607ec89e7b857",
+      "after": "4599fd938fd2a69212d41b7b6ec99bb6a4d6414e052fea2c1df1649ec975f8bc"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/azchess/game.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/azchess/game.py.pre-speedup-20261009",
+      "before": "f6f4c2ba40c4219190eb9e57a09faf8d65111389e4b358769ac8f3e37686a8a0",
+      "after": "4fd6228c1c986e25c6348f158a08d01f9d323c6c062c2c1f223bca40808c351c"
+    },
+    {
+      "file": "/home/user/chess/alphazero_chess_v2/train.py",
+      "backup": "/home/user/chess/alphazero_chess_v2/train.py.pre-speedup-20261009",
+      "before": "3128fe63d610557bc15ab65da14a7e3ca49695958fefed7c30f6ef26bda3ec48",
+      "after": "c677e2c6206c257f3e3be5c20d036c1bac78e9508e0836e0bcee8b3141452a3e"
+    }
+  ],
+  "model_or_training_data_modified": false,
+  "application": "New self-play/train processes load the changes; already running games finish with loaded code."
+}

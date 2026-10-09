@@ -1,0 +1,176 @@
+{
+  "training": {
+    "games": 80,
+    "terminations": {
+      "THREEFOLD_REPETITION": 67,
+      "CHECKMATE": 13
+    },
+    "mean_plies": 71.6125,
+    "median_plies": 63.0,
+    "total_reversals": 1246,
+    "pooled_reversal_rate": 0.22373855270246004
+  },
+  "labels": {
+    "-1": 394,
+    "0": 4937,
+    "1": 398
+  },
+  "probes": {
+    "temperature-0.25": {
+      "games": 8,
+      "terminations": {
+        "THREEFOLD_REPETITION": 8
+      },
+      "mean_plies": 77.875,
+      "median_plies": 74.5,
+      "total_reversals": 110,
+      "pooled_reversal_rate": 0.1812191103789127
+    },
+    "temperature-1.0": {
+      "games": 8,
+      "terminations": {
+        "CHECKMATE": 5,
+        "FIFTY_MOVES": 2,
+        "INSUFFICIENT_MATERIAL": 1
+      },
+      "mean_plies": 240.875,
+      "median_plies": 202.0,
+      "total_reversals": 166,
+      "pooled_reversal_rate": 0.08686551543694401
+    }
+  },
+  "baseline": {
+    "positions": 129,
+    "dead": 0,
+    "value_std": 0.03708015754818916,
+    "groups": {
+      "-1": {
+        "positions": 31,
+        "dead": 0,
+        "mean": -0.008608856238424778,
+        "std": 0.030290354043245316,
+        "mse": 0.9837739045985613
+      },
+      "0": {
+        "positions": 64,
+        "dead": 0,
+        "mean": 0.001658041262999177,
+        "std": 0.016688616946339607,
+        "mse": 0.0002812590638931881
+      },
+      "1": {
+        "positions": 31,
+        "dead": 0,
+        "mean": 0.016150811687111855,
+        "std": 0.06253350526094437,
+        "mse": 0.9718696707618835
+      },
+      "opening": {
+        "positions": 3,
+        "dead": 0,
+        "mean": -0.0049446034245193005,
+        "std": 0.004554038401693106
+      }
+    },
+    "value_mse": 0.48129326520843607
+  },
+  "final": {
+    "cycle": 10,
+    "step": 2240,
+    "evaluation": {
+      "positions": 129,
+      "dead": 0,
+      "value_std": 0.10099342465400696,
+      "groups": {
+        "-1": {
+          "positions": 31,
+          "dead": 0,
+          "mean": -0.016161030158400536,
+          "std": 0.0996583104133606,
+          "mse": 0.97787089955836
+        },
+        "0": {
+          "positions": 64,
+          "dead": 0,
+          "mean": -0.0011728715617209673,
+          "std": 0.08355336636304855,
+          "mse": 0.006982540831705584
+        },
+        "1": {
+          "positions": 31,
+          "dead": 0,
+          "mean": 0.041133929044008255,
+          "std": 0.12711763381958008,
+          "mse": 0.9355830420507322
+        },
+        "opening": {
+          "positions": 3,
+          "dead": 0,
+          "mean": -0.011635254137217999,
+          "std": 0.029036322608590126
+        }
+      },
+      "value_mse": 0.4743171016119922
+    },
+    "live_training_sample": {
+      "positions": 128,
+      "dead": 0,
+      "value_std": 0.3215922713279724,
+      "groups": {
+        "-1": {
+          "positions": 11,
+          "dead": 0,
+          "mean": -0.8143628835678101,
+          "std": 0.2872060239315033,
+          "mse": 0.1169484406709671
+        },
+        "0": {
+          "positions": 112,
+          "dead": 0,
+          "mean": 0.003855703165754676,
+          "std": 0.0458681657910347,
+          "mse": 0.002118755131959915
+        },
+        "1": {
+          "positions": 5,
+          "dead": 0,
+          "mean": 0.9896436929702759,
+          "std": 0.016033869236707687,
+          "mse": 0.0003643383097369224
+        }
+      },
+      "value_mse": 0.011918401345610619
+    },
+    "terminations": {
+      "THREEFOLD_REPETITION": 8
+    },
+    "mean_plies": 89.0,
+    "training_losses_last64": [
+      2.6249386109411716,
+      2.589194506406784,
+      0.03574412571833818
+    ]
+  },
+  "validated": 96,
+  "paired_seeds_match": true,
+  "paired_plies_differences": [
+    -14,
+    375,
+    274,
+    104,
+    176,
+    41,
+    320,
+    28
+  ],
+  "paired_prefixes_equal_until_ply30": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+  ]
+}

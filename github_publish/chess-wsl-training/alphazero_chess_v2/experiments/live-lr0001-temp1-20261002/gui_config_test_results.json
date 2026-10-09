@@ -1,0 +1,8 @@
+{
+  "mocked_10_cycles": true,
+  "temperature_forwarded": true,
+  "constant_optimizer_args": true,
+  "monitor_each_cycle": true,
+  "verify_data_separate": true,
+  "final_saved_when_interval_exceeds_run": true
+}

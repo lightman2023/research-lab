@@ -1,0 +1,12 @@
+{
+  "smoke_games": 2,
+  "simulations_a": 50,
+  "simulations_b": 200,
+  "max_plies": 20,
+  "colors_swapped_correctly": true,
+  "same_model_hash": true,
+  "pgn_count_matches": true,
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261003-001516-search-s.pgn",
+  "metadata": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261003-001516-search-s.json",
+  "not_strength_evaluation": true
+}

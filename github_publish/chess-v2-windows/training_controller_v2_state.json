@@ -1,0 +1,10 @@
+{
+  "cycles": 119,
+  "games_completed": 952,
+  "training_steps": 7616,
+  "games_per_cycle": 8,
+  "workers": 2,
+  "simulations": 50,
+  "updates": 64,
+  "save_interval": 25
+}

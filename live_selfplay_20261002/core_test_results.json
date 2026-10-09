@@ -1,0 +1,27 @@
+{
+  "passed": 22,
+  "checks": [
+    "prospective_third_not_terminal",
+    "actual_third_automatic",
+    "history_preserved_for_search",
+    "history_repetition_input",
+    "prospective_50_not_terminal",
+    "actual_50_automatic",
+    "mate_precedes_50_and_loser_sign",
+    "black_mate_loser_sign",
+    "stalemate",
+    "insufficient_material",
+    "mate_child_negative_root_positive",
+    "mcts_selects_mate",
+    "mcts_sees_repetition_child_as_draw",
+    "terminal_root_no_expansion",
+    "raw_visits_target_not_sharpened",
+    "all_underpromotions_white",
+    "all_underpromotions_black",
+    "special_action_map_0",
+    "special_action_map_11",
+    "special_action_map_20",
+    "special_action_map_46",
+    "legal_action_maps_random_games_25336_moves"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "games": 12,
+  "openings": 6,
+  "simulations_both": 200,
+  "a_wins": 1,
+  "b_wins": 2,
+  "draws": 9,
+  "terminations": {
+    "THREEFOLD_REPETITION": 7,
+    "CHECKMATE": 3,
+    "INSUFFICIENT_MATERIAL": 2
+  },
+  "mean_plies": 174.08333333333334,
+  "b_score_rate": 0.5416666666666666,
+  "wins_by_opening": [
+    {
+      "game": 3,
+      "a_is_white": true,
+      "opening": "フレンチ",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 76,
+      "winner": "B"
+    },
+    {
+      "game": 4,
+      "a_is_white": false,
+      "opening": "フレンチ",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 161,
+      "winner": "B"
+    },
+    {
+      "game": 12,
+      "a_is_white": false,
+      "opening": "シシリアン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 150,
+      "winner": "A"
+    }
+  ],
+  "model_hashes_verified": true,
+  "pgn_count_and_legality_verified": true,
+  "color_swap_verified": true,
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261005-090556-8608c126.pgn",
+  "conclusion": "Inconclusive strength difference; repetition remains; improvement over starting model untested."
+}

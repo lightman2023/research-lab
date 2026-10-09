@@ -1,0 +1,102 @@
+[
+  {
+    "branch": "A50",
+    "cycles": 5,
+    "new_games": 40,
+    "training_step": 3200,
+    "outcomes": {
+      "CHECKMATE": 21,
+      "THREEFOLD_REPETITION": 5,
+      "INSUFFICIENT_MATERIAL": 9,
+      "FIFTY_MOVES": 2,
+      "MAX_PLIES_DRAW": 2,
+      "STALEMATE": 1
+    },
+    "mean_plies": 250.875,
+    "fixed_dead": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "live_dead": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fixed_mse_start": 0.5108872899111659,
+    "fixed_mse_end": 0.5435296858647124,
+    "repetition_prior_start": [
+      0.28447094559669495,
+      0.6606284379959106,
+      0.5878388285636902,
+      0.6554405689239502,
+      0.37022656202316284,
+      0.6390198469161987
+    ],
+    "repetition_prior_end": [
+      0.2964600920677185,
+      0.663620114326477,
+      0.5083057284355164,
+      0.6238196492195129,
+      0.3481300473213196,
+      0.6473477482795715
+    ],
+    "latest_equals_saved": true,
+    "final_model_sha256": "d05f160fd8e5218fd8cf39818582d726fe4b0a36db0242bec2eee61bfd9ef03f"
+  },
+  {
+    "branch": "B200",
+    "cycles": 5,
+    "new_games": 40,
+    "training_step": 3200,
+    "outcomes": {
+      "CHECKMATE": 26,
+      "INSUFFICIENT_MATERIAL": 11,
+      "THREEFOLD_REPETITION": 1,
+      "FIFTY_MOVES": 2
+    },
+    "mean_plies": 173.375,
+    "fixed_dead": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "live_dead": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fixed_mse_start": 0.5108872899111659,
+    "fixed_mse_end": 0.5247131001715658,
+    "repetition_prior_start": [
+      0.28447094559669495,
+      0.6606284379959106,
+      0.5878385901451111,
+      0.6554402112960815,
+      0.3702266812324524,
+      0.639019787311554
+    ],
+    "repetition_prior_end": [
+      0.24431966245174408,
+      0.6039888262748718,
+      0.4337920844554901,
+      0.6359784007072449,
+      0.2979404330253601,
+      0.6271198391914368
+    ],
+    "latest_equals_saved": true,
+    "final_model_sha256": "927bd45166cfc7e3d4f09bd98103b6aadda831edc3ce78bcb031a01a741372c0"
+  }
+]

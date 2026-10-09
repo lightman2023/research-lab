@@ -1,0 +1,802 @@
+[
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0001.npz",
+    "name": "carried-0000-game-0001.npz",
+    "sha256": "9204d549da6f69dfc935fde94bca8496edf24a10884d80bfac52bdd0fcc4955f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0002.npz",
+    "name": "carried-0001-game-0002.npz",
+    "sha256": "70be0ccdaf9f09d22a9f00394050d25501be558f70051f4ad4ae568d63bbff5b"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0003.npz",
+    "name": "carried-0002-game-0003.npz",
+    "sha256": "91b3dc9b7a5f93af1626cd40293acf5b93f63d5e2c485041f6e28d901608e4f3"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0004.npz",
+    "name": "carried-0003-game-0004.npz",
+    "sha256": "00ae6e37f55ac7af49f4473fa62bbb83a130435183f90d7feb10757d63e7701a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0005.npz",
+    "name": "carried-0004-game-0005.npz",
+    "sha256": "13b0618b61b940cddd45d9d6cb94adc5a30ecb0d0722c6a081b378fc047e888f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0006.npz",
+    "name": "carried-0005-game-0006.npz",
+    "sha256": "3d038a86303db8821a346d9a420d572bab59ab54fc97c4d7b334f0d12af6c551"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0007.npz",
+    "name": "carried-0006-game-0007.npz",
+    "sha256": "e1a2136cd8e085b283ce8228d021db6137713369aa3140fb6c878dac718c92a0"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0008.npz",
+    "name": "carried-0007-game-0008.npz",
+    "sha256": "0e97da37b73ab49486b003d4183033b969fb7a3c34f8e1ac7bc276b457571cac"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0009.npz",
+    "name": "carried-0008-game-0009.npz",
+    "sha256": "8beb87eacd0c65f34a1de886f1855d3063a468383c084e50b9e486ed031e03d2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0010.npz",
+    "name": "carried-0009-game-0010.npz",
+    "sha256": "5690a3f51e8b156d719bff2653f06225f076a6979bb789b13a815f185efa34ae"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0011.npz",
+    "name": "carried-0010-game-0011.npz",
+    "sha256": "307cd5994d9af1d0e4527fc3ef5d7a7f1b263091d0b6f78cf00c1f402a4fa4a4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0012.npz",
+    "name": "carried-0011-game-0012.npz",
+    "sha256": "d0c7a0f7415aa6ef3ee628e158dead21e74a5f453f5d3b63c0becc3680802daf"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0013.npz",
+    "name": "carried-0012-game-0013.npz",
+    "sha256": "c4dffbd671372410a6a599a453a107aa14903ed4b961dd056dc05eb61a277106"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0014.npz",
+    "name": "carried-0013-game-0014.npz",
+    "sha256": "d8f4ba63d25d5f3daa082423a194a36debbcd38798996df0120f827054c16d48"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0015.npz",
+    "name": "carried-0014-game-0015.npz",
+    "sha256": "c4bc993fa8cf5a98ad0074bf0e66ae15b7afcf025f3e13cfdece67dff667f592"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0016.npz",
+    "name": "carried-0015-game-0016.npz",
+    "sha256": "43dd2f443a025b105babb134aa9da43a8fa619571b8ebe9c853d61224c874f5a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0017.npz",
+    "name": "carried-0016-game-0017.npz",
+    "sha256": "42f44a83616e53183cd1313a8d13d47dc7ba36f720af80392efa07f95b8cf18b"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0018.npz",
+    "name": "carried-0017-game-0018.npz",
+    "sha256": "15b3a6ff6fa3c51cfe398e6ecb17c215841649bc4a991dab1f39d4cb203402c7"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0019.npz",
+    "name": "carried-0018-game-0019.npz",
+    "sha256": "a8214b72770952c55e241bbda9a761d903a766285964beb88abcfa771563a7ff"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0020.npz",
+    "name": "carried-0019-game-0020.npz",
+    "sha256": "08a6fcc041cbd3e948d71d146d9275172d156410ea1d44e6a9c42aea417dfeb7"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0021.npz",
+    "name": "carried-0020-game-0021.npz",
+    "sha256": "da628791256a0a285ead396678ffe5f45285fe1e56ca2cbe7ebffee0869d3031"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0022.npz",
+    "name": "carried-0021-game-0022.npz",
+    "sha256": "99652451e599edd97ceb09ad1fb071e7106e4e2a08b981dce71df34bc029d564"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0023.npz",
+    "name": "carried-0022-game-0023.npz",
+    "sha256": "346a5c4ab982ddd8642f3072ee4c37f37e7cf91f1fa38214efacc2176732a0b1"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0024.npz",
+    "name": "carried-0023-game-0024.npz",
+    "sha256": "effe419d2e18a1ce6f6b302e41fb57548d61f782c2f80e58d95fd556ee756720"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0025.npz",
+    "name": "carried-0024-game-0025.npz",
+    "sha256": "47feee676e2b390296d631d8a984ef8b5450166ccb8542d5227e19d357fca1b2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0026.npz",
+    "name": "carried-0025-game-0026.npz",
+    "sha256": "c4a1fb418879a7124eb642196272ab34b229105f7eeedbd1676520de6411fdd1"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0027.npz",
+    "name": "carried-0026-game-0027.npz",
+    "sha256": "94761445ac271308deee171e34cd18c3d825a93606cf6397cca140ca04a82d23"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0028.npz",
+    "name": "carried-0027-game-0028.npz",
+    "sha256": "4aa23f85ad927e619de9c3af3c7ca6e209031c9759e6fb7b5abd9a5601ba9c1d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0029.npz",
+    "name": "carried-0028-game-0029.npz",
+    "sha256": "48802ea7516a7f8ea28a1c97f3ba2d6969fc15aefa8d86cef195b44521f3ad88"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0030.npz",
+    "name": "carried-0029-game-0030.npz",
+    "sha256": "63dcbe59f27a1d39836449460b86eddbac6604569320c59e4d391dd9d82e6dd8"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0031.npz",
+    "name": "carried-0030-game-0031.npz",
+    "sha256": "5cea9452f7ff7324a8d843bc454f8f6fefa3dd050be1e1e6b2ca3de7deea6a16"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0032.npz",
+    "name": "carried-0031-game-0032.npz",
+    "sha256": "84a867d71e9b32f344a2c625b5345289a85204bf716b3e4df553eed0725f41d7"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0033.npz",
+    "name": "carried-0032-game-0033.npz",
+    "sha256": "39545265a91cdb7f1b43ac187fc66ec35feb509110873d6c17006011d6a68ba2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0034.npz",
+    "name": "carried-0033-game-0034.npz",
+    "sha256": "0379566651e7d9df8571a7de80fe88e4905c62184ac46a35e1759246b252587e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0035.npz",
+    "name": "carried-0034-game-0035.npz",
+    "sha256": "f2bb4a190608a18f8ad1773c98e789497ff24eeddd6702ca639add76b82c7374"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0036.npz",
+    "name": "carried-0035-game-0036.npz",
+    "sha256": "7043a6f81fec05088d54c2931e5372aadfac5fb9dcb64cbec9809bc8c92f8103"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0037.npz",
+    "name": "carried-0036-game-0037.npz",
+    "sha256": "5c1c587f102caa9fdf9c94925e8670ab7c167af334ef7cea566d95585f7c5dd9"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0038.npz",
+    "name": "carried-0037-game-0038.npz",
+    "sha256": "6ac04f5ae324352a8cc2421175f5b98457a6901233c78f796960a5ef03742ccf"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0039.npz",
+    "name": "carried-0038-game-0039.npz",
+    "sha256": "1f7014ee551f0a19df0a96008f1385e2c6b8db1cef550050b0e96f0e006e2c7e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0040.npz",
+    "name": "carried-0039-game-0040.npz",
+    "sha256": "f72b14104464d16212a45502c63808b4b77220abe9e8c01269c70acef921e8f5"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0041.npz",
+    "name": "carried-0040-game-0041.npz",
+    "sha256": "7279830f2d10b5a239ce29f1c61b46f9a7aa57ee79785df0d08fc4622f29bd96"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0042.npz",
+    "name": "carried-0041-game-0042.npz",
+    "sha256": "48f2daca66a4204b6e23336c2b10ea930a0b8836156322abe10eee6c6397f4db"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0043.npz",
+    "name": "carried-0042-game-0043.npz",
+    "sha256": "22526f8511662e12506b38795f871ee7e6bc3e524d61e6566e055af1d940ba3c"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0044.npz",
+    "name": "carried-0043-game-0044.npz",
+    "sha256": "1ab2e76f8c49ec59160a1bd2721889400f07a0b21cbfe8f5c1a7de9a75748b37"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0045.npz",
+    "name": "carried-0044-game-0045.npz",
+    "sha256": "e05f770d569462b4de487da152d701628004ba824bbc76efa36c6307203ce4d6"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0046.npz",
+    "name": "carried-0045-game-0046.npz",
+    "sha256": "588604c66707a1fc548ed04ec789c6bcaffaa92e2f82d07087c74be6f9885264"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0047.npz",
+    "name": "carried-0046-game-0047.npz",
+    "sha256": "5e4da73b8c4d1310b19276228060e8e204efeca11cc2f3e96e3cdc15fe5b5b91"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0048.npz",
+    "name": "carried-0047-game-0048.npz",
+    "sha256": "cc82bd84d1aea388407e4870c235e8fb49c059d8d0aa2c93b36cbf0dc21d423a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0049.npz",
+    "name": "carried-0048-game-0049.npz",
+    "sha256": "e4298c83deff49ee3686f4eadddbe666288f6b61f167cc8fd577a212c2e8ca03"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0050.npz",
+    "name": "carried-0049-game-0050.npz",
+    "sha256": "722cdf4d79682f4ebb390c3e08dc18cd95be9ec8b1b1eadb75f1fccd29c56fa2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0051.npz",
+    "name": "carried-0050-game-0051.npz",
+    "sha256": "3bf824b842d76a3068eade4dc7e38d160ae75bf5d861fba5d6990cf8b345e450"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0052.npz",
+    "name": "carried-0051-game-0052.npz",
+    "sha256": "dfbc0bc9cc3081a3301f7c62bd47d9b5c7b179f591ce3f1301d6f1fab9c74fd2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0053.npz",
+    "name": "carried-0052-game-0053.npz",
+    "sha256": "ca8355ee07459a582807affb394651a63548d8436312279e975567482f8206c2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0054.npz",
+    "name": "carried-0053-game-0054.npz",
+    "sha256": "98130b5eab9f8e4dbda49d4219ea9ae10b413a301c47ae1356a2adabb9106693"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0055.npz",
+    "name": "carried-0054-game-0055.npz",
+    "sha256": "9320964dbff6b870c7ff28ca0fcfa3290e143778375a4b77f14de0d42e9515ab"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0056.npz",
+    "name": "carried-0055-game-0056.npz",
+    "sha256": "d55d1de74cf79721890b134b97bd2f28fd281630824776a6955c4e47bb40fdc1"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0057.npz",
+    "name": "carried-0056-game-0057.npz",
+    "sha256": "3cd43812ae7ef16643377e24651b46205913c8349282e7ee269a6004fd40009d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0058.npz",
+    "name": "carried-0057-game-0058.npz",
+    "sha256": "a93c687841fbbef094b47fb6d9672e2b5e5b959fec5c78b151b0fe98f7f032ba"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0059.npz",
+    "name": "carried-0058-game-0059.npz",
+    "sha256": "92ef63c38dcaab024615f831b23c22538f0c7f00d5c469f9bd56d853b901251f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0060.npz",
+    "name": "carried-0059-game-0060.npz",
+    "sha256": "840064e4d2de86bb268b011fde28645dc2cc0af800c6e65b78df4b9e29c6f66e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0061.npz",
+    "name": "carried-0060-game-0061.npz",
+    "sha256": "99b254fc273e7da99b0d115441e769c473c46909199e90ddd96efe42f83b16ac"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0062.npz",
+    "name": "carried-0061-game-0062.npz",
+    "sha256": "91c1fd4767c1d75fbf01eedc50ac933ffb6cc6d343cafddb33e69d477494d7b4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0063.npz",
+    "name": "carried-0062-game-0063.npz",
+    "sha256": "bb0eca4566f497c47cdc9bbc970303c3b6dcf1742b9029dd689ae10a41c2cd89"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0064.npz",
+    "name": "carried-0063-game-0064.npz",
+    "sha256": "12078f67ea5085383cac32dd213c774ea20bbca6c6bf889817a72d825cfaf9cb"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0065.npz",
+    "name": "carried-0064-game-0065.npz",
+    "sha256": "fe002255c9f0f944f5caaeccf687c2de7249158146b6e0feb56b7600ca65e495"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0066.npz",
+    "name": "carried-0065-game-0066.npz",
+    "sha256": "b5143ef9c15f9ef503ca8c0fec3ba2324e08a1956b9ee42e40d5ae17f2a8315b"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0067.npz",
+    "name": "carried-0066-game-0067.npz",
+    "sha256": "16200796295139d8f56954e2a5b60c3f33e3b1c0815968e7e9640b287ba3465d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0068.npz",
+    "name": "carried-0067-game-0068.npz",
+    "sha256": "f5aaca693784ce8f1918a6400339774fabb523740a95e1188f0b7cdd93b5f881"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0069.npz",
+    "name": "carried-0068-game-0069.npz",
+    "sha256": "2241f07d1207b53e0c0193d5c39357cc44c72b2337a32ce6acd068c9c28f9f56"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0070.npz",
+    "name": "carried-0069-game-0070.npz",
+    "sha256": "d04d5f633571682f35b9b497d3aae8e31b312cfbbab8141fa8acd92185eb299a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0071.npz",
+    "name": "carried-0070-game-0071.npz",
+    "sha256": "22f379b2bc2d55eba32a8f7152de61606035e29f996fe9ff3ea78d79ddfdbf0e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0072.npz",
+    "name": "carried-0071-game-0072.npz",
+    "sha256": "d4758e1a00e61757ae5c6d3af177eb16b0ee481a0b286333c2a8afa9896e6c3f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0073.npz",
+    "name": "carried-0072-game-0073.npz",
+    "sha256": "69a39a6bd10d70424c6835dc9d5717ed6b47838453a0e9cf93ccbe7d6c3ed63c"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0074.npz",
+    "name": "carried-0073-game-0074.npz",
+    "sha256": "e8ec186fa5476c67b10a965021db326a1dac3cc9e901414b61ffc6acef529611"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0075.npz",
+    "name": "carried-0074-game-0075.npz",
+    "sha256": "7deb2d947cada9c9db3b7ef1cfb9eb413fea00cd4ae43577b7a993294bb11770"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0076.npz",
+    "name": "carried-0075-game-0076.npz",
+    "sha256": "a13acbc215f1532ab102807c48a7791925135b2e2447c1a228fe2384bdb8bcff"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0077.npz",
+    "name": "carried-0076-game-0077.npz",
+    "sha256": "b891a4af1993511308e976daaa5b9c4b84509edec0a023786157c1119bbe7212"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0078.npz",
+    "name": "carried-0077-game-0078.npz",
+    "sha256": "229dee91214160377a5f1c099380a0034361da7946c07ab0743f1517da1f6b30"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0079.npz",
+    "name": "carried-0078-game-0079.npz",
+    "sha256": "b3097915e1b9f8e82103a8f10d0b549ec53f0ecc230153b5053ebd3bc776c0bf"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-0080.npz",
+    "name": "carried-0079-game-0080.npz",
+    "sha256": "47f8b9837027d0f0e9e940d5f12327db07b3a4a0d3512535a33767d62d5b84bf"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-181405-386793.npz",
+    "name": "carried-0080-game-20261002-181405-386793.npz",
+    "sha256": "a3c3e415bb26d67a856be259908772f41ffb7241b228f3b8be87103f764fb217"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-181753-880221.npz",
+    "name": "carried-0081-game-20261002-181753-880221.npz",
+    "sha256": "5531dbd327c0295943a9c34c4e16118f4ffde75caf2b5d71fcf14f34b47ba409"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-181825-054802.npz",
+    "name": "carried-0082-game-20261002-181825-054802.npz",
+    "sha256": "1535bcb33629f1b78f2ef188537ce87a946490a5247f6396feb0928fc47d72c0"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-182144-337449.npz",
+    "name": "carried-0083-game-20261002-182144-337449.npz",
+    "sha256": "fcabc447b822b67555b9046701588eb55d3096911db57a77537e6c6dba60edf7"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-182629-735332.npz",
+    "name": "carried-0084-game-20261002-182629-735332.npz",
+    "sha256": "55a188ac241f6dad3336532f8986d6f19d87c217fc0285f3ed2bc724addb5ce7"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-182657-599255.npz",
+    "name": "carried-0085-game-20261002-182657-599255.npz",
+    "sha256": "a76b5347997055429d8032d12b1b8ec83c29b733877f5869c1f67eaa40e0b367"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-183029-238266.npz",
+    "name": "carried-0086-game-20261002-183029-238266.npz",
+    "sha256": "52d1d29c3e0053f6b0fa8b1552dd929aef5758d384917dffe4adc4b751d1f180"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-183249-178610.npz",
+    "name": "carried-0087-game-20261002-183249-178610.npz",
+    "sha256": "a65609c7fb053c7111d9815aade741efe9e16a9166bd41f5e0822169c97491dd"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-183725-377972.npz",
+    "name": "carried-0088-game-20261002-183725-377972.npz",
+    "sha256": "9b74ef8a8a7de2fe934d7d93bc67e87f3fda942b0113febd47ae60ef71d36152"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-184119-934532.npz",
+    "name": "carried-0089-game-20261002-184119-934532.npz",
+    "sha256": "83f056551b639c48cc7855f8f4bb67b04110c5e3e701b88605a756b2a0246582"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-184606-463928.npz",
+    "name": "carried-0090-game-20261002-184606-463928.npz",
+    "sha256": "c4d0052620cce64b0497bc655766c68ed3c2be08a6d66bd35381033db1946dde"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-185037-423813.npz",
+    "name": "carried-0091-game-20261002-185037-423813.npz",
+    "sha256": "db9f627fbbc242975c3de4ddaee8ce1f2735642f136be7b6772837f8283abb1e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-185621-779411.npz",
+    "name": "carried-0092-game-20261002-185621-779411.npz",
+    "sha256": "1fb66d569aea840411699f4090e20cc8be14e2994f8d62691c943f6f42ff52e3"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-190019-665912.npz",
+    "name": "carried-0093-game-20261002-190019-665912.npz",
+    "sha256": "40b44a4466a7d94eadf55a4ccabb4ad8aeb37d5ddf4331350229b02bafaf3e25"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-190752-954581.npz",
+    "name": "carried-0094-game-20261002-190752-954581.npz",
+    "sha256": "d1f2a5209ba113b35be5716c7ad552405315a2e3d0b55ce83e90a69193c49de5"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-190856-308470.npz",
+    "name": "carried-0095-game-20261002-190856-308470.npz",
+    "sha256": "62685972a2b7925dac8abf7fbf097b462eee8aabb37887fb35788a45cc05fa6d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-191202-357974.npz",
+    "name": "carried-0096-game-20261002-191202-357974.npz",
+    "sha256": "9b4b6b10332a2e1e3d1f9fa8c60b20ad97e22e8ed5b862d165d8d45f015bc0d4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-191530-626393.npz",
+    "name": "carried-0097-game-20261002-191530-626393.npz",
+    "sha256": "c30c7031a78bc14114afecd757bffdb595eff49375799aa5556ed810528cb630"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-191636-161120.npz",
+    "name": "carried-0098-game-20261002-191636-161120.npz",
+    "sha256": "0cf3153067ab422979645cff5aa3ccc3cc7f40a32e917af611ae824485dda1e4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-191905-691061.npz",
+    "name": "carried-0099-game-20261002-191905-691061.npz",
+    "sha256": "b27e1e82d847c21ae217aee613f8c4a7d69c68082f0402268fff2df6f586914a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-192418-500797.npz",
+    "name": "carried-0100-game-20261002-192418-500797.npz",
+    "sha256": "eb50f2a00ef2a1b61d5a8f4b5f66f6145c6c053988856891eb045010f9df0b29"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-192624-427386.npz",
+    "name": "carried-0101-game-20261002-192624-427386.npz",
+    "sha256": "d472a7e0658352259e604484affd6bca01c3ff108fc72191bb13d80f80b475b4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-193145-227093.npz",
+    "name": "carried-0102-game-20261002-193145-227093.npz",
+    "sha256": "9de717e5067a34c12e12be0295643de4459272e12698ed4ae2c14f67c24a7b54"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-193317-071021.npz",
+    "name": "carried-0103-game-20261002-193317-071021.npz",
+    "sha256": "0d95c7885b98fed85f023d5523aa841e977091ff0efcff740c9ca5b7c54df8f8"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-193933-949861.npz",
+    "name": "carried-0104-game-20261002-193933-949861.npz",
+    "sha256": "6cb87d57ffe852b79fb8a739e83cac4d2e7a62c73cf6830a25c87ff0446ba7ca"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-194209-740158.npz",
+    "name": "carried-0105-game-20261002-194209-740158.npz",
+    "sha256": "2d7baa7b20515de12cc823d6f78fd660e4c571989d59a4cf15a8e8bfb1ba2b5e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-194500-132965.npz",
+    "name": "carried-0106-game-20261002-194500-132965.npz",
+    "sha256": "b05d9735449a147e888fd1ca174d984f34a61161de17163418f6e09b6b33680b"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-194744-460002.npz",
+    "name": "carried-0107-game-20261002-194744-460002.npz",
+    "sha256": "55dbdc29881bf63f74f2d9f557cf4ded6e697eaf47b6e35cc267653f374aeb9d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-194920-269480.npz",
+    "name": "carried-0108-game-20261002-194920-269480.npz",
+    "sha256": "352d4a4268d44e2fcde0f93e5b270a0cbf84be06165cbd616146805fc44be129"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-195345-662625.npz",
+    "name": "carried-0109-game-20261002-195345-662625.npz",
+    "sha256": "a31eb62bc2d7e510684415edfc8de90c1090401eb9ebb7daf6c19a954b166da3"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-195718-634017.npz",
+    "name": "carried-0110-game-20261002-195718-634017.npz",
+    "sha256": "d9f3dd0e42f8ec77d7d378748aa0011ace82a7484285fc27b210be6c2c9a098a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-200051-582680.npz",
+    "name": "carried-0111-game-20261002-200051-582680.npz",
+    "sha256": "323ea8759e706582ecbd83b5a0b7fdf90cc9b6c8e18f76abb5dd96a6c5616a98"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-200916-836344.npz",
+    "name": "carried-0112-game-20261002-200916-836344.npz",
+    "sha256": "8d711f49fe802ccb78b29caea34ef4948bdda6a9acfeb8862e0575da163eb20e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-201325-747411.npz",
+    "name": "carried-0113-game-20261002-201325-747411.npz",
+    "sha256": "3fdcafbe95e1844eab7845543f181e1b6adf3218e70a9c7a4e6d8607da3e6782"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-201956-280017.npz",
+    "name": "carried-0114-game-20261002-201956-280017.npz",
+    "sha256": "7eb7de22480fae585a67c469b980c9a2733c5977ba49ead3cb1b622563f1a881"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-202507-450157.npz",
+    "name": "carried-0115-game-20261002-202507-450157.npz",
+    "sha256": "7d510a2cd19fbc4052c98d9dd6d2d293d6f008cb1f6906a8e07010d1dda5a717"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-202855-989444.npz",
+    "name": "carried-0116-game-20261002-202855-989444.npz",
+    "sha256": "1536df804a4bcb371f9b9da76107320cce78774d389dce50b4243f816180795c"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-202913-409290.npz",
+    "name": "carried-0117-game-20261002-202913-409290.npz",
+    "sha256": "19e38efb7ab8b31203faddcb61c1978d42b7181f1486779d4ab3aac281469295"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-203806-288965.npz",
+    "name": "carried-0118-game-20261002-203806-288965.npz",
+    "sha256": "49a9f8d052c9e612a0687737232d01aaac68f0e1d9ce7343949ee4582e607229"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-203851-569477.npz",
+    "name": "carried-0119-game-20261002-203851-569477.npz",
+    "sha256": "07b556f19d40ef08ca6103e3714a31b0cc8e6f4cb1f56fa9e0e995326426430a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-204457-696293.npz",
+    "name": "carried-0120-game-20261002-204457-696293.npz",
+    "sha256": "e004de664b3fbbf86395fcbf1646574cf939a5475e3dac0076c43c5f703defcf"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-204720-502756.npz",
+    "name": "carried-0121-game-20261002-204720-502756.npz",
+    "sha256": "d768062aee89ed37a23fce7eaa702c1c3a8fad2864389dae67dd0638eecc9760"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-204957-436386.npz",
+    "name": "carried-0122-game-20261002-204957-436386.npz",
+    "sha256": "7296bd1d601fc1f73ab018a30276bb2721ce631fd416258a00f9e7d2093913a5"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-205831-415849.npz",
+    "name": "carried-0123-game-20261002-205831-415849.npz",
+    "sha256": "70cc1081879386d8b7e4feece1b38450e490559d54edf47d80c896d4b8bb44ca"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-205902-382542.npz",
+    "name": "carried-0124-game-20261002-205902-382542.npz",
+    "sha256": "affb92f9e6c92e47ad07a9460cda6f1094eb21bc26e0f1ee33639361b61b2476"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-210007-847001.npz",
+    "name": "carried-0125-game-20261002-210007-847001.npz",
+    "sha256": "da3a7da4b423d7241c079b222174232051699c07c58b41f37083244ca6c9ae44"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-210456-912347.npz",
+    "name": "carried-0126-game-20261002-210456-912347.npz",
+    "sha256": "b6b872db789502e1675226fc4acc7e9e236c7eb4ed05f0d57c9608467e87a3e0"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-210927-347358.npz",
+    "name": "carried-0127-game-20261002-210927-347358.npz",
+    "sha256": "d79658d0f681375673d30cc65a07d10f01209114af8beb364e8b61decdcfc3c2"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-211602-089302.npz",
+    "name": "carried-0128-game-20261002-211602-089302.npz",
+    "sha256": "ef5b6f6f0e20701898d0d2f5a42d70aa644395b4c598e1e863acf384604c26b6"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212039-688255.npz",
+    "name": "carried-0129-game-20261002-212039-688255.npz",
+    "sha256": "2e6f3947f7df9bc483ac087bf61f90b8aa762da9db8673ebd1b280ff0a54c1ea"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212623-957951.npz",
+    "name": "carried-0130-game-20261002-212623-957951.npz",
+    "sha256": "ae5e3f64c625654007ed00316d00331e3f190ddd12a7640e59c348c505eb1ad4"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212721-491770.npz",
+    "name": "carried-0131-game-20261002-212721-491770.npz",
+    "sha256": "80c6ede9c9e20c1ef02a51eb2253bbb88178029b1b235f79271c8cce38b7a684"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212808-367153.npz",
+    "name": "carried-0132-game-20261002-212808-367153.npz",
+    "sha256": "11ed9fa2123de36d5cfd6c748ac9ad7fb7b9d4926d0e67b6c648b35ef39d8c39"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-213305-840347.npz",
+    "name": "carried-0133-game-20261002-213305-840347.npz",
+    "sha256": "6573ba04209217ed58bee8833a9d76cc0fa7c059cc6af029c75201c3b5b14beb"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-213406-364902.npz",
+    "name": "carried-0134-game-20261002-213406-364902.npz",
+    "sha256": "09e8bdfe60c11c517ab6f44bed37f7f3d052ba2d2fe6360fd7416ae33d9e977d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-214000-707253.npz",
+    "name": "carried-0135-game-20261002-214000-707253.npz",
+    "sha256": "55d83abc0025ebc3e54a02c5d927313d4e81be14abc2b2c78a0d126a8a2524ac"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-214811-735332.npz",
+    "name": "carried-0136-game-20261002-214811-735332.npz",
+    "sha256": "4ded4610c8f6ef8555c0f11088d0a19fbfe75c1da79f9d46ff8a11b8b59daa2e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-214926-434208.npz",
+    "name": "carried-0137-game-20261002-214926-434208.npz",
+    "sha256": "4b893f1957f45e052a85ce1f77cfbaf4042d741e331e5af7a7b0883199e92c77"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-215244-673038.npz",
+    "name": "carried-0138-game-20261002-215244-673038.npz",
+    "sha256": "e693cc52df0841c5a03be83a3a4e495c7997a1d616f074d373688906e0b129fb"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-215522-296884.npz",
+    "name": "carried-0139-game-20261002-215522-296884.npz",
+    "sha256": "0ab76db51898fda641e6fde208b743312b0352a563de728922fe4e8db69a2f6f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-220337-265130.npz",
+    "name": "carried-0140-game-20261002-220337-265130.npz",
+    "sha256": "ddd813edf4930e8f59af48ad6b9c2331a79c52976ec1235ff91be36c42756477"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-220411-905989.npz",
+    "name": "carried-0141-game-20261002-220411-905989.npz",
+    "sha256": "b5f6751a6d988e759bcf92b4d85ad86229c7db5e15f5743e7be4006b051a73ba"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-221241-635323.npz",
+    "name": "carried-0142-game-20261002-221241-635323.npz",
+    "sha256": "ad84c27b6161fac0a0c7bb6e9640c0a48315028d7f7e4512b6de40e6ff2aa53d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-221628-447708.npz",
+    "name": "carried-0143-game-20261002-221628-447708.npz",
+    "sha256": "39547010ae5de945dc97bfe5a2d5d4de3226cc7b2f9706fed2155316e8418c5a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-221828-335564.npz",
+    "name": "carried-0144-game-20261002-221828-335564.npz",
+    "sha256": "39b3df698c95b04c6fe5a325f19bd2eecfc77c57fb3af5c93efa4ae9c591d221"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-221944-445758.npz",
+    "name": "carried-0145-game-20261002-221944-445758.npz",
+    "sha256": "078910d537a47f342896a0c7b6ecc7f5eeef0a63d65764fd51583c35e4ee456d"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-222404-220425.npz",
+    "name": "carried-0146-game-20261002-222404-220425.npz",
+    "sha256": "1e856bdb2f6284048ddc5f87e7268f56dabedccce17cc9ffd8d105a14acc26ed"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-222501-612809.npz",
+    "name": "carried-0147-game-20261002-222501-612809.npz",
+    "sha256": "05c36e212f1d96c419102be1d2d66310cc4767f71c9bcfe72815ccf071ee2c5a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-223134-837654.npz",
+    "name": "carried-0148-game-20261002-223134-837654.npz",
+    "sha256": "ab3eb565ac66ee9da12911d8bd33d3b003e273dea5467778aaad6ff8f2227e7e"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-223443-441801.npz",
+    "name": "carried-0149-game-20261002-223443-441801.npz",
+    "sha256": "8f9d5b9c7458f2610a3708e4bec855d4b82e6b255ef77544f1c332970c01c7cd"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-223613-616815.npz",
+    "name": "carried-0150-game-20261002-223613-616815.npz",
+    "sha256": "a1f72b9b8e89771bcd59994878605dcc8d4f62795405a942d7238fb5de69f266"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-224147-541467.npz",
+    "name": "carried-0151-game-20261002-224147-541467.npz",
+    "sha256": "4ac72b85519cebbfa01c67ed2ae638fc238bab1a2d38fda2e901d0f11f02397c"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-224753-997588.npz",
+    "name": "carried-0152-game-20261002-224753-997588.npz",
+    "sha256": "387ac6834975e8d79968b2336849f270e236967c1dffc77c18e5e5b715eaf174"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-225244-811849.npz",
+    "name": "carried-0153-game-20261002-225244-811849.npz",
+    "sha256": "7372b899a0b7949da9b95116bd8584ea0252cf21b1a05ce4fe78359c0f734168"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-225439-473298.npz",
+    "name": "carried-0154-game-20261002-225439-473298.npz",
+    "sha256": "ae8ab5a3216cbe0fac6c5cd5fdc0f19526fb8dfcfd36c3ebed7bdf04e3cd3068"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-230133-073076.npz",
+    "name": "carried-0155-game-20261002-230133-073076.npz",
+    "sha256": "2c2bf8fec2aafa7f76057997590708c7fb0647811009fa490cdf5966f055b739"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-230418-530619.npz",
+    "name": "carried-0156-game-20261002-230418-530619.npz",
+    "sha256": "9951d5b6da86a4b508672961573afe3e38bd27745ccebb5b7ac02bd4b96ab36a"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-231017-633195.npz",
+    "name": "carried-0157-game-20261002-231017-633195.npz",
+    "sha256": "fed5f2dff5836c74ec000ba73715867eeaeaecee6bed4fd7fc72e6166a4b1d65"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-231118-027258.npz",
+    "name": "carried-0158-game-20261002-231118-027258.npz",
+    "sha256": "ab95d650153a65c40f6b2cf398431da8e589336aaa64a672da0982a3c8d3cf4f"
+  },
+  {
+    "source": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-232015-479306.npz",
+    "name": "carried-0159-game-20261002-232015-479306.npz",
+    "sha256": "d3df174987cfa2db75ec37fdc8ca4c291da12007b17c939a3cefec4292836a45"
+  }
+]

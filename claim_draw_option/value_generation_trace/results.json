@@ -1,0 +1,862 @@
+{
+  "0": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/base-cycle-000119.msgpack",
+    "sha256": "7791dbc30004e0e69d7530b2b644c2e7a9cb9159798ee0a1885bbea5e238a323",
+    "mtime": 1790325252.7984939,
+    "fixed_value": 0.005229079630225897,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 0,
+        "mean": -0.007519110571593046,
+        "std": 0.004319467581808567,
+        "min": -0.013199805282056332,
+        "max": -0.002733517438173294
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 0,
+        "mean": -0.032640811055898666,
+        "std": 0.1024896427989006,
+        "min": -0.708011269569397,
+        "max": 0.12108562141656876
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": 0.019243543967604637,
+        "std": 0.1754704713821411,
+        "min": -0.17712566256523132,
+        "max": 0.9479157328605652
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": -0.04677800089120865,
+        "std": 0.11589236557483673,
+        "min": -0.5012311339378357,
+        "max": 0.1185847669839859
+      }
+    },
+    "data_games_before_checkpoint": 0,
+    "recent_data_games": 0,
+    "recent_outcomes": {},
+    "recent_label_counts": {}
+  },
+  "25": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000025.msgpack",
+    "sha256": "9a53273cdbf4c09f5597ef19c206ebb81690e7d00b214dba5c742184ed63d5c0",
+    "mtime": 1790370837.398551,
+    "fixed_value": 0.012861846014857292,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 0,
+        "mean": 0.023246875032782555,
+        "std": 0.03327246755361557,
+        "min": -0.021994227543473244,
+        "max": 0.05707089230418205
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 0,
+        "mean": 0.0025137048214673996,
+        "std": 0.037751030176877975,
+        "min": -0.11871863901615143,
+        "max": 0.07208514958620071
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": 0.023470737040042877,
+        "std": 0.036527473479509354,
+        "min": -0.06443847715854645,
+        "max": 0.11567122489213943
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": 0.0113670090213418,
+        "std": 0.02705858089029789,
+        "min": -0.04999035969376564,
+        "max": 0.05707089230418205
+      }
+    },
+    "data_games_before_checkpoint": 211,
+    "recent_data_games": 211,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 201,
+      "CHECKMATE": 10
+    },
+    "recent_label_counts": {
+      "0": 10975,
+      "1": 315,
+      "-1": 310
+    }
+  },
+  "100": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000100.msgpack",
+    "sha256": "037096fd9c2c871da83b84a6212db5641420eac9a632e6f01199371d938e60c9",
+    "mtime": 1790397324.266557,
+    "fixed_value": -0.0036113716196268797,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": -0.0036113709211349487,
+        "std": 0.0,
+        "min": -0.0036113709211349487,
+        "max": -0.0036113709211349487
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 44,
+        "mean": -0.0068186745047569275,
+        "std": 0.02608528733253479,
+        "min": -0.15883196890354156,
+        "max": 0.042022086679935455
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 27,
+        "mean": -0.0011352702276781201,
+        "std": 0.010548173449933529,
+        "min": -0.0036113709211349487,
+        "max": 0.05469021573662758
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 18,
+        "mean": 0.002666845452040434,
+        "std": 0.17652073502540588,
+        "min": -0.5576393604278564,
+        "max": 0.7072986960411072
+      }
+    },
+    "data_games_before_checkpoint": 811,
+    "recent_data_games": 811,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 771,
+      "CHECKMATE": 40
+    },
+    "recent_label_counts": {
+      "0": 40500,
+      "1": 983,
+      "-1": 963
+    }
+  },
+  "200": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000200.msgpack",
+    "sha256": "a8c46dfe901eca5739bba6bf2dcc84bbfae41d5bb28d73529577d82262602ba3",
+    "mtime": 1790432542.7072823,
+    "fixed_value": -0.001029181177727878,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": -0.0010291810613125563,
+        "std": 0.0,
+        "min": -0.0010291810613125563,
+        "max": -0.0010291810613125563
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 64,
+        "mean": -0.001029181177727878,
+        "std": 1.1641532182693481e-10,
+        "min": -0.0010291810613125563,
+        "max": -0.0010291810613125563
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 29,
+        "mean": 0.0010078722843900323,
+        "std": 0.037083517760038376,
+        "min": -0.11222313344478607,
+        "max": 0.1733134239912033
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 31,
+        "mean": -0.0010291809448972344,
+        "std": 1.1641532182693481e-10,
+        "min": -0.0010291810613125563,
+        "max": -0.0010291810613125563
+      }
+    },
+    "data_games_before_checkpoint": 1611,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 935,
+      "CHECKMATE": 65
+    },
+    "recent_label_counts": {
+      "0": 48351,
+      "1": 1254,
+      "-1": 1226
+    }
+  },
+  "400": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000400.msgpack",
+    "sha256": "c13d1ce874cd61dff0393de77660ec3c9539d79ba9298f2773aa4f202a4f7974",
+    "mtime": 1790503011.3546722,
+    "fixed_value": 0.0030730003491044044,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.003073000116273761,
+        "std": 0.0,
+        "min": 0.003073000116273761,
+        "max": 0.003073000116273761
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 64,
+        "mean": 0.003072999883443117,
+        "std": 2.3283064365386963e-10,
+        "min": 0.003073000116273761,
+        "max": 0.003073000116273761
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 30,
+        "mean": 0.03501712903380394,
+        "std": 0.17496523261070251,
+        "min": 0.003073000116273761,
+        "max": 0.9933411478996277
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": -0.06016628071665764,
+        "std": 0.23860174417495728,
+        "min": -0.9787813425064087,
+        "max": 0.003073000116273761
+      }
+    },
+    "data_games_before_checkpoint": 3211,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 939,
+      "CHECKMATE": 61
+    },
+    "recent_label_counts": {
+      "0": 48002,
+      "1": 763,
+      "-1": 738
+    }
+  },
+  "50": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000050.msgpack",
+    "sha256": "ab65125846a4a61c43c904afde3180d551fecd77f001b1e6fd224abd3575a4cc",
+    "mtime": 1790379959.7014718,
+    "fixed_value": 0.00530155748128891,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 0,
+        "mean": -0.00709129823371768,
+        "std": 0.005051166284829378,
+        "min": -0.014159156009554863,
+        "max": -0.0026598982512950897
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 0,
+        "mean": -0.005177931860089302,
+        "std": 0.03147035092115402,
+        "min": -0.1604963093996048,
+        "max": 0.10418341308832169
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": 0.010750653222203255,
+        "std": 0.08554792404174805,
+        "min": -0.16675488650798798,
+        "max": 0.3320964276790619
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 0,
+        "mean": -0.025624984875321388,
+        "std": 0.08962711691856384,
+        "min": -0.41378462314605713,
+        "max": 0.14158779382705688
+      }
+    },
+    "data_games_before_checkpoint": 411,
+    "recent_data_games": 411,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 393,
+      "CHECKMATE": 18
+    },
+    "recent_label_counts": {
+      "0": 21204,
+      "1": 539,
+      "-1": 530
+    }
+  },
+  "75": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000075.msgpack",
+    "sha256": "d2a4907a4ea18ab8df7ff6b973771304532a48ccb35182fb00f1fa29d4754f26",
+    "mtime": 1790388445.674364,
+    "fixed_value": 0.005048820748925209,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 2,
+        "mean": 0.004910826683044434,
+        "std": 0.00019515265012159944,
+        "min": 0.00463483901694417,
+        "max": 0.005048820283263922
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 7,
+        "mean": -0.005531799979507923,
+        "std": 0.04495870694518089,
+        "min": -0.33780765533447266,
+        "max": 0.028847752138972282
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 6,
+        "mean": 0.006142091937363148,
+        "std": 0.009403473697602749,
+        "min": -0.006867653224617243,
+        "max": 0.04135354980826378
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 7,
+        "mean": 0.0019151611486449838,
+        "std": 0.027652908116579056,
+        "min": -0.0973680317401886,
+        "max": 0.060838453471660614
+      }
+    },
+    "data_games_before_checkpoint": 611,
+    "recent_data_games": 611,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 580,
+      "CHECKMATE": 31
+    },
+    "recent_label_counts": {
+      "0": 30533,
+      "1": 803,
+      "-1": 784
+    }
+  },
+  "125": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000125.msgpack",
+    "sha256": "1fe33de65c9a56eda8dcaea6f4961c303b494185752e139d66ecc96d3c06f3d5",
+    "mtime": 1790406237.3733099,
+    "fixed_value": -0.0034975046291947365,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": -0.003497504396364093,
+        "std": 0.0,
+        "min": -0.003497504396364093,
+        "max": -0.003497504396364093
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 53,
+        "mean": 0.003886910155415535,
+        "std": 0.057005297392606735,
+        "min": -0.11546086519956589,
+        "max": 0.42798227071762085
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 29,
+        "mean": 0.009885681793093681,
+        "std": 0.05351507291197777,
+        "min": -0.003497504396364093,
+        "max": 0.2682456076145172
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": -0.004862440284341574,
+        "std": 0.006820035632699728,
+        "min": -0.04162907972931862,
+        "max": -0.001293129869736731
+      }
+    },
+    "data_games_before_checkpoint": 1011,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 948,
+      "CHECKMATE": 52
+    },
+    "recent_label_counts": {
+      "0": 49585,
+      "1": 1219,
+      "-1": 1194
+    }
+  },
+  "150": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000150.msgpack",
+    "sha256": "e6dcd02a868206af70b0d8fdecb5c212a3271a923d6b8acdfd32c4884345fff2",
+    "mtime": 1790414959.0163164,
+    "fixed_value": 0.002245339099317789,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.0022453386336565018,
+        "std": 0.0,
+        "min": 0.0022453386336565018,
+        "max": 0.0022453386336565018
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 60,
+        "mean": 0.010930555872619152,
+        "std": 0.05313247814774513,
+        "min": -0.08242346346378326,
+        "max": 0.3821895718574524
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": 0.0017680333694443107,
+        "std": 0.005896435584872961,
+        "min": -0.022161634638905525,
+        "max": 0.021933265030384064
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 30,
+        "mean": 0.002870189491659403,
+        "std": 0.0034224505070596933,
+        "min": 0.0022453386336565018,
+        "max": 0.02161572501063347
+      }
+    },
+    "data_games_before_checkpoint": 1211,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 945,
+      "CHECKMATE": 55
+    },
+    "recent_label_counts": {
+      "0": 48729,
+      "1": 1216,
+      "-1": 1189
+    }
+  },
+  "175": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000175.msgpack",
+    "sha256": "c973c69b570f9b817cc9140631901ef6347fc5980e775c58225a1375528ed816",
+    "mtime": 1790423722.6034951,
+    "fixed_value": -0.0081434715539217,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": -0.008143470622599125,
+        "std": 0.0,
+        "min": -0.008143470622599125,
+        "max": -0.008143470622599125
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 63,
+        "mean": -0.006817134562879801,
+        "std": 0.010527465492486954,
+        "min": -0.008143470622599125,
+        "max": 0.0767420306801796
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": 0.01132067572325468,
+        "std": 0.09009072929620743,
+        "min": -0.008143470622599125,
+        "max": 0.4986448884010315
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 31,
+        "mean": -0.0081434715539217,
+        "std": 9.313225746154785e-10,
+        "min": -0.008143470622599125,
+        "max": -0.008143470622599125
+      }
+    },
+    "data_games_before_checkpoint": 1411,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 937,
+      "CHECKMATE": 63
+    },
+    "recent_label_counts": {
+      "0": 48055,
+      "1": 1252,
+      "-1": 1220
+    }
+  },
+  "225": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000225.msgpack",
+    "sha256": "4db821f93e782296ff5000e509eff84e4b9c46e92d1563c4f15aa0f0bf312eb3",
+    "mtime": 1790441171.7864451,
+    "fixed_value": 0.005297404248267412,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.005297402385622263,
+        "std": 4.656612873077393e-10,
+        "min": 0.00529740285128355,
+        "max": 0.00529740285128355
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 63,
+        "mean": 0.005108759738504887,
+        "std": 0.001497311401180923,
+        "min": -0.006775781512260437,
+        "max": 0.00529740285128355
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 27,
+        "mean": 0.04639056324958801,
+        "std": 0.150579035282135,
+        "min": -0.04538504779338837,
+        "max": 0.6360876560211182
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 31,
+        "mean": 0.005297403782606125,
+        "std": 9.313225746154785e-10,
+        "min": 0.00529740285128355,
+        "max": 0.00529740285128355
+      }
+    },
+    "data_games_before_checkpoint": 1811,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 931,
+      "CHECKMATE": 69
+    },
+    "recent_label_counts": {
+      "0": 47823,
+      "1": 1278,
+      "-1": 1248
+    }
+  },
+  "250": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000250.msgpack",
+    "sha256": "aec9420fb73584b7c9a324abb3b235c994acbac3fd943abb976531029209e214",
+    "mtime": 1790450173.407921,
+    "fixed_value": 0.0032423394732177258,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.0032423390075564384,
+        "std": 0.0,
+        "min": 0.0032423390075564384,
+        "max": 0.0032423390075564384
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 61,
+        "mean": 0.004370450973510742,
+        "std": 0.011372058652341366,
+        "min": -0.008759544230997562,
+        "max": 0.0936606302857399
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 30,
+        "mean": 0.010319496504962444,
+        "std": 0.03876318410038948,
+        "min": 0.0032423390075564384,
+        "max": 0.2226341962814331
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 29,
+        "mean": -0.019270680844783783,
+        "std": 0.11819986253976822,
+        "min": -0.6660877466201782,
+        "max": 0.0032423390075564384
+      }
+    },
+    "data_games_before_checkpoint": 2011,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 931,
+      "CHECKMATE": 69
+    },
+    "recent_label_counts": {
+      "0": 47806,
+      "1": 1299,
+      "-1": 1267
+    }
+  },
+  "275": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000275.msgpack",
+    "sha256": "e248197d9dce25091423ac09a779565df5a639cc2f34f3aa19fd6c32d8753488",
+    "mtime": 1790458926.2296758,
+    "fixed_value": 0.0033793963957577944,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.0033793961629271507,
+        "std": 0.0,
+        "min": 0.0033793961629271507,
+        "max": 0.0033793961629271507
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 62,
+        "mean": -0.005854243412613869,
+        "std": 0.06791462749242783,
+        "min": -0.5431322455406189,
+        "max": 0.0033793961629271507
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 29,
+        "mean": 0.0035616648383438587,
+        "std": 0.0013368442887440324,
+        "min": 0.0017063069390133023,
+        "max": 0.010702809318900108
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 26,
+        "mean": -0.017275197431445122,
+        "std": 0.07872314006090164,
+        "min": -0.4305439591407776,
+        "max": 0.0033793961629271507
+      }
+    },
+    "data_games_before_checkpoint": 2211,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 937,
+      "CHECKMATE": 63
+    },
+    "recent_label_counts": {
+      "0": 48064,
+      "1": 1099,
+      "-1": 1070
+    }
+  },
+  "300": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000300.msgpack",
+    "sha256": "e850db5a31120e08e23a8877e2a09a33cc86a6139e0828ddbc93d579bdbc47f0",
+    "mtime": 1790467632.9314146,
+    "fixed_value": 0.004877795465290546,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.004877794999629259,
+        "std": 0.0,
+        "min": 0.004877794999629259,
+        "max": 0.004877794999629259
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 60,
+        "mean": -0.0021760391537100077,
+        "std": 0.040685780346393585,
+        "min": -0.3070545494556427,
+        "max": 0.004877794999629259
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": 0.06744679808616638,
+        "std": 0.21387039124965668,
+        "min": 0.004877794999629259,
+        "max": 0.9688195586204529
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 26,
+        "mean": -0.029382141306996346,
+        "std": 0.12265227735042572,
+        "min": -0.6711710095405579,
+        "max": 0.004877794999629259
+      }
+    },
+    "data_games_before_checkpoint": 2411,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 943,
+      "CHECKMATE": 57
+    },
+    "recent_label_counts": {
+      "0": 48142,
+      "1": 957,
+      "-1": 933
+    }
+  },
+  "325": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000325.msgpack",
+    "sha256": "6d5373d827f1a5721a9eaf1a608ebdbfc25a76cd44169be55dc229d556f7648e",
+    "mtime": 1790476845.4416845,
+    "fixed_value": 0.003036234760656953,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.003036234527826309,
+        "std": 0.0,
+        "min": 0.003036234527826309,
+        "max": 0.003036234527826309
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 64,
+        "mean": 0.003036234527826309,
+        "std": 0.0,
+        "min": 0.003036234527826309,
+        "max": 0.003036234527826309
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 30,
+        "mean": 0.03147844225168228,
+        "std": 0.15578433871269226,
+        "min": 0.003036234527826309,
+        "max": 0.8847444653511047
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 28,
+        "mean": -0.03551946580410004,
+        "std": 0.15243802964687347,
+        "min": -0.7891478538513184,
+        "max": 0.003036234527826309
+      }
+    },
+    "data_games_before_checkpoint": 2611,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 948,
+      "CHECKMATE": 52
+    },
+    "recent_label_counts": {
+      "0": 48720,
+      "1": 775,
+      "-1": 755
+    }
+  },
+  "350": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000350.msgpack",
+    "sha256": "71ae30558ef9c866baf0e0023840bbdf78a27f8953d43654df88df5f91d71652",
+    "mtime": 1790485226.7409947,
+    "fixed_value": -0.0021865549497306347,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": -0.0021865549497306347,
+        "std": 0.0,
+        "min": -0.0021865549497306347,
+        "max": -0.0021865549497306347
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 64,
+        "mean": -0.0021865551825612783,
+        "std": 2.3283064365386963e-10,
+        "min": -0.0021865549497306347,
+        "max": -0.0021865549497306347
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 31,
+        "mean": -0.002186554716899991,
+        "std": 2.3283064365386963e-10,
+        "min": -0.0021865549497306347,
+        "max": -0.0021865549497306347
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 26,
+        "mean": -0.06128383427858353,
+        "std": 0.19307048618793488,
+        "min": -0.9650381207466125,
+        "max": -0.0021865549497306347
+      }
+    },
+    "data_games_before_checkpoint": 2811,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "CHECKMATE": 55,
+      "THREEFOLD_REPETITION": 945
+    },
+    "recent_label_counts": {
+      "0": 48300,
+      "1": 775,
+      "-1": 750
+    }
+  },
+  "375": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000375.msgpack",
+    "sha256": "eefd5f430d80024bfcecf13240cbfd90de442fa39e4cc7a93087b92db77890c9",
+    "mtime": 1790493858.6963844,
+    "fixed_value": 0.004851899109780788,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead_positions": 3,
+        "mean": 0.004851898644119501,
+        "std": 0.0,
+        "min": 0.004851898644119501,
+        "max": 0.004851898644119501
+      },
+      "0": {
+        "positions": 64,
+        "dead_positions": 64,
+        "mean": 0.004851898644119501,
+        "std": 0.0,
+        "min": 0.004851898644119501,
+        "max": 0.004851898644119501
+      },
+      "1": {
+        "positions": 31,
+        "dead_positions": 30,
+        "mean": 0.036952849477529526,
+        "std": 0.1758240908384323,
+        "min": 0.004851898644119501,
+        "max": 0.9999811053276062
+      },
+      "-1": {
+        "positions": 31,
+        "dead_positions": 29,
+        "mean": -0.04233727604150772,
+        "std": 0.1913275122642517,
+        "min": -0.9852671027183533,
+        "max": 0.004851898644119501
+      }
+    },
+    "data_games_before_checkpoint": 3011,
+    "recent_data_games": 1000,
+    "recent_outcomes": {
+      "THREEFOLD_REPETITION": 944,
+      "CHECKMATE": 56
+    },
+    "recent_label_counts": {
+      "0": 48041,
+      "1": 660,
+      "-1": 639
+    }
+  }
+}

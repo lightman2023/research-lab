@@ -1,0 +1,208 @@
+"""Play evaluation matches between two saved AlphaZero checkpoints."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import random
+from datetime import datetime
+from pathlib import Path
+
+import chess
+import chess.pgn
+
+from azchess.checkpoint import load_variables
+from azchess.mcts import MCTS
+from azchess.game import game_outcome, DRAW_RULE
+
+
+# Each neighboring pair of games uses the same opening with colors reversed.
+OPENINGS = (
+    ("初期局面", ()),
+    ("オープンゲーム", ("e2e4", "e7e5", "g1f3", "b8c6")),
+    ("シシリアン", ("e2e4", "c7c5", "g1f3", "d7d6")),
+    ("フレンチ", ("e2e4", "e7e6", "d2d4", "d7d5")),
+    ("カロカン", ("e2e4", "c7c6", "d2d4", "d7d5")),
+    ("クイーンズギャンビット", ("d2d4", "d7d5", "c2c4", "e7e6")),
+    ("スラヴ", ("d2d4", "d7d5", "c2c4", "c7c6")),
+    ("キングズインディアン", ("d2d4", "g8f6", "c2c4", "g7g6")),
+    ("ニムゾ系", ("d2d4", "g8f6", "c2c4", "e7e6")),
+    ("イングリッシュ", ("c2c4", "e7e5", "b1c3", "g8f6")),
+    ("レティ", ("g1f3", "d7d5", "g2g3", "g8f6")),
+    ("スカンジナビアン", ("e2e4", "d7d5", "e4d5", "d8d5")),
+)
+
+
+def emit(event: str, **payload) -> None:
+    print(json.dumps({"event": event, **payload}, ensure_ascii=False), flush=True)
+
+
+def material_balance(board: chess.Board) -> int:
+    values = {
+        chess.PAWN: 1,
+        chess.KNIGHT: 3,
+        chess.BISHOP: 3,
+        chess.ROOK: 5,
+        chess.QUEEN: 9,
+    }
+    return sum(
+        value
+        * (
+            len(board.pieces(piece_type, chess.WHITE))
+            - len(board.pieces(piece_type, chess.BLACK))
+        )
+        for piece_type, value in values.items()
+    )
+
+
+def model_name(path: Path) -> str:
+    return path.name
+
+
+def score_to_elo(score_rate: float) -> int:
+    clipped = min(0.99, max(0.01, score_rate))
+    return round(400.0 * math.log10(clipped / (1.0 - clipped)))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Compare two AlphaZero checkpoints")
+    parser.add_argument("--model-a", type=Path, required=True)
+    parser.add_argument("--model-b", type=Path, required=True)
+    parser.add_argument("--games", type=int, default=10)
+    parser.add_argument("--simulations", type=int, default=50)
+    parser.add_argument("--max-plies", type=int, default=300)
+    parser.add_argument("--seed", type=int, default=20260914)
+    parser.add_argument("--match-id", default="manual")
+    args = parser.parse_args()
+
+    if args.games < 1:
+        parser.error("--games must be at least 1")
+    if args.simulations < 1:
+        parser.error("--simulations must be at least 1")
+    if args.max_plies < 20:
+        parser.error("--max-plies must be at least 20")
+    if args.model_a.resolve() == args.model_b.resolve():
+        parser.error("model A and model B must be different checkpoints")
+
+    emit(
+        "loading",
+        model_a=model_name(args.model_a),
+        model_b=model_name(args.model_b),
+        games=args.games,
+        simulations=args.simulations,
+    )
+    model_a, variables_a = load_variables(args.model_a)
+    model_b, variables_b = load_variables(args.model_b)
+    agent_a = MCTS(model_a, variables_a, simulations=args.simulations)
+    agent_b = MCTS(model_b, variables_b, simulations=args.simulations)
+
+    rng = random.Random(args.seed)
+    opening_order = list(range(len(OPENINGS)))
+    rng.shuffle(opening_order)
+    output_dir = Path("arena_results")
+    output_dir.mkdir(exist_ok=True)
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    pgn_path = output_dir / f"match-{stamp}-{args.match_id[:8]}.pgn"
+
+    a_wins = b_wins = draws = cutoffs = 0
+    with pgn_path.open("w", encoding="utf-8") as pgn_file:
+        for game_index in range(args.games):
+            opening_name, opening_moves = OPENINGS[
+                opening_order[(game_index // 2) % len(opening_order)]
+            ]
+            a_is_white = game_index % 2 == 0
+            board = chess.Board()
+            game = chess.pgn.Game()
+            game.headers["Event"] = "AlphaZero checkpoint comparison"
+            game.headers["Round"] = str(game_index + 1)
+            game.headers["White"] = model_name(args.model_a if a_is_white else args.model_b)
+            game.headers["Black"] = model_name(args.model_b if a_is_white else args.model_a)
+            game.headers["Opening"] = opening_name
+            game.headers["DrawClaimRule"] = DRAW_RULE
+            node = game
+            for uci in opening_moves:
+                move = chess.Move.from_uci(uci)
+                if move not in board.legal_moves:
+                    raise RuntimeError(f"Invalid built-in opening move: {uci}")
+                node = node.add_variation(move)
+                board.push(move)
+
+            emit(
+                "game_start",
+                game=game_index + 1,
+                white=game.headers["White"],
+                black=game.headers["Black"],
+                opening=opening_name,
+            )
+            while (
+                game_outcome(board) is None
+                and len(board.move_stack) < args.max_plies
+            ):
+                a_to_move = board.turn == (chess.WHITE if a_is_white else chess.BLACK)
+                agent = agent_a if a_to_move else agent_b
+                move = agent.choose_action(board, temperature=0.0)
+                node = node.add_variation(move)
+                board.push(move)
+
+            outcome = game_outcome(board)
+            cutoff = outcome is None
+            if cutoff:
+                result = "1/2-1/2"
+                termination = "MAX_PLIES"
+                cutoffs += 1
+            else:
+                result = outcome.result()
+                termination = outcome.termination.name
+            game.headers["Result"] = result
+            game.headers["Termination"] = termination
+            print(game, file=pgn_file, end="\n\n")
+            pgn_file.flush()
+
+            if result == "1/2-1/2":
+                draws += 1
+                winner = "draw"
+            else:
+                white_won = result == "1-0"
+                a_won = white_won == a_is_white
+                if a_won:
+                    a_wins += 1
+                    winner = "A"
+                else:
+                    b_wins += 1
+                    winner = "B"
+            completed = game_index + 1
+            a_score = a_wins + draws * 0.5
+            emit(
+                "game_result",
+                game=completed,
+                result=result,
+                winner=winner,
+                termination=termination,
+                plies=len(board.move_stack),
+                material_white=material_balance(board),
+                a_wins=a_wins,
+                b_wins=b_wins,
+                draws=draws,
+                cutoffs=cutoffs,
+                a_score_rate=a_score / completed,
+            )
+
+    score_rate = (a_wins + draws * 0.5) / args.games
+    emit(
+        "summary",
+        model_a=model_name(args.model_a),
+        model_b=model_name(args.model_b),
+        games=args.games,
+        a_wins=a_wins,
+        b_wins=b_wins,
+        draws=draws,
+        cutoffs=cutoffs,
+        a_score_rate=score_rate,
+        estimated_elo_a_minus_b=score_to_elo(score_rate),
+        pgn=str(pgn_path.resolve()),
+    )
+
+
+if __name__ == "__main__":
+    main()

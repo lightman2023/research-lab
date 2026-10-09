@@ -1,0 +1,6 @@
+{
+  "completed_runs": 0,
+  "completed_epochs": 0,
+  "save_interval": 25,
+  "selfplay_workers": 2
+}

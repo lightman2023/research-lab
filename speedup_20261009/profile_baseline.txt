@@ -1,0 +1,28 @@
+         645920 function calls in 0.980 seconds
+
+   Ordered by: cumulative time
+   List reduced from 247 to 20 due to restriction <20>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.004    0.004    0.982    0.982 mcts.py:75(search)
+       65    0.001    0.000    0.781    0.012 mcts.py:57(expand)
+       60    0.078    0.001    0.762    0.013 mcts.py:45(evaluate)
+      124    0.002    0.000    0.345    0.003 __init__.py:3858(copy)
+      124    0.023    0.000    0.340    0.003 __init__.py:3877(<listcomp>)
+    38234    0.119    0.000    0.316    0.000 copy.py:66(copy)
+      240    0.305    0.001    0.305    0.001 {built-in method numpy.asarray}
+       60    0.013    0.000    0.249    0.004 game.py:42(encode_board)
+    38234    0.072    0.000    0.121    0.000 copy.py:259(_reconstruct)
+     1090    0.049    0.000    0.070    0.000 __init__.py:2258(is_repetition)
+      120    0.003    0.000    0.060    0.001 array.py:334(__getitem__)
+      120    0.001    0.000    0.055    0.000 lax_numpy.py:11915(_rewriting_take)
+      120    0.008    0.000    0.055    0.000 lax_numpy.py:11834(_attempt_rewriting_take_via_slice)
+      300    0.002    0.000    0.046    0.000 core.py:447(bind)
+      300    0.000    0.000    0.041    0.000 core.py:467(bind_with_trace)
+      300    0.003    0.000    0.041    0.000 core.py:928(process_primitive)
+       60    0.001    0.000    0.031    0.001 game.py:94(legal_action_map)
+       60    0.001    0.000    0.031    0.001 lax_numpy.py:5742(asarray)
+    76708    0.029    0.000    0.029    0.000 {built-in method builtins.getattr}
+       60    0.001    0.000    0.028    0.000 lax_numpy.py:5483(array)
+
+

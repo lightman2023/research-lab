@@ -1,0 +1,15 @@
+{
+  "start_cycle": 5,
+  "start_step": 3200,
+  "cycles_per_run": 0,
+  "save_interval": "1",
+  "simulations": 200,
+  "learning_rate": 0.0001,
+  "temperature": 1,
+  "games_per_cycle": 8,
+  "updates_per_cycle": 64,
+  "batch_size": 64,
+  "concurrent_evaluation_allowed": true,
+  "frozen_comparison_cycle": 5,
+  "note": "Initial paired 5-cycle experiment preserved. B-only extension; A remains at cycle 5. Original experiment results unchanged."
+}

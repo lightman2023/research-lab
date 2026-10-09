@@ -1,0 +1,74 @@
+{
+  "games": 24,
+  "same_model_verified": true,
+  "simulations_a": 50,
+  "simulations_b": 200,
+  "max_plies": 512,
+  "seed": 20260914,
+  "a_wins": 0,
+  "b_wins": 5,
+  "draws": 19,
+  "terminations": {
+    "THREEFOLD_REPETITION": 19,
+    "CHECKMATE": 5
+  },
+  "b_score_rate": 0.6041666666666666,
+  "mean_plies": 166.83333333333334,
+  "median_plies": 142.5,
+  "plies_range": [
+    6,
+    482
+  ],
+  "pgn_legality_and_earliest_termination_verified": true,
+  "color_swap_verified": true,
+  "decisive_games": [
+    {
+      "game": 2,
+      "a_is_white": false,
+      "opening": "レティ",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 83,
+      "winner": "B"
+    },
+    {
+      "game": 5,
+      "a_is_white": true,
+      "opening": "カロカン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 356,
+      "winner": "B"
+    },
+    {
+      "game": 14,
+      "a_is_white": false,
+      "opening": "ニムゾ系",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 341,
+      "winner": "B"
+    },
+    {
+      "game": 15,
+      "a_is_white": true,
+      "opening": "初期局面",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 6,
+      "winner": "B"
+    },
+    {
+      "game": 16,
+      "a_is_white": false,
+      "opening": "初期局面",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 263,
+      "winner": "B"
+    }
+  ],
+  "shortest_game_pgn": "[Event \"AlphaZero checkpoint comparison\"]\n[Site \"?\"]\n[Date \"????.??.??\"]\n[Round \"15\"]\n[White \"A: cycle-000010.msgpack [sims=50]\"]\n[Black \"B: cycle-000010.msgpack [sims=200]\"]\n[Result \"0-1\"]\n[WhiteSimulations \"50\"]\n[BlackSimulations \"200\"]\n[MaxPlies \"512\"]\n[Seed \"20260914\"]\n[Opening \"初期局面\"]\n[DrawClaimRule \"az_actual_threefold_50move_v1\"]\n[Termination \"CHECKMATE\"]\n\n1. g4 e5 2. a4 a5 3. f4 Qh4# 0-1",
+  "model_sha256": "564a688de018c391b8244fcd2a4fcf75271f83e2f59a11c464c5e65250ceae2d",
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261003-002452-fbce438a.pgn"
+}

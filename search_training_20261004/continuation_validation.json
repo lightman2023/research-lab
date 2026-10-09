@@ -1,0 +1,8 @@
+{
+  "resume_beyond_five": true,
+  "zero_runs_until_stopped": true,
+  "finite_final_snapshot_saved": true,
+  "evaluation_allows_B_training": true,
+  "unrelated_training_blocked": true,
+  "training_started": false
+}

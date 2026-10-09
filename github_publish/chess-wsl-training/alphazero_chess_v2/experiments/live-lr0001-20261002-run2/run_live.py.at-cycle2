@@ -1,0 +1,215 @@
+"""Bounded live self-play learning and conditional sampling diagnosis."""
+import os
+os.environ.setdefault('XLA_PYTHON_CLIENT_PREALLOCATE', 'false')
+import argparse
+import hashlib
+import json
+import platform
+import shutil
+import sys
+from pathlib import Path
+from collections import Counter
+ROOT = Path('/home/user/chess/alphazero_chess_v2')
+sys.path.insert(0, str(ROOT))
+import chess
+import chess.pgn
+from flax import linen as nn, serialization
+import jax
+import jax.numpy as jnp
+import numpy as np
+import optax
+from azchess.checkpoint import load_variables, save_variables, save_bytes_atomic
+from azchess.game import ACTION_SIZE, DRAW_RULE, encode_board, game_outcome
+from azchess.mcts import MCTS
+from train import create_optimizer, ReplayBuffer
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--cycles', type=int, default=10)
+    parser.add_argument('--games-per-cycle', type=int, default=8)
+    parser.add_argument('--updates-per-cycle', type=int, default=64)
+    parser.add_argument('--save-interval', type=int, default=1)
+    parser.add_argument('--seed', type=int, default=20261002)
+    args = parser.parse_args()
+    root = args.output_dir
+    root.mkdir(parents=True, exist_ok=False)
+    (root / 'selfplay_data').mkdir()
+    (root / 'checkpoints/saved').mkdir(parents=True)
+    (root / 'code/azchess').mkdir(parents=True)
+    for name in ['train.py', 'selfplay.py', 'arena.py', 'parallel_selfplay.py', 'azchess/game.py', 'azchess/mcts.py', 'azchess/model.py', 'azchess/checkpoint.py']:
+        shutil.copy2(ROOT / name, root / 'code' / name)
+    shutil.copy2(__file__, root / 'run_live.py')
+    base_dir = ROOT / 'experiments/lr-cycle50-20261002-145753/B-lr-0.0001'
+    source = base_dir / 'step-001600.msgpack'
+    source_state = base_dir / 'training_state.msgpack'
+    source_hashes = {str(p): digest(p) for p in [source, source_state]}
+    shutil.copy2(source, root / 'checkpoints/base.msgpack')
+    shutil.copy2(source, root / 'checkpoints/latest.msgpack')
+    shutil.copy2(source_state, root / 'checkpoints/training_state.msgpack')
+    manifest_path = Path('/mnt/c/Users/User/Documents/ChatGPT/研究室/claim_draw_option/value_generation_trace/positions.json')
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+    (root / 'evaluation_manifest.json').write_text(json.dumps(manifest, indent=2))
+    config = dict(cycles=args.cycles, games_per_cycle=args.games_per_cycle, updates_per_cycle=args.updates_per_cycle,
+                  save_interval=args.save_interval, learning_rate=0.0001, simulations=50, max_plies=512,
+                  batch_size=64, late_temperature=0.25, temperature_before_ply30=1., replay_max_games=1000,
+                  replay='new experiment games only; historical data excluded due to rule differences',
+                  optimizer='AdamW; original B1600 moments/step carried forward; decay 0.0001',
+                  draw_rule=DRAW_RULE, source_hashes=source_hashes, seed=args.seed,
+                  python=platform.python_version(), jax=jax.__version__, devices=str(jax.devices()),
+                  code_hashes={name: digest(root/'code'/name) for name in ['train.py','selfplay.py','arena.py','azchess/game.py','azchess/mcts.py','azchess/model.py']})
+    (root/'configuration.json').write_text(json.dumps(config, indent=2))
+    def emit(event, **payload):
+        row = dict(event=event, **payload)
+        line = json.dumps(row)
+        print(line, flush=True)
+        with (root/'run.log').open('a') as stream:
+            stream.write(line+'\n')
+    model, base = load_variables(source)
+    optimizer = optax.adamw(0.0001, weight_decay=0.0001)
+    template = dict(variables=base, opt_state=optimizer.init(base['params']), step=np.asarray(0, np.int64))
+    bundle = serialization.from_bytes(template, source_state.read_bytes())
+    assert int(bundle['step']) == 1600
+    assert all(np.array_equal(np.asarray(a), np.asarray(b)) for a,b in zip(jax.tree.leaves(base), jax.tree.leaves(bundle['variables'])))
+    params, stats, opt_state = bundle['variables']['params'], bundle['variables']['batch_stats'], bundle['opt_state']
+    agent = MCTS(model, base, simulations=50, root_noise=True)
+    def variables():
+        return dict(params=params, batch_stats=stats)
+    inputs, labels, groups = [], [], []
+    for item in manifest:
+        if 'moves' in item:
+            board=chess.Board()
+            for uci in item['moves']: board.push_uci(uci)
+            inputs.append(encode_board(board)); labels.append(0.)
+        else:
+            with np.load(item['file']) as game:
+                inputs.append(game['states'][item['position']].astype(np.float32))
+                labels.append(float(game['values'][item['position']]))
+        groups.append(item['group'])
+    fixed_x=np.stack(inputs); labels=np.asarray(labels); groups=np.asarray(groups)
+    @jax.jit
+    def inspect(variables, x):
+        (_,values), captured=model.apply(variables,x,train=False,capture_intermediates=lambda module,method:isinstance(module, nn.Dense),mutable=['intermediates'])
+        return values,captured['intermediates']['Dense_0']['__call__'][0]
+    def evaluate(variables, x=fixed_x, targets=labels, group_labels=groups):
+        value,dense=map(np.asarray,inspect(variables,jnp.asarray(x)))
+        assert np.isfinite(value).all() and np.isfinite(dense).all()
+        dead=np.all(dense<=0,axis=1)
+        result=dict(positions=len(x),dead=int(dead.sum()),value_std=float(value.std()),groups={})
+        for group in sorted(set(group_labels)):
+            mask=np.asarray(group_labels)==group
+            result['groups'][str(group)]=dict(positions=int(mask.sum()),dead=int(dead[mask].sum()),mean=float(value[mask].mean()),std=float(value[mask].std()))
+            if group!='opening': result['groups'][str(group)]['mse']=float(np.mean((value[mask]-targets[mask])**2))
+        mask=np.asarray(group_labels)!='opening'
+        result['value_mse']=float(np.mean((value[mask]-targets[mask])**2))
+        return result
+    @jax.jit
+    def update(params, stats, opt_state, x, policy, target):
+        def loss_fn(p):
+            (logits,value),new=model.apply(dict(params=p,batch_stats=stats),x,train=True,mutable=['batch_stats'])
+            ploss=-jnp.mean(jnp.sum(policy*jax.nn.log_softmax(logits),axis=1))
+            vloss=jnp.mean((value-target)**2)
+            return ploss+vloss,(new['batch_stats'],ploss,vloss)
+        (loss,(newstats,ploss,vloss)),grads=jax.value_and_grad(loss_fn,has_aux=True)(params)
+        changes,newstate=optimizer.update(grads,opt_state,params)
+        return optax.apply_updates(params,changes),newstats,newstate,loss,ploss,vloss
+    def play(destination, number, temperature, seed, simulations=50):
+        np.random.seed(seed)
+        board=chess.Board(); states=[]; indices=[]; policies=[]; offsets=[0]; players=[]; moves=[]; reversals=0
+        agent.variables=variables(); agent.simulations=simulations
+        game=chess.pgn.Game(); node=game
+        game.headers['DrawClaimRule']=DRAW_RULE
+        game.headers['LateTemperature']=str(temperature)
+        game.headers['Seed']=str(seed)
+        while game_outcome(board) is None and len(moves)<512:
+            move,actions,target=agent.decision_and_target(board,1. if len(moves)<30 else temperature)
+            assert move in board.legal_moves and np.isclose(target.sum(),1) and (target>=0).all()
+            states.append(encode_board(board).astype(np.float16)); players.append(board.turn)
+            indices.append(actions); policies.append(target.astype(np.float16)); offsets.append(offsets[-1]+len(actions))
+            uci=move.uci()
+            if len(moves)>=2 and uci[:2]==moves[-2][2:4] and uci[2:4]==moves[-2][:2]: reversals+=1
+            moves.append(uci); board.push(move); node=node.add_variation(move)
+            if len(moves)%100==0: emit('game_progress',number=number,plies=len(moves),destination=destination.name)
+        outcome=game_outcome(board)
+        winner=outcome.winner if outcome else None
+        values=np.asarray([0. if winner is None else (1. if player==winner else -1.) for player in players],np.float32)
+        termination=outcome.termination.name if outcome else 'MAX_PLIES_DRAW'
+        result=outcome.result() if outcome else '1/2-1/2'
+        game.headers['Result']=result; game.headers['Termination']=termination
+        destination.mkdir(exist_ok=True)
+        path=destination/f'game-{number:04d}.npz'
+        np.savez_compressed(path,states=np.stack(states),policy_offsets=np.asarray(offsets,np.int32),policy_indices=np.concatenate(indices),policy_values=np.concatenate(policies),values=values,moves=np.asarray(moves,dtype='<U5'),final_fen=np.asarray(board.fen()),termination=np.asarray(termination),claimed_draw=np.asarray(False),draw_claim_rule=np.asarray(DRAW_RULE),policy_target_kind=np.asarray('raw_mcts_visits_v1'),late_temperature=np.asarray(temperature),seed=np.asarray(seed))
+        path.with_suffix('.pgn').write_text(str(game)+'\n\n')
+        row=dict(game=number,termination=termination,result=result,plies=len(moves),reversals=reversals,reversal_rate=reversals/max(1,len(moves)-2),seed=seed,path=str(path))
+        emit('game_completed',**row)
+        return row
+    baseline=evaluate(variables()); emit('baseline',evaluation=baseline)
+    history=[]; games=[]; losses=[]
+    for cycle in range(1,args.cycles+1):
+        recent=[]
+        for _ in range(args.games_per_cycle):
+            number=len(games)+1
+            row=play(root/'selfplay_data',number,0.25,args.seed+number)
+            games.append(row); recent.append(row)
+            # The first two games are the small execution gate before the rest.
+            if cycle==1 and len(games)==2: emit('small_selfplay_gate_passed',games=2)
+        replay=ReplayBuffer(sorted((root/'selfplay_data').glob('*.npz'))[-1000:],64,seed=args.seed+1000+cycle)
+        for _ in range(args.updates_per_cycle):
+            x,p,z=replay.sample(64)
+            params,stats,opt_state,loss,ploss,vloss=update(params,stats,opt_state,jnp.asarray(x),jnp.asarray(p),jnp.asarray(z))
+            metrics=list(map(float,(loss,ploss,vloss)))
+            assert np.isfinite(metrics).all()
+            losses.append(metrics)
+        step=1600+cycle*args.updates_per_cycle
+        save_variables(root/'checkpoints/latest.msgpack',variables())
+        save_bytes_atomic(root/'checkpoints/training_state.msgpack',serialization.to_bytes(dict(variables=variables(),opt_state=opt_state,step=np.asarray(step,np.int64))))
+        if cycle%args.save_interval==0 or cycle==args.cycles:
+            save_variables(root/f'checkpoints/saved/cycle-{cycle:06d}.msgpack',variables())
+        fixed=evaluate(variables())
+        live=replay.sample(128)
+        current=evaluate(variables(),live[0],live[2],np.asarray([str(int(v)) for v in live[2]]))
+        row=dict(cycle=cycle,step=step,evaluation=fixed,live_training_sample=current,terminations=dict(Counter(r['termination'] for r in recent)),mean_plies=float(np.mean([r['plies'] for r in recent])),training_losses_last64=np.mean(losses[-64:],axis=0).tolist())
+        history.append(row); emit('cycle_completed',**row)
+        (root/'progress.json').write_text(json.dumps(dict(baseline=baseline,history=history,games=games),indent=2))
+        if fixed['dead']>0 or current['dead']>0:
+            emit('collapse_detected_stop',cycle=cycle)
+            break
+    final=history[-1]
+    probes={}
+    if final['evaluation']['dead']==0 and final['live_training_sample']['dead']==0:
+        # Paired seeds, frozen final weights, no learning; policy targets remain raw.
+        for temperature in [0.25,1.]:
+            name=f'temperature-{temperature}'
+            probes[name]=[play(root/name,i+1,temperature,args.seed+10000+i) for i in range(8)]
+        branch='stable_value_head: compared late move sampling at fixed weights'
+    else:
+        branch='value_head_collapsed: stopped live learning; do not increase exploration yet'
+    unchanged={path:digest(Path(path))==value for path,value in source_hashes.items()}
+    assert all(unchanged.values())
+    # Reconstruct every game to validate endings, labels, histories and PGN count.
+    validated=0
+    for path in root.rglob('game-*.npz'):
+        with np.load(path) as data:
+            b=chess.Board(); turns=[]
+            for i,uci in enumerate(data['moves']):
+                assert game_outcome(b) is None
+                assert np.array_equal(encode_board(b).astype(np.float16),data['states'][i])
+                turns.append(b.turn); b.push_uci(str(uci))
+            outcome=game_outcome(b)
+            expected=outcome.termination.name if outcome else 'MAX_PLIES_DRAW'
+            assert str(data['termination'])==expected
+            winner=outcome.winner if outcome else None
+            assert np.array_equal(data['values'],np.asarray([0 if winner is None else (1 if t==winner else -1) for t in turns]))
+            with path.with_suffix('.pgn').open() as stream:
+                pgn=chess.pgn.read_game(stream)
+                assert len(list(pgn.mainline_moves()))==len(data['moves']) and chess.pgn.read_game(stream) is None
+            validated+=1
+    summary=dict(configuration=config,baseline=baseline,history=history,games=games,probes=probes,branch=branch,source_unchanged=unchanged,validated_npz_and_pgn=validated)
+    (root/'summary.json').write_text(json.dumps(summary,indent=2))
+    (root/'training_losses.json').write_text(json.dumps(losses))
+    emit('completed',cycles=len(history),games=len(games),validated_npz_and_pgn=validated,branch=branch)
+
+if __name__=='__main__': main()

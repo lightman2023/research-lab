@@ -1,0 +1,1620 @@
+{
+  "baseline": {
+    "positions": 129,
+    "dead": 0,
+    "value_std": 0.03708015754818916,
+    "groups": {
+      "-1": {
+        "positions": 31,
+        "dead": 0,
+        "mean": -0.008608856238424778,
+        "std": 0.030290354043245316,
+        "mse": 0.9837739045985613
+      },
+      "0": {
+        "positions": 64,
+        "dead": 0,
+        "mean": 0.001658041262999177,
+        "std": 0.016688616946339607,
+        "mse": 0.0002812590638931881
+      },
+      "1": {
+        "positions": 31,
+        "dead": 0,
+        "mean": 0.016150811687111855,
+        "std": 0.06253350526094437,
+        "mse": 0.9718696707618835
+      },
+      "opening": {
+        "positions": 3,
+        "dead": 0,
+        "mean": -0.0049446034245193005,
+        "std": 0.004554038401693106
+      }
+    },
+    "value_mse": 0.48129326520843607
+  },
+  "history": [
+    {
+      "cycle": 1,
+      "step": 1664,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.14992886781692505,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.003906284924596548,
+            "std": 0.057196348905563354,
+            "mse": 0.9954741112692516
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 0.004408590495586395,
+            "std": 0.18091095983982086,
+            "mse": 0.032748211806062376
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.02944115921854973,
+            "std": 0.14803028106689453,
+            "mse": 1.0816620661236176
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.015533137135207653,
+            "std": 0.0024648047983646393
+          }
+        },
+        "value_mse": 0.5276754528156106
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.372419148683548,
+        "groups": {
+          "-1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": -0.9163886904716492,
+            "std": 0.24468262493610382,
+            "mse": 0.06686044484376907
+          },
+          "0": {
+            "positions": 109,
+            "dead": 0,
+            "mean": -0.009659575298428535,
+            "std": 0.03483843803405762,
+            "mse": 0.0013070241548120975
+          },
+          "1": {
+            "positions": 8,
+            "dead": 0,
+            "mean": 0.9866243600845337,
+            "std": 0.0339275598526001,
+            "mse": 0.0013299862621352077
+          }
+        },
+        "value_mse": 0.006941957399249077
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 55.5,
+      "training_losses_last64": [
+        2.667082142084837,
+        2.5742115415632725,
+        0.09287061181021272
+      ]
+    },
+    {
+      "cycle": 2,
+      "step": 1728,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.19804032146930695,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.016596505418419838,
+            "std": 0.0838630422949791,
+            "mse": 1.0405014673847455
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 0.03207661211490631,
+            "std": 0.2596302926540375,
+            "mse": 0.06843678865868683
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.0021130701061338186,
+            "std": 0.1277296245098114,
+            "mse": 1.0120931878309565
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.004966427106410265,
+            "std": 0.002412240719422698
+          }
+        },
+        "value_mse": 0.539764990363831
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 1,
+        "value_std": 0.4987826645374298,
+        "groups": {
+          "-1": {
+            "positions": 16,
+            "dead": 0,
+            "mean": -0.9401016235351562,
+            "std": 0.19863875210285187,
+            "mse": 0.04304516687989235
+          },
+          "0": {
+            "positions": 95,
+            "dead": 1,
+            "mean": -0.0005777543992735445,
+            "std": 0.035808783024549484,
+            "mse": 0.001282602665014565
+          },
+          "1": {
+            "positions": 17,
+            "dead": 0,
+            "mean": 0.9993671178817749,
+            "std": 0.0016453806310892105,
+            "mse": 3.1078479878487997e-06
+          }
+        },
+        "value_mse": 0.006332989316433668
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 85.0,
+      "training_losses_last64": [
+        2.6587210223078728,
+        2.6217645183205605,
+        0.0369564962829827
+      ]
+    },
+    {
+      "cycle": 3,
+      "step": 1792,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.1261616200208664,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.0018600221956148744,
+            "std": 0.04729657620191574,
+            "mse": 0.9985203823095475
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 4.428252577781677e-05,
+            "std": 0.15881364047527313,
+            "mse": 0.025221772442301137
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.004625155124813318,
+            "std": 0.10909111052751541,
+            "mse": 1.0026719512888425
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.0027187273371964693,
+            "std": 0.004186367150396109
+          }
+        },
+        "value_mse": 0.505167902998868
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.43251579999923706,
+        "groups": {
+          "-1": {
+            "positions": 12,
+            "dead": 0,
+            "mean": -0.7457966804504395,
+            "std": 0.4274037778377533,
+            "mse": 0.24729330837726593
+          },
+          "0": {
+            "positions": 98,
+            "dead": 0,
+            "mean": -0.005316082388162613,
+            "std": 0.043762847781181335,
+            "mse": 0.0019434478599578142
+          },
+          "1": {
+            "positions": 18,
+            "dead": 0,
+            "mean": 0.8590981364250183,
+            "std": 0.32348573207855225,
+            "mse": 0.12449637800455093
+          }
+        },
+        "value_mse": 0.04217900335788727
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 76.5,
+      "training_losses_last64": [
+        2.6303357295691967,
+        2.6018532626330853,
+        0.02848246949542954
+      ]
+    },
+    {
+      "cycle": 4,
+      "step": 1856,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.11966017633676529,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.013736722990870476,
+            "std": 0.06242961436510086,
+            "mse": 0.9766127068762208
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": -0.003072545863687992,
+            "std": 0.14111649990081787,
+            "mse": 0.01992330566264587
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.009827951900660992,
+            "std": 0.11948345601558685,
+            "mse": 0.9947169818287106
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.009391185827553272,
+            "std": 0.012051020748913288
+          }
+        },
+        "value_mse": 0.49512945962112864
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.3535284101963043,
+        "groups": {
+          "-1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": -0.6411003470420837,
+            "std": 0.4652739465236664,
+            "mse": 0.34528881311416626
+          },
+          "0": {
+            "positions": 106,
+            "dead": 0,
+            "mean": -0.01520066149532795,
+            "std": 0.034981146454811096,
+            "mse": 0.0014547407627105713
+          },
+          "1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": 0.8136716485023499,
+            "std": 0.3883672058582306,
+            "mse": 0.18554730713367462
+          }
+        },
+        "value_mse": 0.04682343825697899
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 6,
+        "CHECKMATE": 2
+      },
+      "mean_plies": 74.0,
+      "training_losses_last64": [
+        2.6729155257344246,
+        2.622577130794525,
+        0.05033840846408566
+      ]
+    },
+    {
+      "cycle": 5,
+      "step": 1920,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.14641350507736206,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.03529705852270126,
+            "std": 0.10245605558156967,
+            "mse": 0.941149007723747
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 0.017107214778661728,
+            "std": 0.17760208249092102,
+            "mse": 0.03183515522730033
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.000964969047345221,
+            "std": 0.10821913182735443,
+            "mse": 1.013642251001781
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.0010179845849052072,
+            "std": 0.016313279047608376
+          }
+        },
+        "value_mse": 0.4971109440876078
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.2694322168827057,
+        "groups": {
+          "-1": {
+            "positions": 6,
+            "dead": 0,
+            "mean": -0.6805853843688965,
+            "std": 0.4162231385707855,
+            "mse": 0.2752673923969269
+          },
+          "0": {
+            "positions": 111,
+            "dead": 0,
+            "mean": -0.006694487761706114,
+            "std": 0.050581593066453934,
+            "mse": 0.00260331341996789
+          },
+          "1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": 0.510437548160553,
+            "std": 0.4595692455768585,
+            "mse": 0.45087525248527527
+          }
+        },
+        "value_mse": 0.053907811641693115
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 5,
+        "CHECKMATE": 3
+      },
+      "mean_plies": 72.375,
+      "training_losses_last64": [
+        2.71084226295352,
+        2.613199830055237,
+        0.09764243091922253
+      ]
+    },
+    {
+      "cycle": 6,
+      "step": 1984,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.11740812659263611,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.03864871710538864,
+            "std": 0.12030337750911713,
+            "mse": 0.9386691837189941
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 0.008931132964789867,
+            "std": 0.12940773367881775,
+            "mse": 0.016826125256964967
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -8.070420881267637e-05,
+            "std": 0.08198420703411102,
+            "mse": 1.0068828269309587
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": 0.0017033967887982726,
+            "std": 0.01852394826710224
+          }
+        },
+        "value_mse": 0.487214161480907
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.308219313621521,
+        "groups": {
+          "-1": {
+            "positions": 17,
+            "dead": 0,
+            "mean": -0.41903409361839294,
+            "std": 0.44187963008880615,
+            "mse": 0.5327790975570679
+          },
+          "0": {
+            "positions": 101,
+            "dead": 0,
+            "mean": 0.00604010047391057,
+            "std": 0.06590267270803452,
+            "mse": 0.004379644989967346
+          },
+          "1": {
+            "positions": 10,
+            "dead": 0,
+            "mean": 0.5740145444869995,
+            "std": 0.46074825525283813,
+            "mse": 0.3937525451183319
+          }
+        },
+        "value_mse": 0.10497744381427765
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 60.75,
+      "training_losses_last64": [
+        2.6862651705741882,
+        2.610083542764187,
+        0.07618162129074335
+      ]
+    },
+    {
+      "cycle": 7,
+      "step": 2048,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.10554762929677963,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.03011031076312065,
+            "std": 0.13477808237075806,
+            "mse": 0.9588511350130596
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": 0.007766404189169407,
+            "std": 0.0933307483792305,
+            "mse": 0.008770945697089987
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.02083621732890606,
+            "std": 0.0932883769273758,
+            "mse": 0.9674644282477943
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": 0.010771204717457294,
+            "std": 0.02157413773238659
+          }
+        },
+        "value_mse": 0.4783898649658748
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.28157785534858704,
+        "groups": {
+          "-1": {
+            "positions": 8,
+            "dead": 0,
+            "mean": -0.3829452097415924,
+            "std": 0.44977280497550964,
+            "mse": 0.5830521583557129
+          },
+          "0": {
+            "positions": 103,
+            "dead": 0,
+            "mean": -0.003111673751845956,
+            "std": 0.04860828444361687,
+            "mse": 0.002372448332607746
+          },
+          "1": {
+            "positions": 17,
+            "dead": 0,
+            "mean": 0.4802956283092499,
+            "std": 0.44521400332450867,
+            "mse": 0.4683081805706024
+          }
+        },
+        "value_mse": 0.10054701566696167
+      },
+      "terminations": {
+        "CHECKMATE": 2,
+        "THREEFOLD_REPETITION": 6
+      },
+      "mean_plies": 69.0,
+      "training_losses_last64": [
+        2.6665437258780003,
+        2.5992173217236996,
+        0.06732641701819375
+      ]
+    },
+    {
+      "cycle": 8,
+      "step": 2112,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.114061638712883,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.0392458438873291,
+            "std": 0.1505335420370102,
+            "mse": 0.9457088915156546
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": -0.004610552452504635,
+            "std": 0.08734694123268127,
+            "mse": 0.007650745676991604
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.03043479286134243,
+            "std": 0.11504866182804108,
+            "mse": 0.9532928914408351
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.010635274462401867,
+            "std": 0.024815211072564125
+          }
+        },
+        "value_mse": 0.4711008174204655
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.2764281630516052,
+        "groups": {
+          "-1": {
+            "positions": 13,
+            "dead": 0,
+            "mean": -0.6706456542015076,
+            "std": 0.4072914123535156,
+            "mse": 0.2743605971336365
+          },
+          "0": {
+            "positions": 111,
+            "dead": 0,
+            "mean": -0.0008821622468531132,
+            "std": 0.05213004723191261,
+            "mse": 0.002718320582062006
+          },
+          "1": {
+            "positions": 4,
+            "dead": 0,
+            "mean": 0.5540950298309326,
+            "std": 0.3833461403846741,
+            "mse": 0.3457854390144348
+          }
+        },
+        "value_mse": 0.04102783650159836
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 68.125,
+      "training_losses_last64": [
+        2.6568524166941643,
+        2.5954282619059086,
+        0.06142415483191144
+      ]
+    },
+    {
+      "cycle": 9,
+      "step": 2176,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.11943485587835312,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.027621818706393242,
+            "std": 0.14174585044384003,
+            "mse": 0.9656112169312036
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": -0.0004431323613971472,
+            "std": 0.09749052673578262,
+            "mse": 0.009504599451584217
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.04255311191082001,
+            "std": 0.13043881952762604,
+            "mse": 0.9337188256499492
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.0008242813055403531,
+            "std": 0.032751355320215225
+          }
+        },
+        "value_mse": 0.4721232197215645
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.35374072194099426,
+        "groups": {
+          "-1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": -0.7511171698570251,
+            "std": 0.38141152262687683,
+            "mse": 0.20741738379001617
+          },
+          "0": {
+            "positions": 103,
+            "dead": 0,
+            "mean": -0.0029443511739373207,
+            "std": 0.08150113373994827,
+            "mse": 0.006651103496551514
+          },
+          "1": {
+            "positions": 14,
+            "dead": 0,
+            "mean": 0.6039415597915649,
+            "std": 0.4157080352306366,
+            "mse": 0.32967543601989746
+          }
+        },
+        "value_mse": 0.05923524126410484
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 7,
+        "CHECKMATE": 1
+      },
+      "mean_plies": 65.875,
+      "training_losses_last64": [
+        2.643033567816019,
+        2.5992374382913113,
+        0.04379613341734512
+      ]
+    },
+    {
+      "cycle": 10,
+      "step": 2240,
+      "evaluation": {
+        "positions": 129,
+        "dead": 0,
+        "value_std": 0.10099342465400696,
+        "groups": {
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": -0.016161030158400536,
+            "std": 0.0996583104133606,
+            "mse": 0.97787089955836
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "mean": -0.0011728715617209673,
+            "std": 0.08355336636304855,
+            "mse": 0.006982540831705584
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "mean": 0.041133929044008255,
+            "std": 0.12711763381958008,
+            "mse": 0.9355830420507322
+          },
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "mean": -0.011635254137217999,
+            "std": 0.029036322608590126
+          }
+        },
+        "value_mse": 0.4743171016119922
+      },
+      "live_training_sample": {
+        "positions": 128,
+        "dead": 0,
+        "value_std": 0.3215922713279724,
+        "groups": {
+          "-1": {
+            "positions": 11,
+            "dead": 0,
+            "mean": -0.8143628835678101,
+            "std": 0.2872060239315033,
+            "mse": 0.1169484406709671
+          },
+          "0": {
+            "positions": 112,
+            "dead": 0,
+            "mean": 0.003855703165754676,
+            "std": 0.0458681657910347,
+            "mse": 0.002118755131959915
+          },
+          "1": {
+            "positions": 5,
+            "dead": 0,
+            "mean": 0.9896436929702759,
+            "std": 0.016033869236707687,
+            "mse": 0.0003643383097369224
+          }
+        },
+        "value_mse": 0.011918401345610619
+      },
+      "terminations": {
+        "THREEFOLD_REPETITION": 8
+      },
+      "mean_plies": 89.0,
+      "training_losses_last64": [
+        2.6249386109411716,
+        2.589194506406784,
+        0.03574412571833818
+      ]
+    }
+  ],
+  "games": [
+    {
+      "game": 1,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 59,
+      "reversals": 21,
+      "reversal_rate": 0.3684210526315789,
+      "seed": 20261003,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0001.npz"
+    },
+    {
+      "game": 2,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 73,
+      "reversals": 22,
+      "reversal_rate": 0.30985915492957744,
+      "seed": 20261004,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0002.npz"
+    },
+    {
+      "game": 3,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 38,
+      "reversals": 6,
+      "reversal_rate": 0.16666666666666666,
+      "seed": 20261005,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0003.npz"
+    },
+    {
+      "game": 4,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 63,
+      "reversals": 19,
+      "reversal_rate": 0.3114754098360656,
+      "seed": 20261006,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0004.npz"
+    },
+    {
+      "game": 5,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 42,
+      "reversals": 8,
+      "reversal_rate": 0.2,
+      "seed": 20261007,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0005.npz"
+    },
+    {
+      "game": 6,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 70,
+      "reversals": 4,
+      "reversal_rate": 0.058823529411764705,
+      "seed": 20261008,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0006.npz"
+    },
+    {
+      "game": 7,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 56,
+      "reversals": 13,
+      "reversal_rate": 0.24074074074074073,
+      "seed": 20261009,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0007.npz"
+    },
+    {
+      "game": 8,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 43,
+      "reversals": 8,
+      "reversal_rate": 0.1951219512195122,
+      "seed": 20261010,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0008.npz"
+    },
+    {
+      "game": 9,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 42,
+      "reversals": 10,
+      "reversal_rate": 0.25,
+      "seed": 20261011,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0009.npz"
+    },
+    {
+      "game": 10,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 136,
+      "reversals": 45,
+      "reversal_rate": 0.3358208955223881,
+      "seed": 20261012,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0010.npz"
+    },
+    {
+      "game": 11,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 47,
+      "reversals": 8,
+      "reversal_rate": 0.17777777777777778,
+      "seed": 20261013,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0011.npz"
+    },
+    {
+      "game": 12,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 39,
+      "reversals": 6,
+      "reversal_rate": 0.16216216216216217,
+      "seed": 20261014,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0012.npz"
+    },
+    {
+      "game": 13,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 54,
+      "reversals": 12,
+      "reversal_rate": 0.23076923076923078,
+      "seed": 20261015,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0013.npz"
+    },
+    {
+      "game": 14,
+      "termination": "CHECKMATE",
+      "result": "1-0",
+      "plies": 193,
+      "reversals": 48,
+      "reversal_rate": 0.2513089005235602,
+      "seed": 20261016,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0014.npz"
+    },
+    {
+      "game": 15,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 78,
+      "reversals": 18,
+      "reversal_rate": 0.23684210526315788,
+      "seed": 20261017,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0015.npz"
+    },
+    {
+      "game": 16,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 91,
+      "reversals": 14,
+      "reversal_rate": 0.15730337078651685,
+      "seed": 20261018,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0016.npz"
+    },
+    {
+      "game": 17,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 75,
+      "reversals": 23,
+      "reversal_rate": 0.3150684931506849,
+      "seed": 20261019,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0017.npz"
+    },
+    {
+      "game": 18,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 43,
+      "reversals": 6,
+      "reversal_rate": 0.14634146341463414,
+      "seed": 20261020,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0018.npz"
+    },
+    {
+      "game": 19,
+      "termination": "CHECKMATE",
+      "result": "1-0",
+      "plies": 45,
+      "reversals": 1,
+      "reversal_rate": 0.023255813953488372,
+      "seed": 20261021,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0019.npz"
+    },
+    {
+      "game": 20,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 55,
+      "reversals": 13,
+      "reversal_rate": 0.24528301886792453,
+      "seed": 20261022,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0020.npz"
+    },
+    {
+      "game": 21,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 100,
+      "reversals": 22,
+      "reversal_rate": 0.22448979591836735,
+      "seed": 20261023,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0021.npz"
+    },
+    {
+      "game": 22,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 101,
+      "reversals": 33,
+      "reversal_rate": 0.3333333333333333,
+      "seed": 20261024,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0022.npz"
+    },
+    {
+      "game": 23,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 143,
+      "reversals": 34,
+      "reversal_rate": 0.24113475177304963,
+      "seed": 20261025,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0023.npz"
+    },
+    {
+      "game": 24,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 50,
+      "reversals": 7,
+      "reversal_rate": 0.14583333333333334,
+      "seed": 20261026,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0024.npz"
+    },
+    {
+      "game": 25,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 66,
+      "reversals": 11,
+      "reversal_rate": 0.171875,
+      "seed": 20261027,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0025.npz"
+    },
+    {
+      "game": 26,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 38,
+      "reversals": 8,
+      "reversal_rate": 0.2222222222222222,
+      "seed": 20261028,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0026.npz"
+    },
+    {
+      "game": 27,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 125,
+      "reversals": 25,
+      "reversal_rate": 0.2032520325203252,
+      "seed": 20261029,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0027.npz"
+    },
+    {
+      "game": 28,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 112,
+      "reversals": 35,
+      "reversal_rate": 0.3181818181818182,
+      "seed": 20261030,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0028.npz"
+    },
+    {
+      "game": 29,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 40,
+      "reversals": 1,
+      "reversal_rate": 0.02631578947368421,
+      "seed": 20261031,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0029.npz"
+    },
+    {
+      "game": 30,
+      "termination": "CHECKMATE",
+      "result": "1-0",
+      "plies": 45,
+      "reversals": 1,
+      "reversal_rate": 0.023255813953488372,
+      "seed": 20261032,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0030.npz"
+    },
+    {
+      "game": 31,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 95,
+      "reversals": 18,
+      "reversal_rate": 0.1935483870967742,
+      "seed": 20261033,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0031.npz"
+    },
+    {
+      "game": 32,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 71,
+      "reversals": 14,
+      "reversal_rate": 0.2028985507246377,
+      "seed": 20261034,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0032.npz"
+    },
+    {
+      "game": 33,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 49,
+      "reversals": 9,
+      "reversal_rate": 0.19148936170212766,
+      "seed": 20261035,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0033.npz"
+    },
+    {
+      "game": 34,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 72,
+      "reversals": 14,
+      "reversal_rate": 0.2,
+      "seed": 20261036,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0034.npz"
+    },
+    {
+      "game": 35,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 70,
+      "reversals": 15,
+      "reversal_rate": 0.22058823529411764,
+      "seed": 20261037,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0035.npz"
+    },
+    {
+      "game": 36,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 86,
+      "reversals": 5,
+      "reversal_rate": 0.05952380952380952,
+      "seed": 20261038,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0036.npz"
+    },
+    {
+      "game": 37,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 70,
+      "reversals": 16,
+      "reversal_rate": 0.23529411764705882,
+      "seed": 20261039,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0037.npz"
+    },
+    {
+      "game": 38,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 86,
+      "reversals": 16,
+      "reversal_rate": 0.19047619047619047,
+      "seed": 20261040,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0038.npz"
+    },
+    {
+      "game": 39,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 95,
+      "reversals": 26,
+      "reversal_rate": 0.27956989247311825,
+      "seed": 20261041,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0039.npz"
+    },
+    {
+      "game": 40,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 51,
+      "reversals": 8,
+      "reversal_rate": 0.16326530612244897,
+      "seed": 20261042,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0040.npz"
+    },
+    {
+      "game": 41,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 60,
+      "reversals": 16,
+      "reversal_rate": 0.27586206896551724,
+      "seed": 20261043,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0041.npz"
+    },
+    {
+      "game": 42,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 72,
+      "reversals": 17,
+      "reversal_rate": 0.24285714285714285,
+      "seed": 20261044,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0042.npz"
+    },
+    {
+      "game": 43,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 64,
+      "reversals": 18,
+      "reversal_rate": 0.2903225806451613,
+      "seed": 20261045,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0043.npz"
+    },
+    {
+      "game": 44,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 57,
+      "reversals": 16,
+      "reversal_rate": 0.2909090909090909,
+      "seed": 20261046,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0044.npz"
+    },
+    {
+      "game": 45,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 52,
+      "reversals": 13,
+      "reversal_rate": 0.26,
+      "seed": 20261047,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0045.npz"
+    },
+    {
+      "game": 46,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 92,
+      "reversals": 22,
+      "reversal_rate": 0.24444444444444444,
+      "seed": 20261048,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0046.npz"
+    },
+    {
+      "game": 47,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 52,
+      "reversals": 7,
+      "reversal_rate": 0.14,
+      "seed": 20261049,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0047.npz"
+    },
+    {
+      "game": 48,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 37,
+      "reversals": 8,
+      "reversal_rate": 0.22857142857142856,
+      "seed": 20261050,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0048.npz"
+    },
+    {
+      "game": 49,
+      "termination": "CHECKMATE",
+      "result": "1-0",
+      "plies": 41,
+      "reversals": 1,
+      "reversal_rate": 0.02564102564102564,
+      "seed": 20261051,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0049.npz"
+    },
+    {
+      "game": 50,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 161,
+      "reversals": 52,
+      "reversal_rate": 0.3270440251572327,
+      "seed": 20261052,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0050.npz"
+    },
+    {
+      "game": 51,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 51,
+      "reversals": 7,
+      "reversal_rate": 0.14285714285714285,
+      "seed": 20261053,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0051.npz"
+    },
+    {
+      "game": 52,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 20,
+      "reversals": 0,
+      "reversal_rate": 0.0,
+      "seed": 20261054,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0052.npz"
+    },
+    {
+      "game": 53,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 81,
+      "reversals": 23,
+      "reversal_rate": 0.2911392405063291,
+      "seed": 20261055,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0053.npz"
+    },
+    {
+      "game": 54,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 43,
+      "reversals": 9,
+      "reversal_rate": 0.21951219512195122,
+      "seed": 20261056,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0054.npz"
+    },
+    {
+      "game": 55,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 87,
+      "reversals": 11,
+      "reversal_rate": 0.12941176470588237,
+      "seed": 20261057,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0055.npz"
+    },
+    {
+      "game": 56,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 68,
+      "reversals": 24,
+      "reversal_rate": 0.36363636363636365,
+      "seed": 20261058,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0056.npz"
+    },
+    {
+      "game": 57,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 46,
+      "reversals": 11,
+      "reversal_rate": 0.25,
+      "seed": 20261059,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0057.npz"
+    },
+    {
+      "game": 58,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 49,
+      "reversals": 6,
+      "reversal_rate": 0.1276595744680851,
+      "seed": 20261060,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0058.npz"
+    },
+    {
+      "game": 59,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 47,
+      "reversals": 11,
+      "reversal_rate": 0.24444444444444444,
+      "seed": 20261061,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0059.npz"
+    },
+    {
+      "game": 60,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 82,
+      "reversals": 21,
+      "reversal_rate": 0.2625,
+      "seed": 20261062,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0060.npz"
+    },
+    {
+      "game": 61,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 205,
+      "reversals": 59,
+      "reversal_rate": 0.29064039408866993,
+      "seed": 20261063,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0061.npz"
+    },
+    {
+      "game": 62,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 38,
+      "reversals": 7,
+      "reversal_rate": 0.19444444444444445,
+      "seed": 20261064,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0062.npz"
+    },
+    {
+      "game": 63,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 14,
+      "reversals": 0,
+      "reversal_rate": 0.0,
+      "seed": 20261065,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0063.npz"
+    },
+    {
+      "game": 64,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 64,
+      "reversals": 17,
+      "reversal_rate": 0.27419354838709675,
+      "seed": 20261066,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0064.npz"
+    },
+    {
+      "game": 65,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 70,
+      "reversals": 15,
+      "reversal_rate": 0.22058823529411764,
+      "seed": 20261067,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0065.npz"
+    },
+    {
+      "game": 66,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 66,
+      "reversals": 15,
+      "reversal_rate": 0.234375,
+      "seed": 20261068,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0066.npz"
+    },
+    {
+      "game": 67,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 45,
+      "reversals": 8,
+      "reversal_rate": 0.18604651162790697,
+      "seed": 20261069,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0067.npz"
+    },
+    {
+      "game": 68,
+      "termination": "CHECKMATE",
+      "result": "0-1",
+      "plies": 24,
+      "reversals": 0,
+      "reversal_rate": 0.0,
+      "seed": 20261070,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0068.npz"
+    },
+    {
+      "game": 69,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 109,
+      "reversals": 17,
+      "reversal_rate": 0.1588785046728972,
+      "seed": 20261071,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0069.npz"
+    },
+    {
+      "game": 70,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 55,
+      "reversals": 12,
+      "reversal_rate": 0.22641509433962265,
+      "seed": 20261072,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0070.npz"
+    },
+    {
+      "game": 71,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 40,
+      "reversals": 7,
+      "reversal_rate": 0.18421052631578946,
+      "seed": 20261073,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0071.npz"
+    },
+    {
+      "game": 72,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 118,
+      "reversals": 15,
+      "reversal_rate": 0.12931034482758622,
+      "seed": 20261074,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0072.npz"
+    },
+    {
+      "game": 73,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 105,
+      "reversals": 38,
+      "reversal_rate": 0.36893203883495146,
+      "seed": 20261075,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0073.npz"
+    },
+    {
+      "game": 74,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 64,
+      "reversals": 15,
+      "reversal_rate": 0.24193548387096775,
+      "seed": 20261076,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0074.npz"
+    },
+    {
+      "game": 75,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 63,
+      "reversals": 10,
+      "reversal_rate": 0.16393442622950818,
+      "seed": 20261077,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0075.npz"
+    },
+    {
+      "game": 76,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 47,
+      "reversals": 11,
+      "reversal_rate": 0.24444444444444444,
+      "seed": 20261078,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0076.npz"
+    },
+    {
+      "game": 77,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 50,
+      "reversals": 15,
+      "reversal_rate": 0.3125,
+      "seed": 20261079,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0077.npz"
+    },
+    {
+      "game": 78,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 80,
+      "reversals": 16,
+      "reversal_rate": 0.20512820512820512,
+      "seed": 20261080,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0078.npz"
+    },
+    {
+      "game": 79,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 61,
+      "reversals": 12,
+      "reversal_rate": 0.2033898305084746,
+      "seed": 20261081,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0079.npz"
+    },
+    {
+      "game": 80,
+      "termination": "THREEFOLD_REPETITION",
+      "result": "1/2-1/2",
+      "plies": 242,
+      "reversals": 41,
+      "reversal_rate": 0.17083333333333334,
+      "seed": 20261082,
+      "path": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/selfplay_data/game-0080.npz"
+    }
+  ]
+}

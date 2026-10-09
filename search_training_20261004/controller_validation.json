@@ -1,0 +1,32 @@
+[
+  {
+    "branch": "A50",
+    "initial_gate_one_cycle": true,
+    "total_stops_at_five": true,
+    "temperature_and_optimizer_forwarded": true,
+    "final_generation_saved": true,
+    "verify_data_excluded": true,
+    "seeds": [
+      "20402004",
+      "20403004",
+      "20404004",
+      "20405004",
+      "20406004"
+    ]
+  },
+  {
+    "branch": "B200",
+    "initial_gate_one_cycle": true,
+    "total_stops_at_five": true,
+    "temperature_and_optimizer_forwarded": true,
+    "final_generation_saved": true,
+    "verify_data_excluded": true,
+    "seeds": [
+      "20402004",
+      "20403004",
+      "20404004",
+      "20405004",
+      "20406004"
+    ]
+  }
+]

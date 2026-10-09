@@ -1,0 +1,27 @@
+{
+  "base_checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000050.msgpack",
+  "base_sha256": "ab65125846a4a61c43c904afde3180d551fecd77f001b1e6fd224abd3575a4cc",
+  "updates": 1600,
+  "batch_size": 64,
+  "seed": 20260928,
+  "learning_rates": [
+    0.001,
+    0.0001
+  ],
+  "optimizer": "AdamW",
+  "weight_decay": 0.0001,
+  "optimizer_state": "fresh in both conditions",
+  "training_games": 411,
+  "training_position_labels": {
+    "0": 21204,
+    "1": 539,
+    "-1": 530
+  },
+  "data_cutoff_method": "files with mtime <= cycle50 checkpoint mtime; last 1000",
+  "evaluation_positions": 129,
+  "evaluation_games_disjoint": true,
+  "learning_rate_schedule": "constant for this short run; original schedule first change is 50000 updates",
+  "evaluation_interval": 32,
+  "checkpoint_save_interval": 128,
+  "output_dir": "/home/user/chess/alphazero_chess_v2/experiments/lr-cycle50-20261002-145753"
+}

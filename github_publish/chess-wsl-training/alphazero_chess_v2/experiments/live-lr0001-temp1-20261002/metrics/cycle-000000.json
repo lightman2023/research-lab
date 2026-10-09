@@ -1,0 +1,76 @@
+{
+  "cycle": 0,
+  "training_step": 2240,
+  "fixed": {
+    "positions": 129,
+    "dead": 0,
+    "value_std": 0.10099342465400696,
+    "groups": {
+      "-1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": -0.016161030158400536,
+        "value_mse": 0.97787089955836
+      },
+      "0": {
+        "positions": 64,
+        "dead": 0,
+        "value_mean": -0.0011728715617209673,
+        "value_mse": 0.006982540831705584
+      },
+      "1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": 0.041133929044008255,
+        "value_mse": 0.9355830420507322
+      },
+      "opening": {
+        "positions": 3,
+        "dead": 0,
+        "value_mean": -0.011635254137217999
+      }
+    },
+    "value_mse": 0.4743171016119922
+  },
+  "live_training_sample": {
+    "positions": 128,
+    "dead": 0,
+    "value_std": 0.2767501175403595,
+    "groups": {
+      "-1": {
+        "positions": 5,
+        "dead": 0,
+        "value_mean": -0.9511343836784363,
+        "value_mse": 0.0035825378727167845
+      },
+      "0": {
+        "positions": 116,
+        "dead": 0,
+        "value_mean": 0.0010033872677013278,
+        "value_mse": 0.004325720481574535
+      },
+      "1": {
+        "positions": 7,
+        "dead": 0,
+        "value_mean": 0.7058296203613281,
+        "value_mse": 0.2702365219593048
+      }
+    },
+    "value_mse": 0.018838686868548393
+  },
+  "replay_games": 80,
+  "replay_outcomes": {
+    "THREEFOLD_REPETITION": 67,
+    "CHECKMATE": 13
+  },
+  "labels": {
+    "-1": 394,
+    "0": 4937,
+    "1": 398
+  },
+  "replay_mean_plies": 71.6125,
+  "cycle_outcomes": {},
+  "cycle_games": [],
+  "stop_due_to_widespread_inactivity": false,
+  "stop_threshold_fraction": 0.1
+}

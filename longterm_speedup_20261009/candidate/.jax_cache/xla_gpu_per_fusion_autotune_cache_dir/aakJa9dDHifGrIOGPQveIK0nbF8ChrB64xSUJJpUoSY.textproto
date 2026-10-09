@@ -1,0 +1,35 @@
+scratch_bytes: 356368
+run_time {
+  nanos: 25600
+}
+algorithm {
+  algo_id: 55
+  tuning_knobs {
+    key: 2
+    value: 8
+  }
+  tuning_knobs {
+    key: 13
+    value: 1
+  }
+  tuning_knobs {
+    key: 14
+    value: 3
+  }
+  tuning_knobs {
+    key: 18
+    value: 1
+  }
+  tuning_knobs {
+    key: 22
+    value: 0
+  }
+  tuning_knobs {
+    key: 23
+    value: 0
+  }
+  is_cudnn_frontend: true
+  workspace_size {
+    value: 356368
+  }
+}

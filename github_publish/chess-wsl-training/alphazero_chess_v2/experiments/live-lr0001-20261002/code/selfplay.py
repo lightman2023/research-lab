@@ -1,0 +1,88 @@
+from __future__ import annotations
+
+import argparse
+from datetime import datetime
+from pathlib import Path
+
+import chess
+import numpy as np
+
+from azchess.checkpoint import load_variables
+from azchess.game import encode_board, game_outcome, DRAW_RULE
+from azchess.mcts import MCTS
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Generate v2 AlphaZero self-play data")
+    parser.add_argument("--games", type=int, default=1)
+    parser.add_argument("--simulations", type=int, default=50)
+    parser.add_argument("--max-plies", type=int, default=512)
+    parser.add_argument("--checkpoint", type=Path, default=Path("checkpoints/latest.msgpack"))
+    parser.add_argument("--output-dir", type=Path, default=Path("selfplay_data"))
+    parser.add_argument("--late-temperature", type=float, default=0.25)
+    parser.add_argument("--seed", type=int)
+    args = parser.parse_args()
+    if args.seed is not None:
+        np.random.seed(args.seed)
+    model, variables = load_variables(args.checkpoint)
+    agent = MCTS(model, variables, simulations=args.simulations, root_noise=True)
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    for game_index in range(args.games):
+        board = chess.Board()
+        states: list[np.ndarray] = []
+        policy_indices: list[np.ndarray] = []
+        policy_values: list[np.ndarray] = []
+        policy_offsets = [0]
+        players: list[chess.Color] = []
+        played_moves: list[str] = []
+        while game_outcome(board) is None and len(board.move_stack) < args.max_plies:
+            temperature = 1.0 if len(board.move_stack) < 30 else args.late_temperature
+            move, indices, target = agent.decision_and_target(board, temperature)
+            states.append(encode_board(board).astype(np.float16))
+            policy_indices.append(indices)
+            policy_values.append(target.astype(np.float16))
+            policy_offsets.append(policy_offsets[-1] + len(indices))
+            players.append(board.turn)
+            played_moves.append(move.uci())
+            board.push(move)
+            if len(board.move_stack) % 10 == 0:
+                print(
+                    f"Game {game_index + 1} progress: plies={len(board.move_stack)} last={move.uci()}",
+                    flush=True,
+                )
+
+        outcome = game_outcome(board)
+        winner = outcome.winner if outcome is not None else None
+        values = np.asarray(
+            [0.0 if winner is None else (1.0 if winner == player else -1.0) for player in players],
+            dtype=np.float32,
+        )
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+        output = args.output_dir / f"game-{stamp}.npz"
+        termination = outcome.termination.name if outcome is not None else "MAX_PLIES_DRAW"
+        np.savez_compressed(
+            output,
+            states=np.stack(states),
+            policy_offsets=np.asarray(policy_offsets, dtype=np.int32),
+            policy_indices=np.concatenate(policy_indices).astype(np.uint16),
+            policy_values=np.concatenate(policy_values).astype(np.float16),
+            values=values,
+            moves=np.asarray(played_moves, dtype="<U5"),
+            final_fen=np.asarray(board.fen()),
+            termination=np.asarray(termination),
+            claimed_draw=np.asarray(False),
+            draw_claim_rule=np.asarray(DRAW_RULE),
+            late_temperature=np.asarray(args.late_temperature),
+            policy_target_kind=np.asarray("raw_mcts_visits_v1"),
+        )
+        result = outcome.result() if outcome is not None else "1/2-1/2"
+        print(
+            f"Game {game_index + 1}: {result} termination={termination} "
+            f"plies={len(states)} -> {output}",
+            flush=True,
+        )
+
+
+if __name__ == "__main__":
+    main()

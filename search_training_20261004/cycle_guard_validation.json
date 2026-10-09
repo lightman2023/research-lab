@@ -1,0 +1,5 @@
+{
+  "initial_cycle_preflight_passes": true,
+  "incomplete_new_cycle_rejected": true,
+  "branches_unchanged": true
+}

@@ -1,0 +1,1 @@
+{"positions": 17, "simulations": 64, "noise": true, "includes": ["castling", "en_passant", "promotion", "50_move_boundary", "threefold_history", "insufficient_material"], "identical": true}

@@ -1,0 +1,93 @@
+{
+  "games": 12,
+  "openings": 6,
+  "simulations_both": 200,
+  "a_wins": 2,
+  "b_wins": 6,
+  "draws": 4,
+  "terminations": {
+    "THREEFOLD_REPETITION": 4,
+    "CHECKMATE": 8
+  },
+  "mean_plies": 200.91666666666666,
+  "b_score_rate": 0.6666666666666666,
+  "wins_by_opening": [
+    {
+      "game": 2,
+      "a_is_white": false,
+      "opening": "レティ",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 111,
+      "winner": "B"
+    },
+    {
+      "game": 3,
+      "a_is_white": true,
+      "opening": "フレンチ",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 166,
+      "winner": "B"
+    },
+    {
+      "game": 5,
+      "a_is_white": true,
+      "opening": "カロカン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 286,
+      "winner": "B"
+    },
+    {
+      "game": 6,
+      "a_is_white": false,
+      "opening": "カロカン",
+      "result": "1-0",
+      "termination": "CHECKMATE",
+      "plies": 247,
+      "winner": "B"
+    },
+    {
+      "game": 8,
+      "a_is_white": false,
+      "opening": "オープンゲーム",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 132,
+      "winner": "A"
+    },
+    {
+      "game": 9,
+      "a_is_white": true,
+      "opening": "スカンジナビアン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 200,
+      "winner": "B"
+    },
+    {
+      "game": 10,
+      "a_is_white": false,
+      "opening": "スカンジナビアン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 50,
+      "winner": "A"
+    },
+    {
+      "game": 11,
+      "a_is_white": true,
+      "opening": "シシリアン",
+      "result": "0-1",
+      "termination": "CHECKMATE",
+      "plies": 184,
+      "winner": "B"
+    }
+  ],
+  "model_hashes_verified": true,
+  "pgn_count_and_legality_verified": true,
+  "color_swap_verified": true,
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261005-131609-7c4782ef.pgn",
+  "conclusion": "B won 6, baseline won 2, draws 4. Favorable evidence under this small paired test; repetition remains."
+}

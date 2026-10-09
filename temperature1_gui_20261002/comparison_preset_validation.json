@@ -1,0 +1,10 @@
+{
+  "model_a": "低学習率・温度1 / cycle-000000.msgpack",
+  "model_b": "低学習率・温度1 / cycle-000010.msgpack",
+  "games": 24,
+  "simulations": 50,
+  "max_plies": 512,
+  "models_exist": true,
+  "training_running": false,
+  "matches_started": false
+}

@@ -1,0 +1,352 @@
+"""Windows controller for the separate scaled AlphaZero v2 experiment."""
+
+from __future__ import annotations
+
+import json
+import re
+import subprocess
+import threading
+import tkinter as tk
+from datetime import datetime
+from pathlib import Path
+from tkinter import messagebox, scrolledtext, ttk
+
+
+PROJECT = "/home/user/chess/alphazero_chess_v2"
+PYTHON = f"{PROJECT}/.venv/bin/python"
+SAVED = f"{PROJECT}/checkpoints/saved"
+WINDOWS_MODELS = "/mnt/c/Users/User/Desktop/chess_v2/models"
+NO_WINDOW = subprocess.CREATE_NO_WINDOW
+APP_DIR = Path(__file__).resolve().parent
+STATE_FILE = APP_DIR / "training_controller_v2_state.json"
+LOG_FILE = APP_DIR / "training_controller_v2.log"
+MODEL_PATTERN = re.compile(r"^cycle-(\d{6})\.msgpack$")
+
+
+class Controller:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        self.root.title("縮小AlphaZero v2 強化学習")
+        self.root.geometry("900x730")
+        self.root.minsize(760, 620)
+        self.process: subprocess.Popen[str] | None = None
+        self.stop_requested = False
+        state = self.load_state()
+        self.cycles = int(state.get("cycles", 0))
+        self.games_completed = int(state.get("games_completed", 0))
+        self.training_steps = int(state.get("training_steps", 0))
+        self.games_var = tk.StringVar(value=str(state.get("games_per_cycle", 8)))
+        self.workers_var = tk.StringVar(value=str(state.get("workers", 2)))
+        self.simulations_var = tk.StringVar(value=str(state.get("simulations", 50)))
+        self.updates_var = tk.StringVar(value=str(state.get("updates", 64)))
+        self.save_interval_var = tk.StringVar(value=str(state.get("save_interval", 25)))
+        self.status_var = tk.StringVar(value="停止中（v1とは別の実験です）")
+        self.counter_var = tk.StringVar()
+        self.models_var = tk.StringVar(value="保存モデルを読み込み中…")
+        self.build_ui()
+        self.update_counter()
+        self.load_log()
+        self.refresh_models()
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def build_ui(self) -> None:
+        frame = ttk.Frame(self.root, padding=18)
+        frame.pack(fill="both", expand=True)
+        ttk.Label(frame, text="縮小AlphaZero v2", font=("Yu Gothic UI", 17, "bold")).pack()
+        ttk.Label(
+            frame,
+            text="119面履歴入力・6残差ブロック×96ch・継続オプティマイザー・ランダムリプレイ",
+            foreground="#555555",
+        ).pack(pady=(3, 8))
+        ttk.Label(frame, textvariable=self.counter_var, font=("Yu Gothic UI", 11, "bold")).pack(pady=(0, 8))
+
+        settings = ttk.LabelFrame(frame, text="1サイクルの設定", padding=10)
+        settings.pack(fill="x")
+        fields = (
+            ("自己対局", self.games_var, (2, 64)),
+            ("並列", self.workers_var, (1, 2)),
+            ("探索", self.simulations_var, (1, 800)),
+            ("学習更新", self.updates_var, (1, 1000)),
+            ("保存間隔", self.save_interval_var, (1, 10000)),
+        )
+        self.inputs = []
+        for label, variable, limits in fields:
+            ttk.Label(settings, text=f"{label}：").pack(side="left")
+            widget = ttk.Spinbox(
+                settings, from_=limits[0], to=limits[1], width=6, textvariable=variable
+            )
+            widget.pack(side="left", padx=(0, 8))
+            self.inputs.append(widget)
+
+        buttons = ttk.Frame(frame)
+        buttons.pack(fill="x", pady=(10, 0))
+        self.start_button = ttk.Button(buttons, text="v2連続学習をスタート", command=self.start)
+        self.start_button.pack(side="left", fill="x", expand=True, ipady=7)
+        self.stop_button = ttk.Button(buttons, text="ストップ", command=self.stop, state="disabled")
+        self.stop_button.pack(side="left", fill="x", expand=True, padx=(7, 0), ipady=7)
+        ttk.Label(frame, textvariable=self.status_var, wraplength=860).pack(fill="x", pady=(10, 8))
+
+        panes = ttk.Panedwindow(frame, orient="horizontal")
+        panes.pack(fill="both", expand=True)
+        log_frame = ttk.Frame(panes)
+        model_frame = ttk.Frame(panes, padding=(10, 0, 0, 0))
+        panes.add(log_frame, weight=3)
+        panes.add(model_frame, weight=2)
+        ttk.Label(log_frame, text="v2実行ログ", font=("Yu Gothic UI", 10, "bold")).pack(anchor="w")
+        self.log_text = scrolledtext.ScrolledText(
+            log_frame, state="disabled", bg="#111820", fg="#d5e7d5",
+            insertbackground="#fff", font=("Consolas", 9), relief="flat", padx=9, pady=8,
+        )
+        self.log_text.pack(fill="both", expand=True, pady=(5, 0))
+        ttk.Label(model_frame, text="v2保存モデル", font=("Yu Gothic UI", 10, "bold")).pack(anchor="w")
+        ttk.Label(model_frame, textvariable=self.models_var, wraplength=260).pack(anchor="w", pady=(2, 5))
+        self.model_list = tk.Listbox(model_frame, exportselection=False, font=("Consolas", 9))
+        self.model_list.pack(fill="both", expand=True)
+        ttk.Button(model_frame, text="一覧を更新", command=self.refresh_models).pack(fill="x", pady=(6, 3))
+        ttk.Button(model_frame, text="現在のv2モデルを手動保存", command=self.manual_save).pack(fill="x", pady=3)
+        ttk.Label(
+            model_frame,
+            text="v1のモデル・学習記録は変更されません。保存モデルだけ対戦GUIに表示されます。",
+            foreground="#555555", wraplength=260,
+        ).pack(anchor="w", pady=(6, 0))
+
+    def load_state(self) -> dict:
+        try:
+            return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {}
+
+    def values(self) -> tuple[int, int, int, int, int]:
+        values = tuple(int(variable.get()) for variable in (
+            self.games_var, self.workers_var, self.simulations_var,
+            self.updates_var, self.save_interval_var,
+        ))
+        games, workers, simulations, updates, interval = values
+        if min(values) < 1 or workers > 2 or games < workers:
+            raise ValueError("各設定は1以上、並列は1～2、自己対局数は並列数以上にしてください。")
+        return games, workers, simulations, updates, interval
+
+    def save_state(self) -> None:
+        try:
+            games, workers, simulations, updates, interval = self.values()
+        except ValueError:
+            games, workers, simulations, updates, interval = 8, 2, 50, 64, 25
+        payload = {
+            "cycles": self.cycles, "games_completed": self.games_completed,
+            "training_steps": self.training_steps, "games_per_cycle": games,
+            "workers": workers, "simulations": simulations,
+            "updates": updates, "save_interval": interval,
+        }
+        temporary = STATE_FILE.with_suffix(".tmp")
+        temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        temporary.replace(STATE_FILE)
+
+    def update_counter(self) -> None:
+        self.counter_var.set(
+            f"完了サイクル：{self.cycles}　自己対局：{self.games_completed}局　学習更新：{self.training_steps} step"
+        )
+
+    def append_log(self, text: str) -> None:
+        shown = f"[{datetime.now():%H:%M:%S}] {text}"
+        self.log_text.configure(state="normal")
+        self.log_text.insert("end", shown + "\n")
+        self.log_text.configure(state="disabled")
+        self.log_text.see("end")
+        with LOG_FILE.open("a", encoding="utf-8") as log:
+            log.write(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {text}\n")
+
+    def load_log(self) -> None:
+        try:
+            lines = LOG_FILE.read_text(encoding="utf-8").splitlines()[-400:]
+        except FileNotFoundError:
+            return
+        self.log_text.configure(state="normal")
+        self.log_text.insert("end", "\n".join(lines) + "\n")
+        self.log_text.configure(state="disabled")
+        self.log_text.see("end")
+
+    def wsl_run(self, command: str, **kwargs):
+        return subprocess.run(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", command],
+            creationflags=NO_WINDOW, encoding="utf-8", errors="replace", **kwargs,
+        )
+
+    def start(self) -> None:
+        try:
+            settings = self.values()
+        except (ValueError, TypeError) as error:
+            messagebox.showwarning("設定", str(error) or "設定値を確認してください。")
+            return
+        busy = self.wsl_run(
+            "pgrep -f '[p]arallel_selfplay.py|[/]selfplay.py|[/]train.py|[/]arena.py|[/]run_live.py' >/dev/null",
+            check=False,
+        ).returncode == 0
+        if busy:
+            messagebox.showwarning("GPU使用中", "v1学習または比較対戦を停止してから開始してください。")
+            return
+        self.stop_requested = False
+        self.save_state()
+        self.set_running(True)
+        self.append_log("=== v2連続学習を開始 ===")
+        threading.Thread(target=self.worker, args=(settings,), daemon=True).start()
+
+    def run_stage(self, label: str, command: str) -> None:
+        if self.stop_requested:
+            raise InterruptedError
+        self.root.after(0, lambda: self.status_var.set(label))
+        self.root.after(0, lambda: self.append_log(label))
+        self.process = subprocess.Popen(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", f"cd {PROJECT} && {command}"],
+            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+            encoding="utf-8", errors="replace", creationflags=NO_WINDOW,
+        )
+        output = []
+        if self.process.stdout:
+            for line in self.process.stdout:
+                message = line.strip()
+                if message:
+                    output.append(message)
+                    self.root.after(0, lambda message=message: self.append_log(message))
+        code = self.process.wait()
+        self.process = None
+        if self.stop_requested:
+            raise InterruptedError
+        if code:
+            raise RuntimeError(output[-1] if output else f"終了コード {code}")
+
+    def worker(self, settings: tuple[int, int, int, int, int]) -> None:
+        games, workers, simulations, updates, interval = settings
+        try:
+            while not self.stop_requested:
+                cycle = self.cycles + 1
+                self.run_stage(
+                    f"サイクル{cycle}：自己対局{games}局（{workers}並列・探索{simulations}）…",
+                    f"{PYTHON} -u parallel_selfplay.py --games {games} --workers {workers} "
+                    f"--simulations {simulations} --max-plies 512 --retries 2",
+                )
+                self.run_stage(
+                    f"サイクル{cycle}：リプレイから{updates} step学習…",
+                    f"{PYTHON} -u train.py --steps {updates} --batch-size 64 --max-games 1000",
+                )
+                self.cycles = cycle
+                self.games_completed += games
+                self.training_steps += updates
+                self.save_state()
+                self.root.after(0, self.cycle_finished)
+                if cycle % interval == 0:
+                    filename = f"cycle-{cycle:06d}.msgpack"
+                    self.run_stage(
+                        f"世代モデル保存：{filename}",
+                        f"mkdir -p {SAVED} {WINDOWS_MODELS} && "
+                        f"cp checkpoints/latest.msgpack {SAVED}/{filename} && "
+                        f"cp checkpoints/latest.msgpack {WINDOWS_MODELS}/{filename}",
+                    )
+                    self.root.after(0, self.refresh_models)
+        except InterruptedError:
+            self.root.after(0, self.stopped)
+        except Exception as error:
+            self.root.after(0, lambda: self.failed(f"{type(error).__name__}: {error}"))
+
+    def cycle_finished(self) -> None:
+        self.update_counter()
+        self.status_var.set(f"サイクル{self.cycles}完了。次へ進みます…")
+        self.append_log(f"=== サイクル{self.cycles}完了 ===")
+
+    def set_running(self, running: bool) -> None:
+        for widget in self.inputs:
+            widget.configure(state="disabled" if running else "normal")
+        self.start_button.configure(state="disabled" if running else "normal")
+        self.stop_button.configure(state="normal" if running else "disabled")
+
+    def stop(self) -> None:
+        if self.stop_button["state"] == "disabled":
+            return
+        self.stop_requested = True
+        self.stop_button.configure(state="disabled")
+        self.status_var.set("v2を停止しています…")
+        threading.Thread(target=self.stop_worker, daemon=True).start()
+
+    def stop_worker(self) -> None:
+        command = (
+            "pkill -TERM -f '^/home/user/chess/alphazero_chess_v2/.venv/bin/python( -u)? "
+            "(parallel_selfplay.py|selfplay.py|train.py)' 2>/dev/null || true"
+        )
+        self.wsl_run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+        if self.process is not None:
+            try:
+                self.process.terminate()
+            except OSError:
+                pass
+
+    def stopped(self) -> None:
+        self.set_running(False)
+        self.status_var.set("停止しました。完了済みデータは残ります。")
+        self.append_log("=== v2連続学習を停止 ===")
+
+    def failed(self, message: str) -> None:
+        self.set_running(False)
+        self.status_var.set("エラーで停止しました。")
+        self.append_log(f"エラー：{message}")
+        messagebox.showerror("v2学習エラー", message)
+
+    def refresh_models(self) -> None:
+        threading.Thread(target=self.refresh_worker, daemon=True).start()
+
+    def refresh_worker(self) -> None:
+        result = self.wsl_run(
+            f"mkdir -p {SAVED}; find {SAVED} -maxdepth 1 -type f -name 'cycle-*.msgpack' -printf '%f|%s\\n' | sort -Vr",
+            capture_output=True, check=False,
+        )
+        items = []
+        for line in result.stdout.splitlines():
+            try:
+                name, size = line.rsplit("|", 1)
+                if MODEL_PATTERN.fullmatch(name):
+                    items.append((name, int(size)))
+            except ValueError:
+                pass
+        self.root.after(0, lambda: self.show_models(items))
+
+    def show_models(self, items: list[tuple[str, int]]) -> None:
+        self.model_list.delete(0, "end")
+        for name, size in items:
+            self.model_list.insert("end", f"{name}  ({size / 1048576:.1f} MB)")
+        self.models_var.set(f"{len(items)}個のv2世代モデル")
+
+    def manual_save(self) -> None:
+        if self.cycles < 1:
+            messagebox.showinfo("保存", "まだ完了したv2サイクルがありません。")
+            return
+        filename = f"cycle-{self.cycles:06d}.msgpack"
+        if not messagebox.askyesno("手動保存", f"現在のv2モデルを {filename} として保存しますか？"):
+            return
+        threading.Thread(target=self.manual_save_worker, args=(filename,), daemon=True).start()
+
+    def manual_save_worker(self, filename: str) -> None:
+        result = self.wsl_run(
+            f"mkdir -p {SAVED} {WINDOWS_MODELS} && cp {PROJECT}/checkpoints/latest.msgpack {SAVED}/{filename} && cp {PROJECT}/checkpoints/latest.msgpack {WINDOWS_MODELS}/{filename}",
+            check=False,
+        )
+        if result.returncode == 0:
+            self.root.after(0, lambda: self.append_log(f"手動保存完了：{filename}"))
+            self.root.after(0, self.refresh_models)
+        else:
+            self.root.after(0, lambda: messagebox.showerror("保存エラー", "v2モデルを保存できませんでした。"))
+
+    def on_close(self) -> None:
+        if self.process is not None:
+            if not messagebox.askyesno("停止", "v2学習を停止して閉じますか？"):
+                return
+            self.stop_requested = True
+            self.stop_worker()
+        self.root.destroy()
+
+
+def main() -> None:
+    root = tk.Tk()
+    Controller(root)
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()

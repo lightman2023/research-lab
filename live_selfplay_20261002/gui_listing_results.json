@@ -1,0 +1,8 @@
+{
+  "new_experiment_models": [
+    "低学習率・自己対局 / cycle-000000.msgpack",
+    "低学習率・自己対局 / cycle-000001.msgpack",
+    "低学習率・自己対局 / cycle-000002.msgpack"
+  ],
+  "busy_during_live_training": true
+}

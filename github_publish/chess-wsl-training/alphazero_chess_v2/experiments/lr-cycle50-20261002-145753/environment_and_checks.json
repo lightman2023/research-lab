@@ -1,0 +1,46 @@
+{
+  "python": "3.11.16 (main, Aug 25 2026, 14:00:53) [Clang 22.1.3 ]",
+  "jax": "0.4.38",
+  "flax": "0.10.4",
+  "optax": "0.2.4",
+  "numpy": "2.2.6",
+  "devices": [
+    "cuda:0"
+  ],
+  "source_code_sha256": {
+    "train.py": "d29a60bb5c88e343f73c6641152112120fcf8754418211e92aebdfcc082ff1e8",
+    "azchess/game.py": "f0fdcddbe3d61d599149ceb26935e71c8a45cd40bc521d02fc33810a2cf89430",
+    "azchess/model.py": "c70e14ed0559e7fbd89e02b14b3a7e9cd15830a0f42bf5c1d5a45fbf3e753770",
+    "azchess/checkpoint.py": "8e299d75ffaf990c3e7d42d190022b4985603f8d9910745ac4aea96866d3f0b4"
+  },
+  "saved_checkpoints_verified_finite": [
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000128.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000256.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000384.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000512.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000640.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000768.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-000896.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001024.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001152.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001280.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001408.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001536.msgpack",
+    "experiments/lr-cycle50-20261002-145753/A-lr-0.001/step-001600.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000128.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000256.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000384.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000512.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000640.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000768.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-000896.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001024.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001152.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001280.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001408.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001536.msgpack",
+    "experiments/lr-cycle50-20261002-145753/B-lr-0.0001/step-001600.msgpack"
+  ],
+  "training_state_steps_verified": 1600,
+  "training_data_matches_pilot": true
+}

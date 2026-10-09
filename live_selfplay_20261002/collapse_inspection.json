@@ -1,0 +1,50 @@
+{
+  "False": {
+    "dead": 2,
+    "positions": 128,
+    "max_preactivation_quantiles": [
+      -0.014702195301651955,
+      0.5818800777196884,
+      0.8290593326091766,
+      1.7188898622989655,
+      5.426456451416016
+    ],
+    "value_std": 0.4906860888004303,
+    "value_mse": 0.01380896009504795
+  },
+  "True": {
+    "dead": 0,
+    "positions": 128,
+    "max_preactivation_quantiles": [
+      0.019465312361717224,
+      0.5364070683717728,
+      0.8335072994232178,
+      1.6691500842571259,
+      5.2402544021606445
+    ],
+    "value_std": 0.49094149470329285,
+    "value_mse": 0.012853854335844517
+  },
+  "value_loss_gradient_norms": {
+    "Dense_0": {
+      "bias": 0.004985195118933916,
+      "kernel": 0.04031085968017578
+    },
+    "Dense_1": {
+      "bias": 0.024758420884609222,
+      "kernel": 0.051972340792417526
+    }
+  },
+  "labels": {
+    "-1.0": 18,
+    "0.0": 95,
+    "1.0": 15
+  },
+  "provenance": {
+    "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2/checkpoints/saved/cycle-000002.msgpack",
+    "data": "first 16 game files",
+    "sample_positions": 128,
+    "seed": 20261002,
+    "method": "same inputs compared with inference BN and batch BN; value-loss-only gradients in train mode"
+  }
+}

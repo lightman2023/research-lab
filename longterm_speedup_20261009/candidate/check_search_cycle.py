@@ -1,0 +1,53 @@
+import argparse
+import json
+from pathlib import Path
+import numpy as np
+from flax import serialization
+from azchess.data_cache import DataCache
+
+parser=argparse.ArgumentParser()
+parser.add_argument('--experiment',type=Path,required=True)
+parser.add_argument('--cycle',type=int,required=True)
+parser.add_argument('--stage',choices=['before','after'],required=True)
+parser.add_argument('--resume-partial',action='store_true')
+parser.add_argument('--simulations',type=int)
+args=parser.parse_args()
+root=args.experiment
+step=int(serialization.msgpack_restore((root/'checkpoints/training_state.msgpack').read_bytes())['step'])
+expected_step=2880+(args.cycle-1)*64
+if step!=expected_step:
+    raise SystemExit(f'Cycle/state mismatch: expected step {expected_step}, found {step}. Preserve data and inspect interrupted run before restarting.')
+files=list((root/'selfplay_data').glob('*.npz'))
+expected_games=160+8*(args.cycle-1 if args.stage=='before' else args.cycle)
+partial_allowed=args.resume_partial and args.stage=='before'
+if not (expected_games<=len(files)<=expected_games+8 if partial_allowed else len(files)==expected_games):
+    raise SystemExit(f'Data count mismatch: expected {expected_games}, found {len(files)}. Preserve existing data; do not regenerate interrupted cycle.')
+new=[];completed_numbers=set();all_cycles={}
+metadata=DataCache(root/'selfplay_data')
+for path in files:
+    if not path.name.startswith('game-'):continue
+    info=metadata.get(path)
+    if info:
+        cycle=info['cycle']
+        seed=info['seed']
+        number=seed-(20401004+cycle*1000)
+        if not 1<=number<=8:
+            raise SystemExit(f'Unexpected game seed {seed} in {path.name}; preserve and inspect data.')
+        keys=all_cycles.setdefault(cycle,set())
+        if number in keys:raise SystemExit(f'Duplicate game number {number} in cycle {cycle}; preserve and inspect data.')
+        keys.add(number)
+        if cycle==args.cycle:
+            new.append(path.name);completed_numbers.add(number)
+if any(cycle>args.cycle for cycle in all_cycles):raise SystemExit('Future-cycle data detected; inspect state before resuming.')
+if any(len(all_cycles.get(cycle,set()))!=8 for cycle in range(1,args.cycle)):
+    raise SystemExit('Earlier cycle has missing games; inspect data before resuming.')
+expected_new=0 if args.stage=='before' else 8
+if not (0<=len(new)<=8 if partial_allowed else len(new)==expected_new):
+    raise SystemExit(f'New cycle games mismatch: expected {expected_new}, found {len(new)}. Inspect interrupted cycle before restarting.')
+settings={}
+metadata.flush()
+if args.simulations is not None:
+    from cycle_search_settings import cycle_search_settings
+    settings=cycle_search_settings(root,args.cycle,args.simulations,len(new),args.stage)
+print(json.dumps(dict(stage=args.stage,cycle=args.cycle,training_step=step,data_games=len(files),new_cycle_games=len(new),
+    completed_game_numbers=sorted(completed_numbers),missing_game_numbers=sorted(set(range(1,9))-completed_numbers),**settings)),flush=True)

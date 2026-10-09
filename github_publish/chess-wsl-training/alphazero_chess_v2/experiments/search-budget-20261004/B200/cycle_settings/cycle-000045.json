@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "cycle": 45,
+  "simulations": 200,
+  "games": 8,
+  "training_steps": 64,
+  "learning_rate": 0.0001,
+  "late_temperature": 1,
+  "selfplay_seed_base": 20446004,
+  "source": "controller"
+}

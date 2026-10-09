@@ -1,0 +1,10 @@
+{
+  "gui_initializes": true,
+  "same_model_allowed_with_different_search": true,
+  "simulations_a": 50,
+  "simulations_b": 200,
+  "max_plies": 512,
+  "command_forwards_both": true,
+  "identical_conditions_rejected": true,
+  "full_evaluation_started": false
+}

@@ -1,0 +1,8 @@
+{
+  "windows_tk_initialized": true,
+  "title": "v2 低学習率・温度1の学習",
+  "cycles_per_run": "10",
+  "save_interval": "1",
+  "buttons_initialized": true,
+  "learning_started": false
+}

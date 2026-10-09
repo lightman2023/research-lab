@@ -1,0 +1,22 @@
+{
+  "source_experiment": "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-20261002-run2",
+  "source_checkpoint_sha256": "1684be2cd277230971d54ec9bffbaadfb6d1aeda782cb84992398c00f79c3071",
+  "source_state_sha256": "c4912fefd6108e59a66528cd53eeb04bea34fea1e925c4d8e523af58c0c9c3f8",
+  "starting_training_step": 2240,
+  "carried_games": 80,
+  "learning_rate": 0.0001,
+  "constant_learning_rate": true,
+  "late_temperature": 1.0,
+  "simulations": 50,
+  "max_plies": 512,
+  "games_per_cycle": 8,
+  "updates_per_cycle": 64,
+  "batch_size": 64,
+  "cycles_per_run": 10,
+  "save_interval": 1,
+  "seed_base": 20281002,
+  "draw_rule": "az_actual_threefold_50move_v1",
+  "policy_target_kind": "raw_mcts_visits_v1",
+  "monitor_stop_fraction": 0.1,
+  "note": "Only carried training games copied; preceding 16 sampling probe games are excluded. Baseline cycle0 is preceding cycle10. Historical optimizer state is preserved."
+}

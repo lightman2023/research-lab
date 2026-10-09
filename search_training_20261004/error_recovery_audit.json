@@ -1,0 +1,21 @@
+[
+  {
+    "branch": "A50",
+    "carried": 160,
+    "new_games_by_cycle": {
+      "1": 8,
+      "2": 8,
+      "3": 8,
+      "4": 4
+    },
+    "step": 3072,
+    "duplicate_cycle_seed": false
+  },
+  {
+    "branch": "B200",
+    "carried": 160,
+    "new_games_by_cycle": {},
+    "step": 2880,
+    "duplicate_cycle_seed": false
+  }
+]

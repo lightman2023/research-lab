@@ -1,0 +1,6 @@
+{
+  "after_cycle": 2,
+  "reason": "1/128 inactive at first sample; independent sample 2/128 inference but 0/128 train-mode; gradients nonzero. This is not broad bias-only collapse.",
+  "stop_rule": "stop if at least 10 percent of fixed 129 or sampled 128 positions have a fully inactive Dense_0; individual cases continue to be counted",
+  "limitation": "adaptive diagnostic run; threshold revised after observation, not a preregistered causal comparison"
+}

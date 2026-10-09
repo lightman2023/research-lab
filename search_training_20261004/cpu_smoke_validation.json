@@ -1,0 +1,8 @@
+{
+  "cpu_only_verified": true,
+  "simulations_both": 200,
+  "small_game_finished": true,
+  "seconds": 34.02230336100001,
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261005-131430-cpu-smok.pgn",
+  "not_strength_evaluation": true
+}

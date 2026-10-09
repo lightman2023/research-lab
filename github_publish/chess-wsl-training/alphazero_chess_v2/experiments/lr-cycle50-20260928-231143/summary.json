@@ -1,0 +1,151 @@
+{
+  "configuration": {
+    "base_checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/raw-visits-v1/checkpoints/saved/cycle-000050.msgpack",
+    "base_sha256": "ab65125846a4a61c43c904afde3180d551fecd77f001b1e6fd224abd3575a4cc",
+    "updates": 128,
+    "batch_size": 64,
+    "seed": 20260928,
+    "learning_rates": [
+      0.001,
+      0.0001
+    ],
+    "optimizer": "AdamW",
+    "weight_decay": 0.0001,
+    "optimizer_state": "fresh in both conditions",
+    "training_games": 411,
+    "training_position_labels": {
+      "0": 21204,
+      "1": 539,
+      "-1": 530
+    },
+    "data_cutoff_method": "files with mtime <= cycle50 checkpoint mtime; last 1000",
+    "evaluation_positions": 129,
+    "evaluation_games_disjoint": true,
+    "learning_rate_schedule": "constant for this short run; original schedule first change is 50000 updates",
+    "output_dir": "/home/user/chess/alphazero_chess_v2/experiments/lr-cycle50-20260928-231143"
+  },
+  "identical_training_batches": true,
+  "base_checkpoint_unchanged": true,
+  "baseline": {
+    "dead": 0,
+    "positions": 129,
+    "groups": {
+      "opening": {
+        "positions": 3,
+        "dead": 0,
+        "value_mean": -0.0070902444422245026,
+        "value_std": 0.005051411222666502
+      },
+      "0": {
+        "positions": 64,
+        "dead": 0,
+        "value_mean": -0.005189729388803244,
+        "value_std": 0.03146669641137123,
+        "value_mse": 0.0010170862711133622,
+        "policy_cross_entropy": 3.077143669128418
+      },
+      "1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": 0.010754028335213661,
+        "value_std": 0.08548121899366379,
+        "value_mse": 0.985914626722315,
+        "policy_cross_entropy": 3.339001417160034
+      },
+      "-1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": -0.02563529647886753,
+        "value_std": 0.08962852507829666,
+        "value_mse": 0.9574198440956099,
+        "policy_cross_entropy": 3.0443472862243652
+      }
+    },
+    "value_mse": 0.47863858822783273,
+    "policy_cross_entropy": 3.13349986076355
+  },
+  "final": {
+    "A-lr-0.001": {
+      "step": 128,
+      "evaluation": {
+        "dead": 0,
+        "positions": 129,
+        "groups": {
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "value_mean": -0.005148632451891899,
+            "value_std": 0.0030443398281931877
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "value_mean": -0.004054096527397633,
+            "value_std": 0.02180659770965576,
+            "value_mse": 0.0004919633821760559,
+            "policy_cross_entropy": 3.0822665691375732
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "value_mean": 0.012020137161016464,
+            "value_std": 0.05903777852654457,
+            "value_mse": 0.979589669612276,
+            "policy_cross_entropy": 3.3898749351501465
+          },
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "value_mean": -0.001908103353343904,
+            "value_std": 0.008294753730297089,
+            "value_mse": 0.9962562373140241,
+            "policy_cross_entropy": 3.0452139377593994
+          }
+        },
+        "value_mse": 0.4863707045331315,
+        "policy_cross_entropy": 3.148832082748413
+      }
+    },
+    "B-lr-0.0001": {
+      "step": 128,
+      "evaluation": {
+        "dead": 0,
+        "positions": 129,
+        "groups": {
+          "opening": {
+            "positions": 3,
+            "dead": 0,
+            "value_mean": 0.001487320871092379,
+            "value_std": 0.0012342415284365416
+          },
+          "0": {
+            "positions": 64,
+            "dead": 0,
+            "value_mean": 0.003699722234159708,
+            "value_std": 0.03521289676427841,
+            "value_mse": 0.0012536360355646322,
+            "policy_cross_entropy": 3.055652618408203
+          },
+          "1": {
+            "positions": 31,
+            "dead": 0,
+            "value_mean": 0.0156357791274786,
+            "value_std": 0.06942891329526901,
+            "value_mse": 0.9737932955676288,
+            "policy_cross_entropy": 3.322273015975952
+          },
+          "-1": {
+            "positions": 31,
+            "dead": 0,
+            "value_mean": -0.01472466066479683,
+            "value_std": 0.05470719933509827,
+            "value_mse": 0.9737603694261766,
+            "policy_cross_entropy": 3.0357701778411865
+          }
+        },
+        "value_mse": 0.4797967961990802,
+        "policy_cross_entropy": 3.1163580417633057
+      }
+    }
+  }
+}

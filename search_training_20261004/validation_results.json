@@ -1,0 +1,16 @@
+{
+  "copied_games_each": 160,
+  "data_hashes_identical": true,
+  "model_and_optimizer_identical": true,
+  "starting_step": 2880,
+  "baseline_metrics_agree_with_tolerance": true,
+  "baseline_max_abs_difference": 1.9550323486328125e-05,
+  "baseline_float_atol": 0.001,
+  "baseline_float_rtol": 0.001,
+  "fixed_dead": 0,
+  "repetition_positions": 6,
+  "carried_games_not_counted_as_new": true,
+  "real_update_on_copy": 2881,
+  "main_branches_unchanged": true,
+  "training_cycles_completed": 0
+}

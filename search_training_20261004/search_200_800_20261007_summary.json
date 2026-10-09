@@ -1,0 +1,32 @@
+{
+  "model_a": "/home/user/chess/alphazero_chess_v2/experiments/search-budget-20261004/B200/checkpoints/saved/cycle-000030.msgpack",
+  "model_b": "/home/user/chess/alphazero_chess_v2/experiments/search-budget-20261004/B200/checkpoints/saved/cycle-000030.msgpack",
+  "games": 24,
+  "openings": 12,
+  "wins": {
+    "draw": 13,
+    "B": 10,
+    "A": 1
+  },
+  "terminations": {
+    "THREEFOLD_REPETITION": 9,
+    "CHECKMATE": 11,
+    "FIFTY_MOVES": 2,
+    "INSUFFICIENT_MATERIAL": 2
+  },
+  "b_score": 0.6875,
+  "mean_plies": 216,
+  "a_win_plies": [
+    76
+  ],
+  "hashes_verified": true,
+  "pgn_count_legality_terminal_and_color_swap_verified": true,
+  "pgn": "/home/user/chess/alphazero_chess_v2/arena_results/match-20261007-132552-48097e54.pgn",
+  "settings": {
+    "simulations_a": 200,
+    "simulations_b": 800,
+    "device": "cpu",
+    "seed": 20260914,
+    "max_plies": 512
+  }
+}

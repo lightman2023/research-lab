@@ -1,0 +1,114 @@
+{
+  "device": "cpu",
+  "checkpoint": "/home/user/chess/alphazero_chess_v2/experiments/search-budget-20261004/B200/checkpoints/saved/cycle-000050.msgpack",
+  "checkpoint_sha256": "c1a355dd7e6c781729eb808d4afab96f7ef5a89da28b0952857d657c9d5131e6",
+  "checks": [
+    {
+      "position": 0,
+      "plies": 0,
+      "noise": false,
+      "visits_equal": true
+    },
+    {
+      "position": 0,
+      "plies": 0,
+      "noise": true,
+      "visits_equal": true
+    },
+    {
+      "position": 1,
+      "plies": 282,
+      "noise": false,
+      "visits_equal": true
+    },
+    {
+      "position": 1,
+      "plies": 282,
+      "noise": true,
+      "visits_equal": true
+    },
+    {
+      "position": 2,
+      "plies": 310,
+      "noise": false,
+      "visits_equal": true
+    },
+    {
+      "position": 2,
+      "plies": 310,
+      "noise": true,
+      "visits_equal": true
+    },
+    {
+      "position": 3,
+      "plies": 158,
+      "noise": false,
+      "visits_equal": true
+    },
+    {
+      "position": 3,
+      "plies": 158,
+      "noise": true,
+      "visits_equal": true
+    }
+  ],
+  "timings": [
+    {
+      "position": 0,
+      "plies": 0,
+      "simulations": 800,
+      "seconds": {
+        "baseline": [
+          7.117152744991472,
+          7.155276837991551,
+          7.313310437020846
+        ],
+        "candidate": [
+          6.061802104988601,
+          5.709548445011023,
+          5.782554056000663
+        ]
+      },
+      "speedup": 1.237390393361976
+    },
+    {
+      "position": 2,
+      "plies": 310,
+      "simulations": 800,
+      "seconds": {
+        "baseline": [
+          7.381295078987023,
+          8.45966407499509,
+          8.497166823013686
+        ],
+        "candidate": [
+          6.338808867003536,
+          6.270400346984388,
+          5.969660670001758
+        ]
+      },
+      "speedup": 1.3491425757310025
+    },
+    {
+      "position": 3,
+      "plies": 158,
+      "simulations": 800,
+      "seconds": {
+        "baseline": [
+          7.022848087013699,
+          6.091299717023503,
+          6.020700344990473
+        ],
+        "candidate": [
+          5.36619984099525,
+          4.959807261009701,
+          5.049598198005697
+        ]
+      },
+      "speedup": 1.2062939422445966
+    }
+  ],
+  "candidate_weight_types": [
+    "ArrayImpl"
+  ]
+}

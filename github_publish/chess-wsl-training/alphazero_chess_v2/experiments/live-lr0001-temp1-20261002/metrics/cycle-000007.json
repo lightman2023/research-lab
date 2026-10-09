@@ -1,0 +1,94 @@
+{
+  "cycle": 7,
+  "training_step": 2688,
+  "fixed": {
+    "positions": 129,
+    "dead": 0,
+    "value_std": 0.16249582171440125,
+    "groups": {
+      "-1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": 0.0038061493542045355,
+        "value_mse": 1.0345150193603219
+      },
+      "0": {
+        "positions": 64,
+        "dead": 0,
+        "value_mean": -0.013231530785560608,
+        "value_mse": 0.0283474770986257
+      },
+      "1": {
+        "positions": 31,
+        "dead": 0,
+        "value_mean": 0.030716463923454285,
+        "value_mse": 0.960788670938957
+      },
+      "opening": {
+        "positions": 3,
+        "dead": 0,
+        "value_mean": -0.017104661092162132
+      }
+    },
+    "value_mse": 0.5053067693142039
+  },
+  "live_training_sample": {
+    "positions": 128,
+    "dead": 0,
+    "value_std": 0.2767846882343292,
+    "groups": {
+      "-1": {
+        "positions": 16,
+        "dead": 0,
+        "value_mean": -0.3239733576774597,
+        "value_mse": 0.5453041195869446
+      },
+      "0": {
+        "positions": 93,
+        "dead": 0,
+        "value_mean": -0.03662330284714699,
+        "value_mse": 0.021532023325562477
+      },
+      "1": {
+        "positions": 19,
+        "dead": 0,
+        "value_mean": 0.38523977994918823,
+        "value_mse": 0.4781603515148163
+      }
+    },
+    "value_mse": 0.15478429198265076
+  },
+  "replay_games": 136,
+  "replay_outcomes": {
+    "THREEFOLD_REPETITION": 75,
+    "CHECKMATE": 38,
+    "FIFTY_MOVES": 6,
+    "INSUFFICIENT_MATERIAL": 14,
+    "STALEMATE": 2,
+    "MAX_PLIES_DRAW": 1
+  },
+  "labels": {
+    "-1": 2799,
+    "0": 16495,
+    "1": 2816
+  },
+  "replay_mean_plies": 162.5735294117647,
+  "cycle_outcomes": {
+    "STALEMATE": 1,
+    "INSUFFICIENT_MATERIAL": 1,
+    "THREEFOLD_REPETITION": 4,
+    "CHECKMATE": 2
+  },
+  "cycle_games": [
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-211602-089302.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212039-688255.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212623-957951.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212721-491770.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-212808-367153.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-213305-840347.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-213406-364902.npz",
+    "/home/user/chess/alphazero_chess_v2/experiments/live-lr0001-temp1-20261002/selfplay_data/game-20261002-214000-707253.npz"
+  ],
+  "stop_due_to_widespread_inactivity": false,
+  "stop_threshold_fraction": 0.1
+}

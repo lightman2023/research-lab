@@ -1,0 +1,410 @@
+"""Windows GUI for checkpoint-vs-checkpoint AlphaZero matches in WSL."""
+
+from __future__ import annotations
+
+import json
+import re
+import subprocess
+import threading
+import tkinter as tk
+import uuid
+from datetime import datetime
+from pathlib import Path
+from tkinter import messagebox, scrolledtext, ttk
+
+
+PROJECT = "/home/user/chess/alphazero_chess_v2"
+PYTHON = f"{PROJECT}/.venv/bin/python"
+SAVED_MODELS = f"{PROJECT}/checkpoints/saved"
+RAW_SAVED_MODELS = f"{PROJECT}/experiments/raw-visits-v1/checkpoints/saved"
+NO_WINDOW = subprocess.CREATE_NO_WINDOW
+APP_DIR = Path(__file__).resolve().parent
+LOG_FILE = APP_DIR / "model_comparison_v2.log"
+MODEL_NAME = re.compile(r"^cycle-(\d{6,})\.msgpack$")
+MODEL_SOURCES = (("従来v2", SAVED_MODELS), ("訪問回数版", RAW_SAVED_MODELS))
+
+
+class ModelComparisonApp:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        self.root.title("縮小AlphaZero v2 世代モデル比較")
+        self.root.geometry("850x700")
+        self.root.minsize(720, 580)
+        self.process: subprocess.Popen[str] | None = None
+        self.match_id: str | None = None
+        self.stop_requested = False
+        self.model_paths: dict[str, str] = {}
+        self.model_a_var = tk.StringVar()
+        self.model_b_var = tk.StringVar()
+        self.games_var = tk.StringVar(value="24")
+        self.simulations_var = tk.StringVar(value="50")
+        self.max_plies_var = tk.StringVar(value="300")
+        self.status_var = tk.StringVar(value="保存モデルを読み込んでいます…")
+        self.score_var = tk.StringVar(value="A 0勝　B 0勝　引き分け 0　得点率 －")
+        self.build_ui()
+        self.refresh_models()
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def build_ui(self) -> None:
+        frame = ttk.Frame(self.root, padding=18)
+        frame.pack(fill="both", expand=True)
+        ttk.Label(
+            frame,
+            text="AlphaZero 世代モデル比較",
+            font=("Yu Gothic UI", 16, "bold"),
+        ).pack(pady=(0, 4))
+        ttk.Label(
+            frame,
+            text=(
+                "同じ定跡から白黒を入れ替えて対戦し、学習による強さの変化を測ります。\n"
+                "引き分けを請求できる局面では、請求するか指し続けるかをAIが選びます。"
+            ),
+            foreground="#555555",
+        ).pack(pady=(0, 12))
+
+        models = ttk.LabelFrame(frame, text="比較するモデル", padding=10)
+        models.pack(fill="x")
+        row_a = ttk.Frame(models)
+        row_a.pack(fill="x", pady=3)
+        ttk.Label(row_a, text="モデル A：", width=11).pack(side="left")
+        self.model_a_combo = ttk.Combobox(
+            row_a, textvariable=self.model_a_var, state="readonly"
+        )
+        self.model_a_combo.pack(side="left", fill="x", expand=True)
+        row_b = ttk.Frame(models)
+        row_b.pack(fill="x", pady=3)
+        ttk.Label(row_b, text="モデル B：", width=11).pack(side="left")
+        self.model_b_combo = ttk.Combobox(
+            row_b, textvariable=self.model_b_var, state="readonly"
+        )
+        self.model_b_combo.pack(side="left", fill="x", expand=True)
+        ttk.Button(models, text="モデル一覧を更新", command=self.refresh_models).pack(
+            anchor="e", pady=(5, 0)
+        )
+
+        options = ttk.LabelFrame(frame, text="対戦条件", padding=10)
+        options.pack(fill="x", pady=(10, 0))
+        ttk.Label(options, text="対局数（偶数推奨）：").pack(side="left")
+        self.games_spin = ttk.Spinbox(
+            options, from_=2, to=1000, increment=2, width=6, textvariable=self.games_var
+        )
+        self.games_spin.pack(side="left")
+        ttk.Label(options, text="　1手のシミュレーション：").pack(side="left")
+        self.sims_spin = ttk.Spinbox(
+            options, from_=1, to=1000, width=6, textvariable=self.simulations_var
+        )
+        self.sims_spin.pack(side="left")
+        ttk.Label(options, text="　最大手数：").pack(side="left")
+        self.plies_spin = ttk.Spinbox(
+            options, from_=20, to=1000, width=6, textvariable=self.max_plies_var
+        )
+        self.plies_spin.pack(side="left")
+
+        buttons = ttk.Frame(frame)
+        buttons.pack(fill="x", pady=(10, 0))
+        self.start_button = ttk.Button(
+            buttons, text="比較対戦をスタート", command=self.start_match
+        )
+        self.start_button.pack(side="left", fill="x", expand=True, ipady=7)
+        self.stop_button = ttk.Button(
+            buttons, text="ストップ", command=self.stop_match, state="disabled"
+        )
+        self.stop_button.pack(side="left", fill="x", expand=True, padx=(7, 0), ipady=7)
+
+        ttk.Label(frame, textvariable=self.status_var, wraplength=810).pack(
+            fill="x", pady=(10, 4)
+        )
+        ttk.Label(
+            frame, textvariable=self.score_var, font=("Yu Gothic UI", 11, "bold")
+        ).pack(fill="x", pady=(0, 8))
+        ttk.Label(frame, text="対戦ログ", font=("Yu Gothic UI", 10, "bold")).pack(
+            anchor="w"
+        )
+        self.log_text = scrolledtext.ScrolledText(
+            frame,
+            state="disabled",
+            bg="#111820",
+            fg="#d5e7d5",
+            insertbackground="#ffffff",
+            font=("Consolas", 9),
+            relief="flat",
+            padx=9,
+            pady=8,
+        )
+        self.log_text.pack(fill="both", expand=True, pady=(5, 0))
+
+    def append_log(self, message: str) -> None:
+        line = f"[{datetime.now():%H:%M:%S}] {message}"
+        self.log_text.configure(state="normal")
+        self.log_text.insert("end", line + "\n")
+        self.log_text.configure(state="disabled")
+        self.log_text.see("end")
+        with LOG_FILE.open("a", encoding="utf-8") as log:
+            log.write(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {message}\n")
+
+    def run_wsl(self, command: str, **kwargs):
+        return subprocess.run(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", command],
+            creationflags=NO_WINDOW,
+            encoding="utf-8",
+            errors="replace",
+            **kwargs,
+        )
+
+    def refresh_models(self) -> None:
+        if self.process is not None:
+            return
+        self.status_var.set("保存モデルを読み込んでいます…")
+        threading.Thread(target=self.refresh_models_worker, daemon=True).start()
+
+    def refresh_models_worker(self) -> None:
+        command = (
+            f"find {SAVED_MODELS} {RAW_SAVED_MODELS} -maxdepth 1 -type f "
+            "-name 'cycle-*.msgpack' -printf '%p\\n'"
+        )
+        result = self.run_wsl(command, capture_output=True, check=False)
+        paths: dict[str, str] = {}
+        for line in result.stdout.splitlines():
+            path = line.strip()
+            filename = path.rsplit("/", 1)[-1]
+            if not MODEL_NAME.fullmatch(filename):
+                continue
+            for source_name, directory in MODEL_SOURCES:
+                if path.startswith(directory + "/"):
+                    paths[f"{source_name} / {filename}"] = path
+                    break
+        names = sorted(
+            paths,
+            key=lambda label: (
+                0 if label.startswith("従来v2 / ") else 1,
+                int(MODEL_NAME.fullmatch(label.split(" / ", 1)[1]).group(1)),
+            ),
+        )
+        self.root.after(0, lambda: self.show_models(names, paths, result.returncode))
+
+    def show_models(self, names: list[str], paths: dict[str, str], returncode: int) -> None:
+        if returncode != 0:
+            self.status_var.set("モデル一覧を取得できませんでした。")
+            return
+        self.model_paths = paths
+        self.model_a_combo["values"] = names
+        self.model_b_combo["values"] = names
+        if names:
+            if self.model_a_var.get() not in names:
+                base = "従来v2 / cycle-000119.msgpack"
+                self.model_a_var.set(base if base in paths else names[0])
+            if self.model_b_var.get() not in names:
+                raw = [name for name in names if name.startswith("訪問回数版 / ")]
+                self.model_b_var.set(raw[-1] if raw else names[-1])
+        self.status_var.set(f"保存モデル {len(names)}個。比較する2つを選んでください。")
+
+    def training_running(self) -> bool:
+        command = (
+            "pgrep -f '[p]arallel_selfplay.py|[/]selfplay.py|[/]train.py' >/dev/null"
+        )
+        return self.run_wsl(command, check=False).returncode == 0
+
+    def parse_positive_int(self, value: str, label: str, minimum: int = 1) -> int:
+        try:
+            number = int(value)
+        except ValueError as error:
+            raise ValueError(f"{label}には整数を入力してください。") from error
+        if number < minimum:
+            raise ValueError(f"{label}は{minimum}以上にしてください。")
+        return number
+
+    def start_match(self) -> None:
+        model_a = self.model_a_var.get()
+        model_b = self.model_b_var.get()
+        if model_a not in self.model_paths or model_b not in self.model_paths:
+            messagebox.showwarning("モデル未選択", "比較するモデルを2つ選んでください。")
+            return
+        if self.model_paths[model_a] == self.model_paths[model_b]:
+            messagebox.showwarning("同じモデル", "異なる学習回数のモデルを選んでください。")
+            return
+        try:
+            games = self.parse_positive_int(self.games_var.get(), "対局数", 2)
+            simulations = self.parse_positive_int(
+                self.simulations_var.get(), "シミュレーション数"
+            )
+            max_plies = self.parse_positive_int(self.max_plies_var.get(), "最大手数", 20)
+        except ValueError as error:
+            messagebox.showwarning("設定値", str(error))
+            return
+        if games % 2:
+            messagebox.showwarning("対局数", "白黒を公平にするため対局数は偶数にしてください。")
+            return
+        if self.training_running():
+            messagebox.showwarning(
+                "強化学習が実行中です",
+                "正確な比較とGPU負荷抑制のため、強化学習を停止してから開始してください。",
+            )
+            return
+
+        self.stop_requested = False
+        self.match_id = uuid.uuid4().hex
+        self.set_running(True)
+        self.score_var.set("A 0勝　B 0勝　引き分け 0　得点率 －")
+        self.status_var.set("2つのモデルを読み込んでいます…")
+        self.append_log(
+            f"=== 比較開始：A={model_a} / B={model_b} / {games}局 / {simulations}シミュレーション ==="
+        )
+        threading.Thread(
+            target=self.match_worker,
+            args=(self.model_paths[model_a], self.model_paths[model_b],
+                  games, simulations, max_plies, self.match_id),
+            daemon=True,
+        ).start()
+
+    def set_running(self, running: bool) -> None:
+        combo_state = "disabled" if running else "readonly"
+        spin_state = "disabled" if running else "normal"
+        self.model_a_combo.configure(state=combo_state)
+        self.model_b_combo.configure(state=combo_state)
+        self.games_spin.configure(state=spin_state)
+        self.sims_spin.configure(state=spin_state)
+        self.plies_spin.configure(state=spin_state)
+        self.start_button.configure(state="disabled" if running else "normal")
+        self.stop_button.configure(state="normal" if running else "disabled")
+
+    def match_worker(
+        self,
+        model_a: str,
+        model_b: str,
+        games: int,
+        simulations: int,
+        max_plies: int,
+        match_id: str,
+    ) -> None:
+        command = (
+            f"cd {PROJECT} && exec {PYTHON} -u arena.py "
+            f"--model-a {model_a} "
+            f"--model-b {model_b} "
+            f"--games {games} --simulations {simulations} --max-plies {max_plies} "
+            f"--match-id {match_id}"
+        )
+        self.process = subprocess.Popen(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", command],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            creationflags=NO_WINDOW,
+        )
+        last_output = ""
+        if self.process.stdout:
+            for line in self.process.stdout:
+                last_output = line.strip()
+                if not last_output:
+                    continue
+                try:
+                    payload = json.loads(last_output)
+                except json.JSONDecodeError:
+                    self.root.after(0, lambda text=last_output: self.append_log(text))
+                    continue
+                self.root.after(0, lambda data=payload: self.handle_event(data))
+        exit_code = self.process.wait()
+        self.process = None
+        if self.stop_requested:
+            self.root.after(0, self.match_stopped)
+        elif exit_code != 0:
+            self.root.after(0, lambda: self.match_failed(last_output, exit_code))
+
+    def handle_event(self, data: dict) -> None:
+        event = data.get("event")
+        if event == "loading":
+            self.status_var.set("モデルをGPUへ読み込んでいます。初回は少し時間がかかります…")
+        elif event == "game_start":
+            self.status_var.set(
+                f"第{data['game']}局：{data['white']}（白）対 {data['black']}（黒）"
+            )
+            self.append_log(
+                f"第{data['game']}局開始　定跡={data['opening']}　"
+                f"白={data['white']}　黒={data['black']}"
+            )
+        elif event == "game_result":
+            rate = data["a_score_rate"] * 100
+            self.score_var.set(
+                f"A {data['a_wins']}勝　B {data['b_wins']}勝　"
+                f"引き分け {data['draws']}　A得点率 {rate:.1f}%"
+            )
+            cutoff = "・上限打ち切り" if data["termination"] == "MAX_PLIES" else ""
+            self.append_log(
+                f"【第{data['game']}局結果】{data['result']}　"
+                f"{data['termination']}{cutoff}　{data['plies']}手"
+            )
+        elif event == "summary":
+            rate = data["a_score_rate"] * 100
+            elo = data["estimated_elo_a_minus_b"]
+            sign = "+" if elo >= 0 else ""
+            decisive = data["a_wins"] + data["b_wins"]
+            if decisive == 0:
+                status = "比較完了：勝敗がつかず、強さの差は判定できません。"
+            elif decisive < 4:
+                status = f"比較完了：勝敗のついた対局は{decisive}局で、強さの差は判定困難です。"
+            else:
+                status = f"比較完了：A得点率 {rate:.1f}%、参考Elo差 A-B {sign}{elo}。"
+            self.status_var.set(status)
+            self.append_log(
+                f"=== 完了：A {data['a_wins']}勝 / B {data['b_wins']}勝 / "
+                f"引き分け {data['draws']} / 打ち切り {data['cutoffs']} / "
+                f"参考Elo差 {sign}{elo} ==="
+            )
+            self.append_log(f"棋譜保存先（WSL）：{data['pgn']}")
+            self.set_running(False)
+            self.match_id = None
+
+    def stop_match(self) -> None:
+        if self.process is None or not self.match_id:
+            return
+        self.stop_requested = True
+        self.stop_button.configure(state="disabled")
+        self.status_var.set("比較対戦を停止しています…")
+        threading.Thread(target=self.stop_worker, daemon=True).start()
+
+    def stop_worker(self) -> None:
+        match_id = self.match_id
+        if match_id and re.fullmatch(r"[0-9a-f]{32}", match_id):
+            command = f"pkill -TERM -f 'arena.py.*--match-id {match_id}' 2>/dev/null || true"
+            self.run_wsl(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+        process = self.process
+        if process is not None:
+            try:
+                process.terminate()
+            except OSError:
+                pass
+
+    def match_stopped(self) -> None:
+        self.set_running(False)
+        self.status_var.set("比較対戦を停止しました。完了済みの棋譜は残ります。")
+        self.append_log("=== 比較対戦を停止 ===")
+        self.match_id = None
+
+    def match_failed(self, last_output: str, exit_code: int) -> None:
+        self.set_running(False)
+        self.match_id = None
+        message = last_output or f"終了コード {exit_code}"
+        self.status_var.set("エラーで停止しました。")
+        self.append_log(f"エラー：{message}")
+        messagebox.showerror("比較対戦エラー", message)
+
+    def on_close(self) -> None:
+        if self.process is not None:
+            if not messagebox.askyesno(
+                "比較を停止しますか？", "実行中の比較対戦を停止して閉じますか？"
+            ):
+                return
+            self.stop_requested = True
+            self.stop_worker()
+        self.root.destroy()
+
+
+def main() -> None:
+    root = tk.Tk()
+    ModelComparisonApp(root)
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()

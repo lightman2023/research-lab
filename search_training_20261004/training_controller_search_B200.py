@@ -1,0 +1,340 @@
+"""GUI for the isolated raw-MCTS-visits v2 training branch."""
+
+from __future__ import annotations
+
+import json
+import shlex
+import subprocess
+import threading
+import tkinter as tk
+from datetime import datetime
+from pathlib import Path
+from tkinter import messagebox, scrolledtext, ttk
+
+
+PROJECT = "/home/user/chess/alphazero_chess_v2"
+EXPERIMENT = f"{PROJECT}/experiments/search-budget-20261004/B200"
+PYTHON = f"{PROJECT}/.venv/bin/python"
+DATA = f"{EXPERIMENT}/selfplay_data"
+CHECKPOINT = f"{EXPERIMENT}/checkpoints/latest.msgpack"
+TRAINING_STATE = f"{EXPERIMENT}/checkpoints/training_state.msgpack"
+SAVED = f"{EXPERIMENT}/checkpoints/saved"
+APP_DIR = Path(__file__).resolve().parent
+STATE_FILE = APP_DIR / "training_controller_search_B200_state.json"
+LOG_FILE = APP_DIR / "training_controller_search_B200.log"
+NO_WINDOW = subprocess.CREATE_NO_WINDOW
+
+
+class Controller:
+    def __init__(self, root: tk.Tk) -> None:
+        self.root = root
+        self.root.title("探索学習比較 B200：200回")
+        self.root.geometry("880x680")
+        self.root.minsize(720, 540)
+        self.process: subprocess.Popen[str] | None = None
+        self.stopping = threading.Event()
+        self.running = False
+        state = self.load_state()
+        self.cycles = int(state.get("cycles", 0))
+        self.games_total = int(state.get("games_total", 0))
+        self.games_var = tk.StringVar(value=str(state.get("games_per_cycle", 8)))
+        self.workers_var = tk.StringVar(value=str(state.get("workers", 2)))
+        self.simulations_var = tk.StringVar(value=str(state.get("simulations", 50)))
+        self.steps_var = tk.StringVar(value=str(state.get("steps", 64)))
+        saved_cycles = state.get("cycles_per_run", 10)
+        self.run_cycles_var = tk.StringVar(value=str(saved_cycles))
+        self.save_interval_var = tk.StringVar(value=str(state.get("save_interval", 1)))
+        self.status_var = tk.StringVar(value="待機中：前回の最終モデルから継続（学習率0.0001・温度1）")
+        self.counter_var = tk.StringVar()
+        self.build_ui()
+        self.update_counter()
+        self.load_log()
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    @staticmethod
+    def load_state() -> dict:
+        try:
+            return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return {}
+
+    def save_state(self) -> None:
+        payload = {
+            "schema_version": 2,
+            "cycles": self.cycles,
+            "games_total": self.games_total,
+            "games_per_cycle": self.games_var.get(),
+            "workers": self.workers_var.get(),
+            "simulations": self.simulations_var.get(),
+            "steps": self.steps_var.get(),
+            "cycles_per_run": self.run_cycles_var.get(),
+            "save_interval": self.save_interval_var.get(),
+        }
+        temporary = STATE_FILE.with_suffix(".tmp")
+        temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        temporary.replace(STATE_FILE)
+
+    def build_ui(self) -> None:
+        frame = ttk.Frame(self.root, padding=18)
+        frame.pack(fill="both", expand=True)
+        ttk.Label(frame, text="探索学習比較 B200：200回", font=("Yu Gothic UI", 17, "bold")).pack(anchor="w")
+        ttk.Label(
+            frame,
+            text="共通cycle 10と160局から開始。200回探索、学習率0.0001、温度1。初回1→計5サイクル。",
+            foreground="#555555",
+        ).pack(anchor="w", pady=(4, 8))
+        ttk.Label(frame, textvariable=self.counter_var).pack(anchor="w", pady=(0, 8))
+
+        settings = ttk.LabelFrame(frame, text="学習1サイクルの設定", padding=10)
+        settings.pack(fill="x")
+        fields = (
+            ("自己対局", self.games_var, 1, 64),
+            ("並列", self.workers_var, 1, 2),
+            ("一手の探索", self.simulations_var, 1, 800),
+            ("学習更新", self.steps_var, 1, 1000),
+            ("連続回数 (0=停止まで)", self.run_cycles_var, 0, 1000),
+            ("世代保存間隔", self.save_interval_var, 1, 10000),
+        )
+        self.inputs: list[ttk.Spinbox] = []
+        for index, (label, variable, low, high) in enumerate(fields):
+            row, column = divmod(index, 3)
+            ttk.Label(settings, text=f"{label} ").grid(
+                row=row, column=column * 2, sticky="w", padx=(0, 3), pady=3,
+            )
+            widget = ttk.Spinbox(settings, from_=low, to=high, textvariable=variable, width=6)
+            widget.grid(row=row, column=column * 2 + 1, sticky="w", padx=(0, 14), pady=3)
+            self.inputs.append(widget)
+
+        buttons = ttk.Frame(frame)
+        buttons.pack(fill="x", pady=(12, 8))
+        self.verify_button = ttk.Button(buttons, text="確認対局2局を実行", command=self.start_verify)
+        self.verify_button.pack(side="left", fill="x", expand=True, ipady=7)
+        self.train_button = ttk.Button(buttons, text="学習1サイクルを実行", command=self.start_train)
+        self.train_button.pack(side="left", fill="x", expand=True, padx=(8, 0), ipady=7)
+        self.continuous_button = ttk.Button(buttons, text="連続学習を開始", command=self.start_continuous)
+        self.continuous_button.pack(side="left", fill="x", expand=True, padx=(8, 0), ipady=7)
+        self.stop_button = ttk.Button(buttons, text="停止", command=self.stop, state="disabled")
+        self.stop_button.pack(side="left", padx=(8, 0), ipady=7)
+        ttk.Label(frame, textvariable=self.status_var, wraplength=840).pack(anchor="w", pady=(0, 8))
+        ttk.Label(frame, text="実行ログ", font=("Yu Gothic UI", 10, "bold")).pack(anchor="w")
+        self.log_text = scrolledtext.ScrolledText(
+            frame, state="disabled", bg="#111820", fg="#d5e7d5",
+            insertbackground="#fff", font=("Consolas", 9), relief="flat", padx=9, pady=8,
+        )
+        self.log_text.pack(fill="both", expand=True, pady=(5, 0))
+
+    def update_counter(self) -> None:
+        self.counter_var.set(f"新方式の学習：{self.cycles}サイクル　自己対局：{self.games_total}局")
+
+    def append_log(self, line: str) -> None:
+        stamped = f"[{datetime.now():%H:%M:%S}] {line}"
+        self.log_text.configure(state="normal")
+        self.log_text.insert("end", stamped + "\n")
+        self.log_text.configure(state="disabled")
+        self.log_text.see("end")
+        with LOG_FILE.open("a", encoding="utf-8") as file:
+            file.write(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {line}\n")
+
+    def load_log(self) -> None:
+        try:
+            lines = LOG_FILE.read_text(encoding="utf-8").splitlines()[-400:]
+        except FileNotFoundError:
+            return
+        self.log_text.configure(state="normal")
+        self.log_text.insert("end", "\n".join(lines) + "\n")
+        self.log_text.configure(state="disabled")
+        self.log_text.see("end")
+
+    @staticmethod
+    def wsl(command: str, **kwargs) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", command],
+            creationflags=NO_WINDOW, text=True, encoding="utf-8", errors="replace", **kwargs,
+        )
+
+    def settings(self) -> tuple[int, int, int, int, int, int]:
+        games, workers, simulations, steps, cycles_per_run, save_interval = (
+            int(variable.get()) for variable in
+            (self.games_var, self.workers_var, self.simulations_var,
+             self.steps_var, self.run_cycles_var, self.save_interval_var)
+        )
+        if not (1 <= games <= 64 and 1 <= workers <= 2 and workers <= games
+                and 1 <= simulations <= 800 and 1 <= steps <= 1000
+                and 0 <= cycles_per_run <= 1000 and 1 <= save_interval <= 10000):
+            raise ValueError("設定値が範囲外です。")
+        if games != 8 or simulations != 200 or steps != 64:
+            raise ValueError("比較条件：自己対局8局・探索200回・更新64を維持してください。")
+        return games, workers, simulations, steps, cycles_per_run, save_interval
+
+    def begin(self, mode: str) -> None:
+        try:
+            settings = self.settings()
+        except ValueError as error:
+            messagebox.showwarning("設定", str(error))
+            return
+        busy = self.wsl(
+            "pgrep -f '[p]arallel_selfplay[.]py|[s]elfplay[.]py|[t]rain[.]py|[a]rena[.]py|[r]un_live[.]py|[m]onitor_experiment[.]py|[m]onitor_search_training[.]py|[c]heck_search_cycle[.]py' >/dev/null",
+            check=False,
+        ).returncode == 0
+        if busy:
+            messagebox.showwarning("実行中", "別の自己対局・学習・対戦が動いています。")
+            return
+        self.stopping.clear()
+        self.save_state()
+        self.set_running(True)
+        threading.Thread(target=self.worker, args=(mode, settings), daemon=True).start()
+
+    def start_verify(self) -> None:
+        self.begin("verify")
+
+    def start_train(self) -> None:
+        self.begin("train")
+
+    def start_continuous(self) -> None:
+        self.begin("continuous")
+
+    def set_running(self, running: bool) -> None:
+        self.running = running
+        for widget in self.inputs:
+            widget.configure(state="disabled" if running else "normal")
+        self.verify_button.configure(state="disabled" if running else "normal")
+        self.train_button.configure(state="disabled" if running else "normal")
+        self.continuous_button.configure(state="disabled" if running else "normal")
+        self.stop_button.configure(state="normal" if running else "disabled")
+
+    def run_stage(self, label: str, args: list[str]) -> None:
+        if self.stopping.is_set():
+            raise InterruptedError
+        self.root.after(0, lambda: self.status_var.set(label))
+        self.root.after(0, lambda: self.append_log(label))
+        command = f"cd {shlex.quote(PROJECT)} && " + " ".join(shlex.quote(arg) for arg in args)
+        self.process = subprocess.Popen(
+            ["wsl.exe", "-d", "Ubuntu", "--", "bash", "-lc", command],
+            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+            encoding="utf-8", errors="replace", creationflags=NO_WINDOW,
+        )
+        last_line = ""
+        if self.process.stdout:
+            for line in self.process.stdout:
+                last_line = line.rstrip()
+                if last_line:
+                    self.root.after(0, lambda value=last_line: self.append_log(value))
+        exit_code = self.process.wait()
+        self.process = None
+        if self.stopping.is_set():
+            raise InterruptedError
+        if exit_code == 2 and last_line.startswith("MONITOR "):
+            raise RuntimeError("監視停止：価値ヘッドが不活性になる局面が10%以上に増えました。モデルと記録は保存済みです。")
+        if exit_code:
+            raise RuntimeError(last_line or f"終了コード {exit_code}")
+
+    def generate(self, games: int, workers: int, simulations: int, verify: bool = False) -> None:
+        data_dir = f"{EXPERIMENT}/validation_data" if verify else DATA
+        self.run_stage(
+            f"自己対局 {games}局（{workers}並列・一手{simulations}回探索）",
+            [PYTHON, "-u", "parallel_selfplay.py", "--games", str(games),
+             "--workers", str(workers), "--simulations", str(simulations),
+             "--max-plies", "512", "--retries", "2",
+             "--checkpoint", CHECKPOINT, "--output-dir", data_dir,
+             "--late-temperature", "1", "--seed", str(20401004 + (self.cycles + 1) * 1000),
+             "--experiment-cycle", str(self.cycles + 1)],
+        )
+        self.run_stage(
+            "新方式の訪問割合と保存データを検証中",
+            [PYTHON, "-u", "verify_raw_visit_data.py", "--data-dir", data_dir,
+             "--min-games", str(games)],
+        )
+        if not verify:
+            self.games_total += games
+        self.save_state()
+        self.root.after(0, self.update_counter)
+
+    def worker(self, mode: str, settings: tuple[int, int, int, int, int, int]) -> None:
+        games, workers, simulations, steps, cycles_per_run, save_interval = settings
+        if mode != "verify":
+            if self.cycles >= 5:
+                self.root.after(0, lambda: self.status_var.set("予定の5サイクルは完了しています。"))
+                self.root.after(0, lambda: self.set_running(False))
+                return
+            # First run stops at one cycle; subsequent finite runs stop at five in total.
+            cycles_per_run = 1 if self.cycles == 0 else min(cycles_per_run or 5, 5 - self.cycles)
+        try:
+            if mode == "verify":
+                self.generate(2, 1, simulations, verify=True)
+                self.root.after(0, lambda: self.status_var.set("確認対局が完了しました。ログの VERIFIED を確認してください。"))
+            else:
+                completed = 0
+                while self.cycles < 5 and (mode != "continuous" or completed < cycles_per_run):
+                    if self.stopping.is_set():
+                        raise InterruptedError
+                    cycle = self.cycles + 1
+                    self.root.after(0, lambda cycle=cycle: self.append_log(f"=== 新方式 サイクル{cycle}開始 ==="))
+                    self.run_stage("サイクル開始前のデータ・学習状態を照合中",
+                        [PYTHON, "-u", "check_search_cycle.py", "--experiment", EXPERIMENT, "--cycle", str(cycle), "--stage", "before"])
+                    self.generate(games, workers, simulations)
+                    self.run_stage("新しい8局の保存数を照合中",
+                        [PYTHON, "-u", "check_search_cycle.py", "--experiment", EXPERIMENT, "--cycle", str(cycle), "--stage", "after"])
+                    self.run_stage(
+                        f"新方式のデータのみで {steps} step 学習中",
+                        [PYTHON, "-u", "train.py", "--steps", str(steps),
+                         "--batch-size", "64", "--max-games", "1000",
+                         "--data-dir", DATA, "--checkpoint", CHECKPOINT,
+                         "--training-state", TRAINING_STATE,
+                         "--learning-rate", "0.0001", "--constant-learning-rate",
+                         "--seed", str(20401004 + cycle)],
+                    )
+                    if cycle % save_interval == 0 or mode != "continuous" or (cycles_per_run and completed + 1 >= cycles_per_run):
+                        self.run_stage(
+                            "独立モデルの世代を保存中",
+                            ["cp", "--no-clobber", CHECKPOINT, f"{SAVED}/cycle-{cycle:06d}.msgpack"],
+                        )
+                    self.cycles = cycle
+                    completed += 1
+                    self.save_state()
+                    self.run_stage(
+                        "価値予測・反復・終局理由を確認中（10%以上の不活性で停止）",
+                        [PYTHON, "-u", "monitor_search_training.py", "--experiment", EXPERIMENT, "--cycle", str(cycle)],
+                    )
+                    self.root.after(0, lambda cycle=cycle: self.append_log(f"=== 新方式 サイクル{cycle}完了 ==="))
+                    if mode != "continuous":
+                        break
+                self.root.after(0, self.update_counter)
+                self.root.after(0, lambda: self.status_var.set(f"学習 {self.cycles}/5サイクル完了。初回1のログを確認後、連続学習で5まで進めます。"))
+        except InterruptedError:
+            self.root.after(0, lambda: self.status_var.set("停止しました。完了済みデータは残っています。"))
+        except Exception as error:
+            message = f"{type(error).__name__}: {error}"
+            self.root.after(0, lambda: self.append_log(f"エラー: {message}"))
+            self.root.after(0, lambda: self.status_var.set("エラーで停止しました。ログを確認してください。"))
+        finally:
+            self.root.after(0, lambda: self.set_running(False))
+
+    def stop(self) -> None:
+        if not self.running:
+            return
+        self.stopping.set()
+        self.stop_button.configure(state="disabled")
+        self.status_var.set("停止中…")
+        threading.Thread(target=self.stop_worker, daemon=True).start()
+
+    def stop_worker(self) -> None:
+        self.wsl("pkill -TERM -f '[s]earch-budget-20261004/B200' 2>/dev/null || true", check=False)
+        if self.process is not None:
+            self.process.terminate()
+
+    def on_close(self) -> None:
+        if self.running:
+            self.stop()
+            self.root.after(400, self.on_close)
+        else:
+            self.root.destroy()
+
+
+def main() -> None:
+    root = tk.Tk()
+    Controller(root)
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
