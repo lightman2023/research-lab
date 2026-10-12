@@ -1,0 +1,6 @@
+{
+  "azchess/history.py": "a3184eb87b874f9c5c05060aa2153ae245fee4043c23025eb92e8359662b0388",
+  "azchess/game.py": "9de89fdd4816c73f53c5e030269ea8ff7b85a2242e4d27e43ad0f37923289f30",
+  "azchess/mcts.py": "f844b7bae50b39b7a978794581661ee9c7143028b5d9ebb119f59bceea1ef3eb",
+  "azchess/batched.py": "1fe31936aa6a58251106f207d97d6c18d3b882a7d0eae8cc5d48e5efc41c9257"
+}

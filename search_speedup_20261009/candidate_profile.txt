@@ -1,0 +1,33 @@
+         833847 function calls in 2.047 seconds
+
+   Ordered by: cumulative time
+   List reduced from 196 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      201    0.335    0.002    1.134    0.006 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/batched.py:49(predict)
+     1360    0.002    0.000    0.913    0.001 {method 'send' of 'generator' objects}
+     1360    0.029    0.000    0.911    0.001 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/batched.py:10(search_requests)
+     1005    0.007    0.000    0.650    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/profiler.py:330(wrapper)
+      201    0.004    0.000    0.635    0.003 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/api.py:2457(device_get)
+     2960    0.013    0.000    0.595    0.000 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/batched.py:13(expand)
+      402    0.005    0.000    0.591    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/tree_util.py:351(tree_map)
+     1005    0.001    0.000    0.585    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/tree_util.py:359(<genexpr>)
+      402    0.003    0.000    0.583    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/api.py:2440(_device_get)
+      402    0.002    0.000    0.574    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/array.py:427(__array__)
+      402    0.567    0.001    0.569    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/array.py:622(_value)
+    27947    0.022    0.000    0.370    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/chess/__init__.py:3702(generate_legal_moves)
+    27394    0.206    0.000    0.247    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/chess/__init__.py:3664(_is_safe)
+     1352    0.090    0.000    0.106    0.000 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/history.py:56(encode)
+      201    0.001    0.000    0.102    0.001 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/numpy/lax_numpy.py:5742(asarray)
+      201    0.003    0.000    0.096    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/numpy/lax_numpy.py:5483(array)
+      201    0.006    0.000    0.091    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/api.py:2216(device_put)
+     4643    0.038    0.000    0.090    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/chess/__init__.py:2310(push)
+    28647    0.036    0.000    0.089    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/chess/__init__.py:1819(generate_pseudo_legal_moves)
+     4643    0.018    0.000    0.085    0.000 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/history.py:39(push)
+     4643    0.068    0.000    0.074    0.000 /mnt/c/Users/User/Documents/ChatGPT/研究室/search_speedup_20261009/candidate/azchess/mcts.py:82(select_child)
+      201    0.002    0.000    0.064    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/core.py:447(bind)
+      201    0.000    0.000    0.061    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/core.py:467(bind_with_trace)
+      201    0.002    0.000    0.061    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/core.py:928(process_primitive)
+      201    0.003    0.000    0.058    0.000 /home/user/chess/alphazero_chess_v2/.venv/lib/python3.11/site-packages/jax/_src/dispatch.py:488(_batched_device_put_impl)
+
+

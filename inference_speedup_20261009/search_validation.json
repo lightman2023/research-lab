@@ -1,0 +1,34 @@
+{
+  "device": "gpu",
+  "simulations": 800,
+  "workers": 8,
+  "positions": 8,
+  "seed_base": 90100,
+  "checkpoint": "saved/cycle-000050.msgpack",
+  "results": [
+    {
+      "repeat": 0,
+      "baseline_seconds": 4.007596978000009,
+      "candidate_seconds": 5.051226519000011,
+      "speedup": 0.793390865154349,
+      "exact_tree_nodes": 93847,
+      "inference_calls": 801
+    },
+    {
+      "repeat": 1,
+      "baseline_seconds": 5.4576299770000105,
+      "candidate_seconds": 4.929538854000043,
+      "speedup": 1.107127895456479,
+      "exact_tree_nodes": 93847,
+      "inference_calls": 801
+    },
+    {
+      "repeat": 2,
+      "baseline_seconds": 5.447423184000002,
+      "candidate_seconds": 4.7792124020000415,
+      "speedup": 1.1398160880483827,
+      "exact_tree_nodes": 93847,
+      "inference_calls": 801
+    }
+  ]
+}

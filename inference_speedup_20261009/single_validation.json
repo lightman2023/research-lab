@@ -1,0 +1,6 @@
+{
+  "device": "cpu",
+  "positions": 2,
+  "simulations": 200,
+  "exact_tree_nodes": 4950
+}

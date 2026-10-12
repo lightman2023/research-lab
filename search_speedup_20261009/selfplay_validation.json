@@ -1,0 +1,8 @@
+{
+  "games": 2,
+  "plies": 12,
+  "simulations": 64,
+  "workers": 2,
+  "device": "cpu",
+  "all_npz_fields_exact": true
+}

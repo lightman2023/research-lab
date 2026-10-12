@@ -1,0 +1,11 @@
+Batched self-play: 2 games at once, 64 simulations, one shared model
+Parallel game 1/2 started
+Parallel game 2/2 started
+Game 1 progress: plies=10 last=c5b4
+Game 2 progress: plies=10 last=g7g6
+Game 1: 1/2-1/2 termination=MAX_PLIES_DRAW plies=12 -> /mnt/c/Users/User/Documents/ChatGPT/研究室/inference_speedup_20261009/smoke_final_candidate/game-20261009-171207-401880.npz
+Parallel game 1/2 finished
+Game 2: 1/2-1/2 termination=MAX_PLIES_DRAW plies=12 -> /mnt/c/Users/User/Documents/ChatGPT/研究室/inference_speedup_20261009/smoke_final_candidate/game-20261009-171207-433025.npz
+Parallel game 2/2 finished
+SELFPLAY_METRICS {"seconds": 5.00089398999998, "inference_calls": 780, "evaluated_positions": 1560, "batch_histogram": {"2": 780}, "workers": 2, "simulations": 64}
+All requested 2 parallel self-play games finished
